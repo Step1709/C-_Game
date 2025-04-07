@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3f84b47a8e97b7b47b3dadd9692ac5e8
+guid: 84d47e9f775489f4db4a1e152307163b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1524755287118865160
-    second: ciganov_0
+      213: 5049213017540547959
+    second: af0030b9-3601-4e0b-a325-4a08d2a4382a_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ciganov_0
+      name: af0030b9-3601-4e0b-a325-4a08d2a4382a_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 385
-        height: 421
+        width: 640
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8fc91e5152bf6dae0800000000000000
-      internalID: -1524755287118865160
+      spriteID: 77558c1dc78621640800000000000000
+      internalID: 5049213017540547959
       vertices: []
       indices: 
       edges: []
