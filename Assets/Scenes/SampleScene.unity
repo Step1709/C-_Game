@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 304110048}
   - component: {fileID: 304110047}
   m_Layer: 0
-  m_Name: 52_0
+  m_Name: Ashen Yura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b57fc49421e4d0a942e9e4547900f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rb: {fileID: 304110048}
 --- !u!50 &304110048
 Rigidbody2D:
@@ -244,7 +243,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 15
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -796,7 +795,7 @@ GameObject:
   - component: {fileID: 1751874568}
   - component: {fileID: 1751874572}
   m_Layer: 0
-  m_Name: af0030b9-3601-4e0b-a325-4a08d2a4382a_0
+  m_Name: Biv Vitalya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -814,7 +813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f956671029b49c7a6c1c39d03fbc036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   rb: {fileID: 1751874569}
 --- !u!50 &1751874569
 Rigidbody2D:
@@ -829,7 +827,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 15
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -997,7 +995,7 @@ Transform:
   m_GameObject: {fileID: 1999914650}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.569181, y: 1.0313319, z: -0.03918751}
+  m_LocalPosition: {x: -0.24, y: 1.57, z: -0.03918751}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
