@@ -1,3 +1,5 @@
+using Scenes.Scene;
+
 namespace Scenes
 {
     public class GameModel
@@ -10,6 +12,8 @@ namespace Scenes
         public MainPlayer[] MainPlayers;
         
         public MainPlayer ChosenPlayer;
+
+        public SceneClass SampleScene;
         
         public GameModel()
         {

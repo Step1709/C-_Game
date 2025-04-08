@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private bool isFreeCamera;
     private MainPlayer target;
     private Vector3 offset;
     private Vector3 SmoothedPosition;
@@ -13,6 +14,7 @@ public class CameraController : MonoBehaviour
         target = GameModel.Instance.ChosenPlayer;
         smoothSpeed = 0.125f;
         offset = new Vector3(0f, 0f, -10f);
+        isFreeCamera = false;
     }
 
     public void Update()
@@ -27,4 +29,5 @@ public class CameraController : MonoBehaviour
     {
         transform.position = SmoothedPosition;
     }
+    
 }

@@ -15,6 +15,11 @@ namespace Scenes
             this.mainPlayer = mainPlayer;
         }
 
+        public void Start()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+
         public void Update()
         {
             mainPlayer.Position = rb.position;
