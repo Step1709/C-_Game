@@ -1,16 +1,15 @@
+using Scenes;
 using Scenes.Scene;
 using UnityEngine;
 
 public class ChangeCameraScript : MonoBehaviour
 {
     public CameraClass Camera;
-    public ChangeCameraScript(SceneClass scene)
-    {
-        Camera = scene.Camera;
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    // Update is called once per frame
+    void Start()
+    {
+        Camera = GameModel.Instance.SampleScene.Camera;
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(2))

@@ -3,31 +3,45 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private bool isFreeCamera;
-    private MainPlayer target;
+    private Vector3 targetPos;
     private Vector3 offset;
-    private Vector3 SmoothedPosition;
     private float smoothSpeed;
+    
+    private float cameraSpeed;
+    private Vector3 lastMousePosition;
 
     public void Start()
     {
-        target = GameModel.Instance.ChosenPlayer;
+        targetPos = GameModel.Instance.ChosenPlayer.Position;
         smoothSpeed = 0.125f;
         offset = new Vector3(0f, 0f, -10f);
-        isFreeCamera = false;
+        cameraSpeed = 0.05f;
     }
 
     public void Update()
     {
-        target = GameModel.Instance.ChosenPlayer;
-        
-        var desiredPosition = (Vector3)target.Position + offset;
-        
-        SmoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        if (!GameModel.Instance.SampleScene.Camera.IsFree)
+        {
+            targetPos = (Vector3)GameModel.Instance.ChosenPlayer.Position + offset;
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                lastMousePosition = Input.mousePosition;
+            }
+            if (Input.GetMouseButton(0))
+            {
+                var mouseDelta = Input.mousePosition - lastMousePosition;
+                var deltaMove = -new Vector3(mouseDelta.x, mouseDelta.y, 0f) * cameraSpeed;
+                targetPos += deltaMove;
+                lastMousePosition = Input.mousePosition;
+            }
+        }
     }
     public void FixedUpdate()
     {
-        transform.position = SmoothedPosition;
+        transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed);
     }
     
 }

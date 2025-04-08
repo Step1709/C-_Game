@@ -19,6 +19,7 @@ namespace Scenes
         {
             MainPlayers = new MainPlayer[] { Ashen, Biv };
             ChosenPlayer = Ashen;
+            SampleScene = new SceneClass();
         }
     }
 }
