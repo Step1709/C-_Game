@@ -2,13 +2,13 @@ using Scenes;
 using Scenes.Scene;
 using UnityEngine;
 
-public class ChangeCameraScript : MonoBehaviour
+public class ChangeFree : MonoBehaviour
 {
     public CameraClass Camera;
 
-    void Start()
+    public ChangeFree(CameraClass camera)
     {
-        Camera = GameModel.Instance.SampleScene.Camera;
+        Camera = camera;
     }
     void Update()
     {

@@ -1,15 +1,22 @@
 using Scenes;
+using Scenes.Scene;
 using UnityEngine;
 
-public class ChangeCameraSize : MonoBehaviour
+public class ChangeSize : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public CameraClass Camera;
+
     public Camera camera;
     private float size;
     private float smoothSpeed = 10f;
     private float zoomSensitivity = 5f;
     private  float maxZoom = 10f;
     private float minZoom = 2f;
+
+    public ChangeSize(CameraClass camera)
+    {
+        Camera = camera;
+    }
     void Start()
     {
         camera = GetComponent<Camera>();
@@ -19,7 +26,7 @@ public class ChangeCameraSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameModel.Instance.SampleScene.Camera.IsFree) maxZoom = 15f;
+        if (Camera.IsFree) maxZoom = 15f;
         else maxZoom = 10f;
         float scrollAmount = Input.GetAxis("Mouse ScrollWheel");
         size += scrollAmount * zoomSensitivity;
