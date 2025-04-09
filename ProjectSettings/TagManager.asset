@@ -47,8 +47,11 @@ TagManager:
   - name: Walls
     uniqueID: 4250941897
     locked: 0
-  - name: Layer 3
+  - name: Entities
     uniqueID: 4189426099
+    locked: 0
+  - name: UncollisionWalls
+    uniqueID: 194465105
     locked: 0
   m_RenderingLayers:
   - Default
