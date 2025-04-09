@@ -5,6 +5,8 @@ namespace Scenes
     public class GameModel
     {
         public static GameModel Instance { get; } = new GameModel();
+        
+        public CameraClass Camera = CameraClass.Instance;
 
         public Ashen Ashen = Ashen.Instance;
         public Biv Biv = Biv.Instance;

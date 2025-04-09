@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public CameraClass Camera;
-        
     private Vector3 targetPos;
+    
     private Vector3 offset;
     private float smoothSpeed;
     
     private float cameraSpeed;
     private Vector3 lastMousePosition;
 
-    public CameraController(CameraClass camera)
-    {
-        Camera = camera;
-    }
-
     public void Start()
     {
-        targetPos = Camera.ChosenEntity.Position;
+        targetPos = GameModel.Instance.Camera.ChosenEntity.Position;
         smoothSpeed = 0.125f;
         offset = new Vector3(0f, 0f, -10f);
         cameraSpeed = 0.05f;
@@ -28,9 +22,9 @@ public class CameraController : MonoBehaviour
 
     public void Update()
     {
-        if (!Camera.IsFree)
+        if (!GameModel.Instance.Camera.IsFree)
         {
-            targetPos = (Vector3)Camera.ChosenEntity.Position + offset;
+            targetPos = (Vector3)GameModel.Instance.Camera.ChosenEntity.Position + offset;
         }
         else
         {

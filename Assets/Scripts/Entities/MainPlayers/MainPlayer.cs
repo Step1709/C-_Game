@@ -5,7 +5,7 @@ namespace Scenes
 {
     public class MainPlayer : Entity
     {
-        public float MoveSpeed = 5f;
+        
     }
 }
 

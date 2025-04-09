@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class ChangeChosen : MonoBehaviour
 {
-    public CameraClass Camera;
-
-    public ChangeChosen(CameraClass camera)
-    {
-        Camera = camera;
-    }
     void Update()
     {
-        Camera.ChosenEntity = GameModel.Instance.ChosenPlayer;
+        GameModel.Instance.Camera.ChosenEntity = GameModel.Instance.ChosenPlayer;
     }
 }
