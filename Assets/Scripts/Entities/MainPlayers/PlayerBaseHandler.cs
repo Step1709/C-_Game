@@ -31,7 +31,7 @@ namespace Scenes
         {
             if (mainPlayer == GameModel.Instance.ChosenPlayer)
             {
-                rb.MovePosition(rb.position + mainPlayer.MoveSpeed * Time.fixedDeltaTime * movement);
+                rb.MovePosition(rb.position + mainPlayer.MoveSpeed * Time.fixedDeltaTime * movement.normalized);
             }
         }
     }
