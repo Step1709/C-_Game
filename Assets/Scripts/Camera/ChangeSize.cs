@@ -30,6 +30,6 @@ public class ChangeSize : MonoBehaviour
 
     void FixedUpdate()
     {
-        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, size, Time.deltaTime * smoothSpeed);
+        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, size, Time.fixedDeltaTime * smoothSpeed);
     }
 }
