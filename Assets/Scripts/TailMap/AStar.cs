@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AStarPathfinder : MonoBehaviour
+public class AStarPathfinder
 {
     public static List<Vector3Int> FindPath(Vector3Int start, Vector3Int end, System.Func<Vector3Int, IEnumerable<Vector3Int>> getNeighbors, System.Func<Vector3Int, bool> isWalkable)
     {

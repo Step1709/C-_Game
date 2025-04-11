@@ -23,8 +23,11 @@ namespace Scenes
         public void Update()
         {
             mainPlayer.Position = rb.position;
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+            if (mainPlayer == GameModel.Instance.ChosenPlayer)
+            {
+                movement.x = Input.GetAxisRaw("Horizontal");
+                movement.y = Input.GetAxisRaw("Vertical");
+            }
         }
         
         public void FixedUpdate()

@@ -130,9 +130,9 @@ GameObject:
   - component: {fileID: 56193469}
   - component: {fileID: 56193468}
   - component: {fileID: 56193466}
-  - component: {fileID: 56193470}
   - component: {fileID: 56193471}
-  - component: {fileID: 56193472}
+  - component: {fileID: 56193473}
+  - component: {fileID: 56193474}
   m_Layer: 0
   m_Name: Biv
   m_TagString: Untagged
@@ -232,25 +232,12 @@ Transform:
   m_GameObject: {fileID: 56193464}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.48, y: 0.75, z: 0}
+  m_LocalPosition: {x: -4.46, y: 0.77, z: 0}
   m_LocalScale: {x: 0.012084123, y: 0.023183744, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &56193470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56193464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f956671029b49c7a6c1c39d03fbc036, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
 --- !u!58 &56193471
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -287,7 +274,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -10}
   m_Radius: 20
---- !u!114 &56193472
+--- !u!114 &56193473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,11 +283,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 56193464}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f34861c9764d5690601c830ad5a69d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b26413ff0656a94dbde198cd3a83fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1008406703}
+  wallsTilemap: {fileID: 2094009566}
   moveSpeed: 5
+--- !u!114 &56193474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56193464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f956671029b49c7a6c1c39d03fbc036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -18446,6 +18447,7 @@ GameObject:
   - component: {fileID: 2095245252}
   - component: {fileID: 2095245256}
   - component: {fileID: 2095245257}
+  - component: {fileID: 2095245259}
   m_Layer: 0
   m_Name: Ashen
   m_TagString: Untagged
@@ -18600,6 +18602,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -10}
   m_Radius: 20
+--- !u!114 &2095245259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095245251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab16fd9e13df9664aa2e83a2c087092f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 1008406703}
+  wallsTilemap: {fileID: 2094009566}
+  moveSpeed: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
