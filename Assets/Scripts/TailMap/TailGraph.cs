@@ -58,6 +58,7 @@ namespace TailMap
                         {
                             pathWorldPositions.Add(tilemap.GetCellCenterWorld(cell));
                         }
+
                         currentTargetIndex = 0;
                         isMoving = true;
                     }
@@ -66,7 +67,8 @@ namespace TailMap
                 if (isMoving && pathWorldPositions != null && pathWorldPositions.Count > 0)
                 {
                     var targetPosition = pathWorldPositions[currentTargetIndex];
-                    transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                    transform.position =
+                        Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
                     if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
                     {
@@ -78,6 +80,7 @@ namespace TailMap
                     }
                 }
             }
+            else isMoving = false;
         }
     }
 }
