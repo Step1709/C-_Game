@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Entities;
 using Scenes;
+using Scenes.Scene;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -12,17 +14,70 @@ namespace TailMap
         public Tilemap tilemap;
         public Tilemap wallsTilemap;
         public float moveSpeed;
+        public SceneClass Scene;
         
         private MainPlayer mainPlayer;
         
         private List<Vector3> pathWorldPositions;
         private int currentTargetIndex = 0;
         private bool isMoving = false;
+        private Vector3 offset = new Vector3(0, 0.4f, 0);
 
         public TailGraph(MainPlayer mainPlayer)
         {
             this.mainPlayer = mainPlayer;
             moveSpeed = mainPlayer.MoveSpeed;
+            Scene = GameModel.Instance.SampleScene;
+        }
+        public void Update()
+        {
+            if (mainPlayer == GameModel.Instance.ChosenPlayer)
+            {
+                if (Input.GetMouseButtonDown(1))
+                {
+                    var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mouseWorldPos.z = 0f;
+                    var targetCell = tilemap.WorldToCell(mouseWorldPos);
+                    var startCell = tilemap.WorldToCell(transform.position);
+                    var tuple = new ValueTuple<Vector3Int, Vector3Int>(startCell, targetCell);
+                    List<Vector3Int> path;
+                    if (Scene.PathsCash.ContainsKey(tuple)) path = Scene.PathsCash[tuple];
+                    else
+                    {
+                        path = AStarPathfinder.FindPath(startCell, targetCell, GetNeighbors, CanMove);
+                        Scene.PathsCash.Add(tuple, path);
+                    }
+                    if (path != null && path.Count > 0)
+                    {
+                        pathWorldPositions = new List<Vector3>();
+                        foreach (var cell in path)
+                        {
+                            pathWorldPositions.Add(tilemap.GetCellCenterWorld(cell) + offset);
+                        }
+
+                        currentTargetIndex = 0;
+                        isMoving = true;
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
+                    Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) isMoving = false;
+                if (isMoving && pathWorldPositions != null && pathWorldPositions.Count > 0)
+                {
+                    var targetPosition = pathWorldPositions[currentTargetIndex];
+                    transform.position =
+                        Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+                    if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+                    {
+                        currentTargetIndex++;
+                        if (currentTargetIndex >= pathWorldPositions.Count)
+                        {
+                            isMoving = false;
+                        }
+                    }
+                }
+            }
+            else isMoving = false;
         }
         
         private bool IsWalkable(Vector3Int cellPosition)
@@ -68,50 +123,6 @@ namespace TailMap
             yield return new Vector3Int(cell.x - 1, cell.y, cell.z);
             yield return new Vector3Int(cell.x, cell.y + 1, cell.z);
             yield return new Vector3Int(cell.x, cell.y - 1, cell.z);
-        }
-
-        public void Update()
-        {
-            if (mainPlayer == GameModel.Instance.ChosenPlayer)
-            {
-                if (Input.GetMouseButtonDown(1))
-                {
-                    var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mouseWorldPos.z = 0f;
-                    var targetCell = tilemap.WorldToCell(mouseWorldPos);
-                    var startCell = tilemap.WorldToCell(transform.position);
-                    var path = AStarPathfinder.FindPath(startCell, targetCell, GetNeighbors, CanMove);
-                    if (path != null && path.Count > 0)
-                    {
-                        pathWorldPositions = new List<Vector3>();
-                        foreach (var cell in path)
-                        {
-                            pathWorldPositions.Add(tilemap.GetCellCenterWorld(cell));
-                        }
-
-                        currentTargetIndex = 0;
-                        isMoving = true;
-                    }
-                }
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
-                    Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) isMoving = false;
-                if (isMoving && pathWorldPositions != null && pathWorldPositions.Count > 0)
-                {
-                    var targetPosition = pathWorldPositions[currentTargetIndex];
-                    transform.position =
-                        Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
-                    if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
-                    {
-                        currentTargetIndex++;
-                        if (currentTargetIndex >= pathWorldPositions.Count)
-                        {
-                            isMoving = false;
-                        }
-                    }
-                }
-            }
-            else isMoving = false;
         }
     }
 }
