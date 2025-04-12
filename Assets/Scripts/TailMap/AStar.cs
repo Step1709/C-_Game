@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class AStarPathfinder
 {
-    public static List<Vector3Int> FindPath(Vector3Int start, Vector3Int end, System.Func<Vector3Int, IEnumerable<Vector3Int>> getNeighbors, System.Func<Vector3Int, bool> isWalkable)
+    public static List<Vector3Int> FindPath(Vector3Int start, Vector3Int end, System.Func<Vector3Int, 
+        IEnumerable<Vector3Int>> getNeighbors, System.Func<Vector3Int,Vector3Int, bool> CanMove)
     {
         var openSet = new PriorityQueue<Vector3Int>();
         var cameFrom = new Dictionary<Vector3Int, Vector3Int>();
@@ -25,7 +26,7 @@ public class AStarPathfinder
 
             foreach (var neighbor in getNeighbors(current))
             {
-                if (!isWalkable(neighbor))
+                if (!CanMove(current, neighbor))
                     continue;
 
                 var tentativeGScore = gScore[current] + 1f;
