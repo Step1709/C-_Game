@@ -87,6 +87,8 @@ namespace TailMap
 
         private bool NoWallNeigbour(Vector3Int cellPosition, Vector3Int neighbourPosition)
         {
+            var d = neighbourPosition - cellPosition;
+            if (d.x == 0 || d.y == 0) return true;
             var res = true;
             var neighbours = 
                 GetStraightNeighbors(cellPosition).Intersect(GetStraightNeighbors(neighbourPosition));
