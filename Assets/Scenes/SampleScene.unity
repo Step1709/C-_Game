@@ -14143,6 +14143,8 @@ GameObject:
   - component: {fileID: 1999914652}
   - component: {fileID: 1999914651}
   - component: {fileID: 1999914653}
+  - component: {fileID: 1999914654}
+  - component: {fileID: 1999914655}
   m_Layer: 0
   m_Name: GameModel
   m_TagString: Untagged
@@ -14193,6 +14195,30 @@ MonoBehaviour:
     type: 3}
   BivPrefab: {fileID: 5355213896438806703, guid: e704e892396814f41bdae2b740f62254,
     type: 3}
+--- !u!114 &1999914654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999914650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1977546f2a8d4caf8d27d981dfbdc382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1999914655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999914650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cd2b7e75b6148dbb6d6d3853b461541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2094009563
 GameObject:
   m_ObjectHideFlags: 0

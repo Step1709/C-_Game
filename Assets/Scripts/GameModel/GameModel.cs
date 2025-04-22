@@ -10,18 +10,23 @@ namespace Scenes
         public static GameModel Instance { get; } = new GameModel();
         
         public CameraClass Camera = CameraClass.Instance;
-
-        public Ashen Ashen = Ashen.Instance;
-        public Biv Biv = Biv.Instance;
+        
+        public GameObject AshenObject;
+        
+        public GameObject BivObject;
+        
         public MainPlayer ChosenPlayer;
-
+        
         public List<GameObject> MainPlayers;
         
         public Dictionary<ValueTuple<Vector3Int, Vector3Int>, List<Vector3Int>> PathsCash;
+
+        public GameObject GameModelObject = GameObject.Find("GameModel");
         
         public GameModel()
         {
-            ChosenPlayer = Ashen;
+            GameModelObject = GameObject.Find("GameModel");
+            ChosenPlayer = Ashen.Instance;
             PathsCash = new Dictionary<ValueTuple<Vector3Int, Vector3Int>, List<Vector3Int>>();
             MainPlayers = new List<GameObject>();
         }
