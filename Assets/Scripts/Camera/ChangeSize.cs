@@ -20,7 +20,7 @@ public class ChangeSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameModel.Instance.Camera.IsFree) maxZoom = 15f;
+        if (CameraClass.Instance.IsFree) maxZoom = 15f;
         else maxZoom = 10f;
         float scrollAmount = Input.GetAxis("Mouse ScrollWheel");
         size += scrollAmount * zoomSensitivity;

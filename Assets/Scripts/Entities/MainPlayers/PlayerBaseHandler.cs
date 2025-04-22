@@ -5,21 +5,19 @@ namespace Scenes
 {
     public class PlayerBaseHandler : MonoBehaviour
     {
-        public MainPlayer mainPlayer; 
+        private MainPlayer mainPlayer;
         
         public Rigidbody2D rb;
     
         private Vector2 movement;
-        
 
-        public void Start()
+        void Start()
         {
-            mainPlayer  = (MainPlayer)GetComponent<EntityWrapper>().Entity;
+            mainPlayer = (MainPlayer)GetComponent<EntityWrapper>().Entity;
         }
-
         public void Update()
         {
-            if (mainPlayer == GameModel.Instance.ChosenPlayer)
+            if (gameObject == GameModel.Instance.ChosenPlayer)
             {
                 movement.x = Input.GetAxisRaw("Horizontal");
                 movement.y = Input.GetAxisRaw("Vertical");
@@ -29,9 +27,10 @@ namespace Scenes
         public void FixedUpdate()
         {
             
-            if (mainPlayer == GameModel.Instance.ChosenPlayer)
+            if (gameObject == GameModel.Instance.ChosenPlayer)
             {
-                rb.MovePosition(rb.position + mainPlayer.MoveSpeed * Time.fixedDeltaTime * movement.normalized);
+                rb.MovePosition(rb.position + mainPlayer.MoveSpeed 
+                    * Time.fixedDeltaTime * movement.normalized);
             }
         }
     }

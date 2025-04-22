@@ -13,9 +13,9 @@ namespace Fighting
 
         private IEnumerator Wait()
         {
-            Debug.Log("Wait 3 seconds");
-            yield return new WaitForSeconds(3f);
-            Debug.Log("Waited 3 seconds");
+            Debug.Log("Wait 5 seconds");
+            yield return new WaitForSeconds(5f);
+            Debug.Log("Waited 5 seconds");
             StateMachine.Instance.ChangeState(FightState.Instance);
         }
     }

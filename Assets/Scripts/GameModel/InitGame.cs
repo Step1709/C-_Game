@@ -1,4 +1,5 @@
 using Entities;
+using Scenes.Scene;
 using TailMap;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,8 +13,10 @@ namespace Scenes
         public GameObject BivPrefab;
         void Start()
         {
-            GameModel.Instance.AshenObject = InitPlayer(AshenPrefab, new Vector2(0, 0), Ashen.Instance, "Ashen");
-            GameModel.Instance.BivObject = InitPlayer(BivPrefab, new Vector2(5, 0), Biv.Instance, "Biv");
+            Ashen.Instance.PlayerObject = InitPlayer(AshenPrefab, new Vector2(0, 0), Ashen.Instance, "Ashen");
+            Biv.Instance.PlayerObject = InitPlayer(BivPrefab, new Vector2(5, 0), Biv.Instance, "Biv");
+            GameModel.Instance.ChosenPlayer = Ashen.Instance.PlayerObject;
+            CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer;
         }
 
         private GameObject InitPlayer(GameObject prefab, Vector2 spawnPosition, MainPlayer logic, string name)

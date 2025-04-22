@@ -7,11 +7,11 @@ namespace Scenes.Scene
     {
         public static CameraClass Instance { get; }= new CameraClass();
         
+        public GameObject ChosenEntity;
+        
         public bool IsFree;
-        public Entity ChosenEntity;
         public CameraClass()
         {
-            ChosenEntity = Ashen.Instance;
             IsFree = false;
         }
     }

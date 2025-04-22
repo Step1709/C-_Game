@@ -14,7 +14,6 @@ public class CameraController : MonoBehaviour
 
     public void Start()
     {
-        targetPos = GameModel.Instance.Camera.ChosenEntity.Position;
         smoothSpeed = 0.125f;
         offset = new Vector3(0f, 0f, -10f);
         cameraSpeed = 0.05f;
@@ -22,9 +21,9 @@ public class CameraController : MonoBehaviour
 
     public void Update()
     {
-        if (!GameModel.Instance.Camera.IsFree)
+        if (!CameraClass.Instance.IsFree)
         {
-            targetPos = (Vector3)GameModel.Instance.Camera.ChosenEntity.Position + offset;
+            targetPos = CameraClass.Instance.ChosenEntity.transform.position + offset;
         }
         else
         {

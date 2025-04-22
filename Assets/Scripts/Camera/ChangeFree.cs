@@ -8,7 +8,7 @@ public class ChangeFree : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(2))
         {
-            GameModel.Instance.Camera.IsFree = !GameModel.Instance.Camera.IsFree;
+            CameraClass.Instance.IsFree = !CameraClass.Instance.IsFree;
         }
     }
 }

@@ -9,13 +9,7 @@ namespace Scenes
     {
         public static GameModel Instance { get; } = new GameModel();
         
-        public CameraClass Camera = CameraClass.Instance;
-        
-        public GameObject AshenObject;
-        
-        public GameObject BivObject;
-        
-        public MainPlayer ChosenPlayer;
+        public GameObject ChosenPlayer;
         
         public List<GameObject> MainPlayers;
         
@@ -26,7 +20,6 @@ namespace Scenes
         public GameModel()
         {
             GameModelObject = GameObject.Find("GameModel");
-            ChosenPlayer = Ashen.Instance;
             PathsCash = new Dictionary<ValueTuple<Vector3Int, Vector3Int>, List<Vector3Int>>();
             MainPlayers = new List<GameObject>();
         }

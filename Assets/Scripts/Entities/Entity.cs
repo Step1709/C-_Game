@@ -4,7 +4,7 @@ namespace Entities
 {
     public class Entity
     {
-        public Vector2 Position;
+        public Vector2 StartPosition;
         
         public float MoveSpeed = 7f;
     }

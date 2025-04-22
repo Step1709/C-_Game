@@ -6,6 +6,6 @@ public class ChangeChosen : MonoBehaviour
 {
     void Update()
     {
-        GameModel.Instance.Camera.ChosenEntity = GameModel.Instance.ChosenPlayer;
+        CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer;
     }
 }

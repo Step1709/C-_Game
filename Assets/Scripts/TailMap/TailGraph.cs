@@ -15,7 +15,6 @@ namespace TailMap
         public Tilemap wallsTilemap;
         public float moveSpeed;
         
-        public MainPlayer mainPlayer;
         
         private List<Vector3> pathWorldPositions;
         private int currentTargetIndex = 0;
@@ -26,12 +25,11 @@ namespace TailMap
         {
             tilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
             wallsTilemap = GameObject.Find("Walls").GetComponent<Tilemap>();
-            mainPlayer = (MainPlayer)GetComponent<EntityWrapper>().Entity;
-            moveSpeed = mainPlayer.MoveSpeed;
+            moveSpeed = GetComponent<EntityWrapper>().Entity.MoveSpeed;
         }
         public void Update()
         {
-            if (mainPlayer == GameModel.Instance.ChosenPlayer)
+            if (gameObject == GameModel.Instance.ChosenPlayer)
             {
                 if (Input.GetMouseButtonDown(1))
                 {
