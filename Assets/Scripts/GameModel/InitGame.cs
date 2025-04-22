@@ -22,6 +22,7 @@ namespace Scenes
             player.name = name;
             var wrapper = player.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
+            GameModel.Instance.MainPlayers.Add(player);
         }
     }
 }
