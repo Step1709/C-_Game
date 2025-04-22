@@ -1,28 +1,24 @@
+using Entities;
 using UnityEngine;
 
 namespace Scenes
 {
     public class PlayerBaseHandler : MonoBehaviour
     {
-        private MainPlayer mainPlayer; 
+        public MainPlayer mainPlayer; 
         
         public Rigidbody2D rb;
     
         private Vector2 movement;
-
-        public PlayerBaseHandler(MainPlayer mainPlayer)
-        {
-            this.mainPlayer = mainPlayer;
-        }
+        
 
         public void Start()
         {
-            rb = GetComponent<Rigidbody2D>();
+            mainPlayer  = (MainPlayer)GetComponent<EntityWrapper>().Entity;
         }
 
         public void Update()
         {
-            mainPlayer.Position = rb.position;
             if (mainPlayer == GameModel.Instance.ChosenPlayer)
             {
                 movement.x = Input.GetAxisRaw("Horizontal");

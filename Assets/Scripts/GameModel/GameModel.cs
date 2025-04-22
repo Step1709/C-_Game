@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using Scenes.Scene;
+using UnityEngine;
 
 namespace Scenes
 {
@@ -14,14 +17,14 @@ namespace Scenes
         public MainPlayer[] MainPlayers;
         
         public MainPlayer ChosenPlayer;
-
-        public SceneClass SampleScene;
+        
+        public Dictionary<ValueTuple<Vector3Int, Vector3Int>, List<Vector3Int>> PathsCash;
         
         public GameModel()
         {
             MainPlayers = new MainPlayer[] { Ashen, Biv };
             ChosenPlayer = Ashen;
-            SampleScene = new SceneClass();
+            PathsCash = new Dictionary<ValueTuple<Vector3Int, Vector3Int>, List<Vector3Int>>();
         }
     }
 }

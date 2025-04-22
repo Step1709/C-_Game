@@ -14,20 +14,20 @@ namespace TailMap
         public Tilemap tilemap;
         public Tilemap wallsTilemap;
         public float moveSpeed;
-        public SceneClass Scene;
         
-        private MainPlayer mainPlayer;
+        public MainPlayer mainPlayer;
         
         private List<Vector3> pathWorldPositions;
         private int currentTargetIndex = 0;
         private bool isMoving = false;
         private Vector3 offset = new Vector3(0, 0.4f, 0);
-
-        public TailGraph(MainPlayer mainPlayer)
+        
+        void Start()
         {
-            this.mainPlayer = mainPlayer;
+            tilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
+            wallsTilemap = GameObject.Find("Walls").GetComponent<Tilemap>();
+            mainPlayer = (MainPlayer)GetComponent<EntityWrapper>().Entity;
             moveSpeed = mainPlayer.MoveSpeed;
-            Scene = GameModel.Instance.SampleScene;
         }
         public void Update()
         {
@@ -41,11 +41,11 @@ namespace TailMap
                     var startCell = tilemap.WorldToCell(transform.position);
                     var tuple = new ValueTuple<Vector3Int, Vector3Int>(startCell, targetCell);
                     List<Vector3Int> path;
-                    if (Scene.PathsCash.ContainsKey(tuple)) path = Scene.PathsCash[tuple];
+                    if (GameModel.Instance.PathsCash.ContainsKey(tuple)) path = GameModel.Instance.PathsCash[tuple];
                     else
                     {
                         path = AStarPathfinder.FindPath(startCell, targetCell, GetNeighbors, CanMove);
-                        Scene.PathsCash.Add(tuple, path);
+                        GameModel.Instance.PathsCash.Add(tuple, path);
                     }
                     if (path != null && path.Count > 0)
                     {
