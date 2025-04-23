@@ -11,16 +11,16 @@ namespace Scenes
     {
         void Start()
         {
-            Ashen.Instance.PlayerObject = InitPlayer(Ashen.Instance, "Ashen");
-            Biv.Instance.PlayerObject = InitPlayer(Biv.Instance, "Biv");
+            Ashen.Instance.PlayerObject = InitPlayer(Ashen.Instance);
+            Biv.Instance.PlayerObject = InitPlayer(Biv.Instance);
             GameModel.Instance.ChosenPlayer = Ashen.Instance.PlayerObject;
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer;
         }
 
-        private GameObject InitPlayer(MainPlayer logic, string name)
+        private GameObject InitPlayer(MainPlayer logic)
         {
             var player = Instantiate(logic.EntityPrefab, logic.StartPosition, Quaternion.identity);
-            player.name = name;
+            player.name = logic.Name;
             var wrapper = player.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
             GameModel.Instance.MainPlayers.Add(player);

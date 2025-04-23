@@ -10,6 +10,8 @@ namespace Scenes
         {
             StartPosition = new Vector2(5, 0);
             EntityPrefab = Resources.Load<GameObject>("Prefabs/PlayerPrefab");
+            MoveSpeed = 7f;
+            Name = "Biv";
         }
     }
 }
