@@ -1,3 +1,7 @@
+using Entities;
+using Scenes.EntityState;
+using UnityEngine;
+
 namespace Scenes
 {
     public class StateMachine
@@ -11,6 +15,14 @@ namespace Scenes
             currentState.Exit();
             newState.Enter();
             currentState = newState;
+        }
+
+        public void ChangeEntityState(GameObject entityObj, IEntityState newState)
+        {
+            var entity = entityObj.GetComponent<EntityWrapper>().Entity;
+            entity.currentState.Exit(entityObj);
+            newState.Enter(entityObj);
+            entity.currentState = newState;
         }
     }
 }

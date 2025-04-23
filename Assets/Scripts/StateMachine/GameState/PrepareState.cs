@@ -1,4 +1,5 @@
 using Fighting;
+using Scenes.EntityState;
 using UnityEngine;
 
 namespace Scenes
@@ -10,21 +11,16 @@ namespace Scenes
         public PrepareManager prepareManager = GameModel.Instance.GameModelObject.GetComponent<PrepareManager>();
         public void Enter()
         {
+            GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>().enabled = true;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                var baseHandler = player.GetComponent<PlayerBaseHandler>();
-                baseHandler.enabled = true;
+                StateMachine.Instance.ChangeEntityState(player, PreparingState.Instance);
             }
             prepareManager.enabled = true;
         }
 
         public void Exit()
         {
-            foreach (var player in GameModel.Instance.MainPlayers)
-            {
-                var baseHandler = player.GetComponent<PlayerBaseHandler>();
-                baseHandler.enabled = false;
-            }
             prepareManager.enabled = false;
         }
     }
