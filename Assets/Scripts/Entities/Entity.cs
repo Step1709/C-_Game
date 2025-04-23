@@ -7,5 +7,7 @@ namespace Entities
         public Vector2 StartPosition;
         
         public float MoveSpeed = 7f;
+        
+        public GameObject EntityPrefab;
     }
 }

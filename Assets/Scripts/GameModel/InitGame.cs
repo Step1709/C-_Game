@@ -9,19 +9,17 @@ namespace Scenes
 {
     public class InitGame : MonoBehaviour
     {
-        public GameObject AshenPrefab;
-        public GameObject BivPrefab;
         void Start()
         {
-            Ashen.Instance.PlayerObject = InitPlayer(AshenPrefab, new Vector2(0, 0), Ashen.Instance, "Ashen");
-            Biv.Instance.PlayerObject = InitPlayer(BivPrefab, new Vector2(5, 0), Biv.Instance, "Biv");
+            Ashen.Instance.PlayerObject = InitPlayer(Ashen.Instance, "Ashen");
+            Biv.Instance.PlayerObject = InitPlayer(Biv.Instance, "Biv");
             GameModel.Instance.ChosenPlayer = Ashen.Instance.PlayerObject;
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer;
         }
 
-        private GameObject InitPlayer(GameObject prefab, Vector2 spawnPosition, MainPlayer logic, string name)
+        private GameObject InitPlayer(MainPlayer logic, string name)
         {
-            var player = Instantiate(prefab, spawnPosition, Quaternion.identity);
+            var player = Instantiate(logic.EntityPrefab, logic.StartPosition, Quaternion.identity);
             player.name = name;
             var wrapper = player.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
