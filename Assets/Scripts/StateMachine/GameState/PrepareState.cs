@@ -1,5 +1,5 @@
 using Fighting;
-using Scenes.EntityState;
+using Scenes.EntityState2;
 using UnityEngine;
 
 namespace Scenes
@@ -16,7 +16,8 @@ namespace Scenes
             changeChosen.enabled = true;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                StateMachine.Instance.ChangeEntityState(player, PreparingState.Instance);
+                var stateMachine = player.GetComponent<PlayerStateMachine>();
+                stateMachine.ChangeState(PreparingState.Instance);
             }
             prepareManager.enabled = true;
         }

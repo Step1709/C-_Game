@@ -2,6 +2,7 @@ namespace Scenes.EntityState2
 {
     public class PreparingState : IEntityState
     {
+        public static PreparingState Instance { get; } = new PreparingState();
         public void Enter(PlayerStateMachine stateMachine)
         {
             stateMachine.TileGraph.enabled = true;

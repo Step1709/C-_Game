@@ -1,10 +1,10 @@
-using UnityEngine;
-
-namespace Scenes.EntityState
+namespace Scenes.EntityState2
 {
     public interface IEntityState
     {
-        public void Enter(GameObject entity);
-        public void Exit(GameObject entity);
+        void Enter(PlayerStateMachine stateMachine);
+        void Exit(PlayerStateMachine stateMachine);
+        void Enter(EnemyStateMachine stateMachine);
+        void Exit(EnemyStateMachine stateMachine);
     }
 }

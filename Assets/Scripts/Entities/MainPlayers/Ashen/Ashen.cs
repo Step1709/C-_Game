@@ -1,5 +1,5 @@
 using UnityEngine;
-using Scenes.EntityState;
+using Scenes;
 
 namespace Scenes
 {
@@ -13,7 +13,6 @@ namespace Scenes
             EntityPrefab = Resources.Load<GameObject>("Prefabs/PlayerPrefab");
             MoveSpeed = 7f;
             Name = "Ashen";
-            currentState = PreparingState.Instance;
         }
         
     }

@@ -1,4 +1,4 @@
-using Scenes.EntityState;
+using Scenes;
 using UnityEngine;
 
 namespace Entities
@@ -12,7 +12,5 @@ namespace Entities
         public GameObject EntityPrefab;
         
         public string Name;
-        
-        public IEntityState currentState;
     }
 }

@@ -1,4 +1,4 @@
-using Scenes.EntityState;
+using Scenes;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ namespace Scenes.EntityState2
     {
         public FinishMove finishMove;
         
-        protected IEntityState currentState;
+        public IEntityState currentState;
 
         public virtual void ChangeState(IEntityState newState)
         {

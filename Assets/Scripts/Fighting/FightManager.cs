@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Entities;
 using Scenes;
-using Scenes.EntityState;
+using Scenes.EntityState2;
 using UnityEngine;
 
 namespace Fighting
@@ -12,7 +12,7 @@ namespace Fighting
         private Wave currentWave;
         private List<GameObject> entities;
         private int currentEntityIndex = 0;
-        private Entity entity;
+        private EntityStateMachine stateMachine;
         void OnEnable()
         {
             currentWave = GameModel.Instance.Waves.Dequeue();
@@ -27,19 +27,19 @@ namespace Fighting
             {
                 Debug.Log(entity.name);
             }
-            entity = entities[currentEntityIndex].GetComponent<EntityWrapper>().Entity;
-            StateMachine.Instance.ChangeEntityState(entities[currentEntityIndex], ActiveState.Instance);
+            stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
+            stateMachine.ChangeState(ActiveState.Instance);
             Debug.Log("ход следующего");
         }
 
         void Update()
         {
-            if (entity.currentState == WaitingState.Instance)
+            if (stateMachine.currentState == WaitingState.Instance)
             {
                 currentEntityIndex = (currentEntityIndex + 1) % entities.Count;
                 Debug.Log("ход следующего");
-                StateMachine.Instance.ChangeEntityState(entities[currentEntityIndex], ActiveState.Instance);
-                entity = entities[currentEntityIndex].GetComponent<EntityWrapper>().Entity;
+                stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
+                stateMachine.ChangeState(ActiveState.Instance);
             }
         }
 

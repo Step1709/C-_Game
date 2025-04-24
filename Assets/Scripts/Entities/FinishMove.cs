@@ -1,16 +1,16 @@
-using Entities;
-using Scenes.EntityState;
+using Scenes.EntityState2;
 using UnityEngine;
 
 namespace Scenes
 {
     public class FinishMove : MonoBehaviour
     {
+        public EntityStateMachine stateMachine;
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                StateMachine.Instance.ChangeEntityState(gameObject, WaitingState.Instance);
+                stateMachine.ChangeState(WaitingState.Instance);
             }
         }
     }

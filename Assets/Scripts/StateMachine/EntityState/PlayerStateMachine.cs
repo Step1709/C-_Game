@@ -1,4 +1,4 @@
-using Scenes.EntityState;
+using Scenes;
 using TailMap;
 using UnityEngine;
 
@@ -9,7 +9,11 @@ namespace Scenes.EntityState2
         public TailGraph TileGraph;
         
         public PlayerBaseHandler baseHandler;
-
+        void Awake()
+        {
+            currentState = PreparingState.Instance;
+        }
+        
         public override void ChangeState(IEntityState newState)
         {
             currentState.Exit(this);

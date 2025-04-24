@@ -1,4 +1,4 @@
-using Scenes.EntityState;
+using Scenes;
 using UnityEngine;
 
 namespace Entities
@@ -11,7 +11,6 @@ namespace Entities
             MoveSpeed = moveSpeed;
             EntityPrefab = Resources.Load<GameObject>(pathToPrefab);
             Name = name;
-            currentState = WaitingState.Instance;
         }
     }
 }
