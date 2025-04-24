@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6197390543838048771}
   - component: {fileID: 5804782870060982564}
   - component: {fileID: 4025366496108033259}
+  - component: {fileID: -6996931107153907824}
   m_Layer: 0
   m_Name: GoblinShortSwordPrefab
   m_TagString: Untagged
@@ -179,3 +180,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c10b81cafdb48c2b0a69071921354a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6996931107153907824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3668459266504802064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f907ebc36d44480a948c896c4ff41233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishMove: {fileID: 4025366496108033259}

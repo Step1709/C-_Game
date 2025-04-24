@@ -8,10 +8,12 @@ namespace Scenes
     {
         public static PrepareState Instance { get; } = new PrepareState();
 
-        public PrepareManager prepareManager = GameModel.Instance.GameModelObject.GetComponent<PrepareManager>();
+        private PrepareManager prepareManager = GameModel.Instance.GameModelObject.GetComponent<PrepareManager>();
+
+        private ChangeChosen changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
         public void Enter()
         {
-            GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>().enabled = true;
+            changeChosen.enabled = true;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
                 StateMachine.Instance.ChangeEntityState(player, PreparingState.Instance);
