@@ -20,7 +20,11 @@ namespace TailMap
         private int currentTargetIndex = 0;
         private bool isMoving = false;
         private Vector3 offset = new Vector3(0, 0.4f, 0);
-        
+
+        void OnEnable()
+        {
+            isMoving = false;
+        }
         void Start()
         {
             tilemap = GameObject.Find("Floor").GetComponent<Tilemap>();

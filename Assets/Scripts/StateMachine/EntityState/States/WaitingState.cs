@@ -6,6 +6,7 @@ namespace Scenes.EntityState2
         public void Enter(PlayerStateMachine stateMachine)
         {
             stateMachine.TileGraph.enabled = false;
+            stateMachine.finishMove.enabled = false;
         }
 
         public void Exit(PlayerStateMachine stateMachine)
@@ -14,6 +15,7 @@ namespace Scenes.EntityState2
 
         public void Enter(EnemyStateMachine stateMachine)
         {
+            stateMachine.finishMove.enabled = false;
         }
 
         public void Exit(EnemyStateMachine stateMachine)
