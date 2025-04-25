@@ -11,10 +11,11 @@ namespace Fighting
     {
         private Wave currentWave;
         private List<GameObject> entities;
-        private int currentEntityIndex = 0;
+        private int currentEntityIndex;
         private EntityStateMachine stateMachine;
         void OnEnable()
         {
+            currentEntityIndex = 0;
             currentWave = GameModel.Instance.Waves.Dequeue();
             entities = GameModel.Instance.MainPlayers.ToList();
             foreach (var entity in currentWave.enemies)
