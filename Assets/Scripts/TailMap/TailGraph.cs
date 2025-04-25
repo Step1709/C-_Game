@@ -42,13 +42,7 @@ namespace TailMap
                     var targetCell = tilemap.WorldToCell(mouseWorldPos);
                     var startCell = tilemap.WorldToCell(transform.position);
                     var tuple = new ValueTuple<Vector3Int, Vector3Int>(startCell, targetCell);
-                    List<Vector3Int> path;
-                    if (GameModel.Instance.PathsCash.ContainsKey(tuple)) path = GameModel.Instance.PathsCash[tuple];
-                    else
-                    {
-                        path = AStarPathfinder.FindPath(startCell, targetCell, GetNeighbors, CanMove);
-                        GameModel.Instance.PathsCash.Add(tuple, path);
-                    }
+                    var path = AStarPathfinder.FindPath(startCell, targetCell, GetNeighbors, CanMove);
                     if (path != null && path.Count > 0)
                     {
                         pathWorldPositions = new List<Vector3>();

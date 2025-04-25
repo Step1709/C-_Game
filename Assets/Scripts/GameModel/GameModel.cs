@@ -14,8 +14,6 @@ namespace Scenes
         public GameObject ChosenPlayer;
         
         public List<GameObject> MainPlayers;
-        
-        public Dictionary<ValueTuple<Vector3Int, Vector3Int>, List<Vector3Int>> PathsCash;
 
         public GameObject GameModelObject = GameObject.Find("GameModel");
         
@@ -24,7 +22,6 @@ namespace Scenes
         public GameModel()
         {
             GameModelObject = GameObject.Find("GameModel");
-            PathsCash = new Dictionary<ValueTuple<Vector3Int, Vector3Int>, List<Vector3Int>>();
             MainPlayers = new List<GameObject>();
             Waves.Enqueue(new Wave(
                 new GoblinShortSword(new Vector2(5,5), 7f, "Prefabs/GoblinShortSwordPrefab", "pedik"), 
