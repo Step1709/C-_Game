@@ -27,8 +27,8 @@ namespace TailMap
         }
         void Start()
         {
-            tilemap = GameObject.Find("Floor").GetComponent<Tilemap>();
-            wallsTilemap = GameObject.Find("Walls").GetComponent<Tilemap>();
+            tilemap = GameModel.Instance.Floor;
+            wallsTilemap = GameModel.Instance.Walls;
             moveSpeed = GetComponent<EntityWrapper>().Entity.MoveSpeed;
         }
         public void Update()

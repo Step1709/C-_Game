@@ -14,6 +14,9 @@ namespace Scenes
             Ashen.Instance.PlayerObject = InitPlayer(Ashen.Instance);
             Biv.Instance.PlayerObject = InitPlayer(Biv.Instance);
             GameModel.Instance.ChosenPlayer = Ashen.Instance.PlayerObject;
+            GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
+            GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
+            GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer;
         }
 

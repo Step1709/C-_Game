@@ -4,6 +4,7 @@ using Entities;
 using Fighting;
 using Scenes.Scene;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Scenes
 {
@@ -15,13 +16,16 @@ namespace Scenes
         
         public List<GameObject> MainPlayers;
 
-        public GameObject GameModelObject = GameObject.Find("GameModel");
+        public GameObject GameModelObject;
         
         public Queue<Wave> Waves = new Queue<Wave>();
+
+        public Tilemap Floor;
+
+        public Tilemap Walls;
         
         public GameModel()
         {
-            GameModelObject = GameObject.Find("GameModel");
             MainPlayers = new List<GameObject>();
             Waves.Enqueue(new Wave(
                 new GoblinShortSword(new Vector2(5,5), 7f, "Prefabs/GoblinShortSwordPrefab", "pedik"), 
