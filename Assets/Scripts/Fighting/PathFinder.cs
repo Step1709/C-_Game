@@ -24,6 +24,7 @@ namespace Fighting
     {
         public static List<Vector3Int> FindPath(GameObject activeEntity, GameObject targetEntity)
         {
+            var wallCollider = GameModel.Instance.Walls.GetComponent<TilemapCollider2D>();
             var activeEntityLogic = activeEntity.GetComponent<EntityWrapper>().Entity;
             var weapon = activeEntityLogic.CurrentWeapon;
             
@@ -40,7 +41,7 @@ namespace Fighting
             {
                 var currentCell = queue.Dequeue();
                 if (Vector3.Distance(currentCell.cellPosition, targetEntity.transform.position) <= weapon.Range &&
-                    !IsBlocked(currentCell.cellPosition, targetEntity.transform.position))
+                    !IsBlocked(currentCell.cellPosition, targetEntity.transform.position, wallCollider))
                     return ReconstructPath(currentCell);
                 if (currentCell.depth >= activeEntityLogic.CurrentTileCount) continue;
                 foreach (var neighbor in GetNeighbors(currentCell.cellPosition))
@@ -114,10 +115,9 @@ namespace Fighting
             yield return new Vector3Int(cell.x, cell.y - 1, cell.z);
         }
 
-        private static bool IsBlocked(Vector3 start, Vector3 end)
+        private static bool IsBlocked(Vector3 start, Vector3 end, Collider2D collider)
         {
             var hits = Physics2D.LinecastAll(start, end);
-            var collider = GameModel.Instance.Floor.GetComponent<Collider2D>();
             foreach (var hit in hits)
             {
                 if (hit.collider == collider) return true;
