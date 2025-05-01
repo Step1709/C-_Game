@@ -18,5 +18,9 @@ namespace Entities
         public GameObject EntityPrefab;
         
         public string Name;
+
+        public int MaxTileCount;
+        
+        public int CurrentTileCount;
     }
 }
