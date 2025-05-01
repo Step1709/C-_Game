@@ -60,11 +60,12 @@ namespace Fighting
         private static List<Vector3Int> ReconstructPath(CellInfo cell)
         {
             var path = new List<Vector3Int>();
-            while (cell != null)
+            while (cell.previous != null)
             {
                 path.Add(cell.cellPosition);
                 cell = cell.previous;
             }
+            path.Reverse();
             return path;
         }
         
