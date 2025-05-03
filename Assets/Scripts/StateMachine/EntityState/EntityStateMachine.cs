@@ -6,9 +6,7 @@ namespace Scenes.EntityState2
 {
     public class EntityStateMachine : MonoBehaviour
     {
-        public FinishMove finishMove;
-        
-        public IEntityState currentState;
+        public IEntityState currentState { get; protected set; }
 
         public virtual void ChangeState(IEntityState newState)
         {

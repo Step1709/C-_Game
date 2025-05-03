@@ -15,7 +15,6 @@ namespace Scenes.EntityState2
 
         public void Enter(EnemyStateMachine stateMachine)
         {
-            stateMachine.finishMove.enabled = false;
         }
 
         public void Exit(EnemyStateMachine stateMachine)

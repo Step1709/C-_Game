@@ -21,12 +21,12 @@ namespace Scenes.EntityState2
         public void Enter(EnemyStateMachine stateMachine)
         {
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
-            stateMachine.finishMove.enabled = true;
+            stateMachine.EnemyAI.enabled = true;
         }
 
         public void Exit(EnemyStateMachine stateMachine)
         {
-            stateMachine.finishMove.enabled = false;
+            stateMachine.EnemyAI.enabled = false;
         }
     }
 }

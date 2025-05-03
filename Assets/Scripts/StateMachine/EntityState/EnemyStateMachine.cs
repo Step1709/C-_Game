@@ -1,7 +1,10 @@
+using Entities;
+
 namespace Scenes.EntityState2
 {
     public class EnemyStateMachine : EntityStateMachine
     {
+        public EnemyAI EnemyAI;
         void Awake()
         {
             currentState = WaitingState.Instance;

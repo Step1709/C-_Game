@@ -26,5 +26,18 @@ namespace Entities
         public int MaxTileCount;
         
         public int CurrentTileCount;
+        
+        public void Attack(Entity target)
+        {
+            if (Random.Range(1, 20) > target.ArmorClass)
+            {
+                Debug.Log($"{Name} попадает по {target.Name}");
+                CurrentWeapon.Attack(target);
+            }
+            else
+            {
+                Debug.Log($"{Name} не попадает по {target.Name}");
+            }
+        }
     }
 }

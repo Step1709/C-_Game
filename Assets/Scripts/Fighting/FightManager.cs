@@ -50,6 +50,8 @@ namespace Fighting
             enemy.name = logic.Name;
             var wrapper = enemy.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
+            var enemyAI = enemy.GetComponent<EnemyAI>();
+            enemyAI.self = logic;
             return enemy;
         }
     }
