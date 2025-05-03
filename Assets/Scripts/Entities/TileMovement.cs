@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Entities;
+using Paths;
 using Scenes;
 using Scenes.Scene;
 using UnityEngine;
@@ -9,12 +10,10 @@ using UnityEngine.Tilemaps;
 
 namespace TailMap
 {
-    public class TailGraph:MonoBehaviour
+    public class TileMovement:MonoBehaviour
     {
         public Tilemap tilemap;
-        public Tilemap wallsTilemap;
         public float moveSpeed;
-        
         
         private List<Vector3> pathWorldPositions;
         private int currentTargetIndex = 0;
@@ -28,7 +27,6 @@ namespace TailMap
         void Start()
         {
             tilemap = GameModel.Instance.Floor;
-            wallsTilemap = GameModel.Instance.Walls;
             moveSpeed = GetComponent<EntityWrapper>().Entity.MoveSpeed;
         }
         public void Update()
@@ -41,8 +39,7 @@ namespace TailMap
                     mouseWorldPos.z = 0f;
                     var targetCell = tilemap.WorldToCell(mouseWorldPos);
                     var startCell = tilemap.WorldToCell(transform.position);
-                    var tuple = new ValueTuple<Vector3Int, Vector3Int>(startCell, targetCell);
-                    var path = AStarPathfinder.FindPath(startCell, targetCell, GetNeighbors, CanMove);
+                    var path = PathFinder.AStar(startCell, targetCell);
                     if (path != null && path.Count > 0)
                     {
                         pathWorldPositions = new List<Vector3>();
@@ -74,53 +71,6 @@ namespace TailMap
                 }
             }
             else isMoving = false;
-        }
-        
-        private bool IsWalkable(Vector3Int cellPosition)
-        {
-            return tilemap.HasTile(cellPosition) && !wallsTilemap.HasTile(cellPosition);
-        }
-
-        private bool NoWallNeigbour(Vector3Int cellPosition, Vector3Int neighbourPosition)
-        {
-            var d = neighbourPosition - cellPosition;
-            if (d.x == 0 || d.y == 0) return true;
-            var res = true;
-            var neighbours = 
-                GetStraightNeighbors(cellPosition).Intersect(GetStraightNeighbors(neighbourPosition));
-            foreach (var neighbour in neighbours)
-            {
-                if (wallsTilemap.HasTile(neighbour))
-                {
-                    res = false;
-                    break;
-                }
-            }
-            return res;
-        }
-
-        private bool CanMove(Vector3Int Position, Vector3Int neighbourPosition)
-        {
-            return IsWalkable(neighbourPosition) && NoWallNeigbour(Position, neighbourPosition);
-        }
-        private IEnumerable<Vector3Int> GetNeighbors(Vector3Int cell)
-        {
-            foreach (var neighbour in GetStraightNeighbors(cell))
-            {
-                yield return neighbour;
-            }
-            yield return new Vector3Int(cell.x + 1, cell.y + 1, cell.z);
-            yield return new Vector3Int(cell.x + 1, cell.y - 1, cell.z);
-            yield return new Vector3Int(cell.x - 1, cell.y + 1, cell.z);
-            yield return new Vector3Int(cell.x - 1, cell.y - 1, cell.z);
-        }
-        
-        private IEnumerable<Vector3Int> GetStraightNeighbors(Vector3Int cell)
-        {
-            yield return new Vector3Int(cell.x + 1, cell.y, cell.z);
-            yield return new Vector3Int(cell.x - 1, cell.y, cell.z);
-            yield return new Vector3Int(cell.x, cell.y + 1, cell.z);
-            yield return new Vector3Int(cell.x, cell.y - 1, cell.z);
         }
     }
 }

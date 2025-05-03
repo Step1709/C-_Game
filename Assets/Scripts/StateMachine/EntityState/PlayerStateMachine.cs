@@ -6,7 +6,7 @@ namespace Scenes.EntityState2
 {
     public class PlayerStateMachine : EntityStateMachine
     {
-        public TailGraph TileGraph;
+        public TileMovement TileGraph;
         
         public PlayerBaseHandler baseHandler;
         void Awake()

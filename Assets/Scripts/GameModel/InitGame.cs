@@ -9,7 +9,7 @@ namespace Scenes
 {
     public class InitGame : MonoBehaviour
     {
-        void Start()
+        void Awake()
         {
             Ashen.Instance.PlayerObject = InitPlayer(Ashen.Instance);
             Biv.Instance.PlayerObject = InitPlayer(Biv.Instance);

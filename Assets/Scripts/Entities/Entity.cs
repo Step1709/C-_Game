@@ -7,6 +7,10 @@ namespace Entities
 {
     public class Entity
     {
+        public int Health;
+
+        public int ArmorClass;
+        
         public List<Weapon> Weapons;
 
         public Weapon CurrentWeapon;

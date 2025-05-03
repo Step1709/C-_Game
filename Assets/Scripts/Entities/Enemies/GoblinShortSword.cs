@@ -1,4 +1,5 @@
 using UnityEngine;
+using Weapons;
 
 namespace Entities
 {
@@ -7,6 +8,10 @@ namespace Entities
         public GoblinShortSword(Vector2 startPos, float moveSpeed, string pathToPrefab, string name) : 
             base(startPos, moveSpeed, pathToPrefab, name)
         {
+            Health = 10;
+            ArmorClass = 8;
+            CurrentWeapon = new Weapon(6, 2f, 0);
+            MaxTileCount = 9;
         }
     }
 }

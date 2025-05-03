@@ -9,10 +9,13 @@ namespace Scenes
 
         public Ashen()
         {
+            Health = 20;
+            ArmorClass = 10;
             StartPosition = new Vector2(0, 0);
             EntityPrefab = Resources.Load<GameObject>("Prefabs/PlayerPrefab");
             MoveSpeed = 7f;
             Name = "Ashen";
+            MaxTileCount = 15;
         }
         
     }

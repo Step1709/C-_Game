@@ -30,7 +30,7 @@ namespace Fighting
             }
             stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
             stateMachine.ChangeState(ActiveState.Instance);
-            Debug.Log("ход следующего");
+            Debug.Log($"ход {entities[currentEntityIndex].name}");
         }
 
         void Update()
@@ -38,7 +38,7 @@ namespace Fighting
             if (stateMachine.currentState == WaitingState.Instance)
             {
                 currentEntityIndex = (currentEntityIndex + 1) % entities.Count;
-                Debug.Log("ход следующего");
+                Debug.Log($"ход {entities[currentEntityIndex].name}");
                 stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
                 stateMachine.ChangeState(ActiveState.Instance);
             }
