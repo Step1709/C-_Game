@@ -13,7 +13,6 @@ public class ChangeSize : MonoBehaviour
     
     void Start()
     {
-        camera = GetComponent<Camera>();
         size = camera.orthographicSize;
     }
 

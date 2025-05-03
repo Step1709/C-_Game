@@ -180,7 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f907ebc36d44480a948c896c4ff41233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishMove: {fileID: 0}
   EnemyAI: {fileID: -1665448996427175619}
 --- !u!114 &-1665448996427175619
 MonoBehaviour:
@@ -194,3 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b01ded66b6fa4c4e99a32953c0bc83d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateMachine: {fileID: -6996931107153907824}

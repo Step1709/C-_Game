@@ -26,6 +26,8 @@ namespace Scenes
             player.name = logic.Name;
             var wrapper = player.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
+            var baseHandler = player.GetComponent<PlayerBaseHandler>();
+            baseHandler.mainPlayer = logic;
             GameModel.Instance.MainPlayers.Add(player);
             return player;
         }

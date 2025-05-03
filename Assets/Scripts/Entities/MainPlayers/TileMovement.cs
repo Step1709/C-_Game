@@ -12,8 +12,8 @@ namespace TailMap
 {
     public class TileMovement:MonoBehaviour
     {
-        public Tilemap tilemap;
-        public float moveSpeed;
+        private Tilemap tilemap;
+        private float moveSpeed;
         
         private List<Vector3> pathWorldPositions;
         private int currentTargetIndex = 0;

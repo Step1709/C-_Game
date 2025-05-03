@@ -17,12 +17,11 @@ namespace Entities
         private Tilemap tileMap;
         private int currentTargetIndex;
         public Enemy self;
-        private EnemyStateMachine stateMachine;
+        public EnemyStateMachine stateMachine;
 
         void Awake()
         {
             tileMap = GameModel.Instance.Floor;
-            stateMachine = (EnemyStateMachine)gameObject.GetComponent<EntityStateMachine>();
         }
         void OnEnable()
         {
