@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8789734002763866422}
   - component: {fileID: -8056622404269193303}
   m_Layer: 0
-  m_Name: PlayerPrefab 1
+  m_Name: Player_Wiz_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 0}
-  m_LocalScale: {x: 0.012084123, y: 0.023183744, z: 1}
+  m_LocalScale: {x: 0.17861919, y: 0.17201526, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -156,8 +156,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -12}
-  m_Radius: 18
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3
 --- !u!114 &7553711737853740138
 MonoBehaviour:
   m_ObjectHideFlags: 0

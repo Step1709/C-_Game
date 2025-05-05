@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8789734002763866422}
   - component: {fileID: -8056622404269193303}
   m_Layer: 0
-  m_Name: PlayerPrefab 1
+  m_Name: Player_Mino_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,8 +33,8 @@ Transform:
   m_GameObject: {fileID: 5355213896438806703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.10424652, y: 0.19999999, z: 8.626735}
+  m_LocalPosition: {x: 0.8526, y: -0.2282, z: 0}
+  m_LocalScale: {x: 0.27142665, y: 0.24477997, z: 8.626735}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -156,8 +156,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -12}
-  m_Radius: 18
+  m_Offset: {x: 0, y: -4}
+  m_Radius: 3
 --- !u!114 &7553711737853740138
 MonoBehaviour:
   m_ObjectHideFlags: 0
