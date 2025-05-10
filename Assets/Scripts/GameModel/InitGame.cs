@@ -28,6 +28,8 @@ namespace Scenes
             wrapper.Entity = logic;
             var baseHandler = player.GetComponent<PlayerBaseHandler>();
             baseHandler.mainPlayer = logic;
+            var pathController = player.GetComponent<PathController>();
+            pathController.player = logic;
             GameModel.Instance.MainPlayers.Add(player);
             return player;
         }
