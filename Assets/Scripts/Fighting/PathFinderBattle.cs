@@ -52,7 +52,7 @@ namespace Fighting
             
             return bestPath;
         }
-        private static List<Vector3Int> BFSPath(
+        public static List<Vector3Int> BFSPath(
             Vector3Int start,
             Vector3Int target,
             Func<Vector3Int, IEnumerable<Vector3Int>> getNeighbors,

@@ -125,12 +125,12 @@ namespace Paths
             return totalPath;
         }
         
-        private static bool IsWalkable(Vector3Int cellPosition)
+        public static bool IsWalkable(Vector3Int cellPosition)
         {
             return GameModel.Instance.Floor.HasTile(cellPosition) && !GameModel.Instance.Walls.HasTile(cellPosition);
         }
 
-        private static bool NoWallNeigbour(Vector3Int cellPosition, Vector3Int neighbourPosition)
+        public static bool NoWallNeigbour(Vector3Int cellPosition, Vector3Int neighbourPosition)
         {
             var d = neighbourPosition - cellPosition;
             if (d.x == 0 || d.y == 0) return true;
