@@ -1,5 +1,6 @@
 using UnityEngine;
 using Scenes;
+using Weapons;
 
 namespace Scenes
 {
@@ -16,6 +17,7 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Biv";
             MaxTileCount = 15;
+            CurrentWeapon = new Weapon(15, 30, 1.5f, 0);
         }
     }
 }
