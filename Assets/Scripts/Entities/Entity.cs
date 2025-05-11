@@ -27,6 +27,8 @@ namespace Entities
         
         public int CurrentTileCount;
         
+        public int MainActionPoint;
+        
         public void Attack(Entity target)
         {
             if (Random.Range(1, 20) > target.ArmorClass)
@@ -38,6 +40,12 @@ namespace Entities
             {
                 Debug.Log($"{Name} не попадает по {target.Name}");
             }
+        }
+
+        public void UpdateStats()
+        {
+            CurrentTileCount = MaxTileCount;
+            MainActionPoint = 1;
         }
     }
 }

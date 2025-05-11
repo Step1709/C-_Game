@@ -177,8 +177,8 @@ namespace Paths
                 if (hit.collider != null)
                 {
                     if (hit.collider.CompareTag("Wall")) return true;
-                    if (hit.collider.CompareTag("Player") && hit.collider.gameObject != targetEntity) return true;
-                    if (hit.collider.CompareTag("Enemy") && hit.collider.gameObject != targetEntity) return true;
+                    // if (hit.collider.CompareTag("Player") && hit.collider.gameObject != targetEntity) return true;
+                    // if (hit.collider.CompareTag("Enemy") && hit.collider.gameObject != targetEntity) return true;
                 }
             }
             return false;

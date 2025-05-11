@@ -13,6 +13,7 @@ namespace Fighting
         private List<GameObject> entities;
         private int currentEntityIndex;
         private EntityStateMachine stateMachine;
+        private Entity entity;
         void OnEnable()
         {
             currentEntityIndex = 0;
@@ -29,6 +30,8 @@ namespace Fighting
                 Debug.Log(entity.name);
             }
             stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
+            entity = entities[currentEntityIndex].GetComponent<EntityWrapper>().Entity;
+            entity.UpdateStats();
             stateMachine.ChangeState(ActiveState.Instance);
             Debug.Log($"ход {entities[currentEntityIndex].name}");
         }
@@ -40,6 +43,8 @@ namespace Fighting
                 currentEntityIndex = (currentEntityIndex + 1) % entities.Count;
                 Debug.Log($"ход {entities[currentEntityIndex].name}");
                 stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
+                entity = entities[currentEntityIndex].GetComponent<EntityWrapper>().Entity;
+                entity.UpdateStats();
                 stateMachine.ChangeState(ActiveState.Instance);
             }
         }

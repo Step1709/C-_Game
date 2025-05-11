@@ -6,18 +6,22 @@ using Scenes.EntityState2;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Entities
+namespace Entities.MainPlayers
 {
-    public class EnemyAI : MonoBehaviour
+    public class PlayerAction : MonoBehaviour
     {
+        [SerializeField]
+        private PlayerStateMachine stateMachine;
+        [SerializeField]
+        private PathController pathController;
+        
         private List<Vector3> pathWorldPositions;
         private GameObject target;
         private bool isMoving;
         private Vector3 offset = new Vector3(0, 0.4f, 0);
         private Tilemap tileMap;
         private int currentTargetIndex;
-        public Enemy self;
-        public EnemyStateMachine stateMachine;
+        public MainPlayer self;
 
         void Awake()
         {
@@ -25,45 +29,16 @@ namespace Entities
         }
         void OnEnable()
         {
-            pathWorldPositions = null;
-            target = null;
-            currentTargetIndex = 0;
-            List<Vector3Int> path = null;
-            var minPathLenght = int.MaxValue;
-            foreach (var player in GameModel.Instance.MainPlayers)
-            {
-                var currentpath = PathFinder.BFS(gameObject, player);
-                if (currentpath != null && currentpath.Count < minPathLenght)
-                {
-                    path = currentpath;
-                    minPathLenght = currentpath.Count;
-                    target = player;
-                }
-            }
-
-            if (path == null)
-            {
-                var selfCellPos = GameModel.Instance.Floor.WorldToCell(transform.position);
-                foreach (var player in GameModel.Instance.MainPlayers)
-                {
-                    var playerCellPos = GameModel.Instance.Floor.WorldToCell(player.transform.position);
-                    var currentpath = PathFinder.AStar(selfCellPos, playerCellPos).Take(self.CurrentTileCount).ToList();
-                    if (currentpath.Count < minPathLenght)
-                    {
-                        path = currentpath;
-                        minPathLenght = currentpath.Count;
-                    }
-                }
-            }
-            
+            target = pathController.target;
             pathWorldPositions = new List<Vector3>();
-            foreach (var cell in path)
+            foreach (var cell in pathController.path)
             {
                 pathWorldPositions.Add(tileMap.GetCellCenterWorld(cell) + offset);
             }
 
             currentTargetIndex = 0;
             isMoving = true;
+            self.CurrentTileCount-=pathWorldPositions.Count;
         }
 
         void Update()
@@ -90,8 +65,9 @@ namespace Entities
                 if (target != null)
                 {
                     self.Attack(target.GetComponent<EntityWrapper>().Entity);
+                    self.MainActionPoint--;
                 }
-                stateMachine.ChangeState(WaitingState.Instance);
+                stateMachine.ChangeState(ActiveState.Instance);
             }
         }
     }

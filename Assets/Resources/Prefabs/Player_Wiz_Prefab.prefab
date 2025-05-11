@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: -8056622404269193303}
   - component: {fileID: 6285000392341898648}
   - component: {fileID: -9114815161218707179}
+  - component: {fileID: 5733863758617329464}
+  - component: {fileID: 4075192358017020579}
   m_Layer: 0
   m_Name: Player_Wiz_Prefab
   m_TagString: Player
@@ -225,6 +227,9 @@ MonoBehaviour:
   TileGraph: {fileID: -8763126673787654160}
   finishMove: {fileID: 8789734002763866422}
   baseHandler: {fileID: 6188297143758377618}
+  pathController: {fileID: 6285000392341898648}
+  fightController: {fileID: 5733863758617329464}
+  playerAction: {fileID: 4075192358017020579}
 --- !u!114 &6285000392341898648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +237,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5355213896438806703}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c3d05de4cc5bc4fa6c84da0daa4c36, type: 3}
   m_Name: 
@@ -285,3 +290,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.88, y: 9.12}
   m_EdgeRadius: 0
+--- !u!114 &5733863758617329464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc66c8c34e0346f59b2113bb7f79c07e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathController: {fileID: 6285000392341898648}
+  stateMachine: {fileID: -8056622404269193303}
+--- !u!114 &4075192358017020579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ee2dd575a74f11afb81706417ff56a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: -8056622404269193303}
+  pathController: {fileID: 6285000392341898648}
