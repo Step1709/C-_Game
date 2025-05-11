@@ -43,7 +43,7 @@ namespace Paths
                 var currentCell = queue.Dequeue();
                 if (Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(currentCell.cellPosition), 
                         targetEntity.transform.position) <= weapon.Range &&
-                    !IsBlocked(currentCell.cellPosition, targetEntity.transform.position, wallCollider))
+                    !IsBlocked(currentCell.cellPosition, targetEntity))
                     return ReconstructPath(currentCell);
                 if (currentCell.depth >= activeEntityLogic.CurrentTileCount) continue;
                 foreach (var neighbor in GetNeighbors(currentCell.cellPosition))
@@ -172,12 +172,17 @@ namespace Paths
             yield return new Vector3Int(cell.x, cell.y - 1, cell.z);
         }
 
-        private static bool IsBlocked(Vector3 start, Vector3 end, Collider2D collider)
+        private static bool IsBlocked(Vector3 start, GameObject targetEntity)
         {
-            var hits = Physics2D.LinecastAll(start, end);
+            var hits = Physics2D.LinecastAll(start, targetEntity.transform.position);
             foreach (var hit in hits)
             {
-                if (hit.collider == collider) return true;
+                if (hit.collider != null)
+                {
+                    if (hit.collider.CompareTag("Wall")) return true;
+                    if (hit.collider.CompareTag("Player") && hit.collider.gameObject != targetEntity) return true;
+                    if (hit.collider.CompareTag("Enemy") && hit.collider.gameObject != targetEntity) return true;
+                }
             }
             return false;
         }

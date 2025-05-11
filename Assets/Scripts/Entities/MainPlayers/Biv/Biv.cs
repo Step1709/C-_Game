@@ -12,7 +12,7 @@ namespace Scenes
             Health = 30;
             ArmorClass = 15;
             StartPosition = new Vector2(5, 0);
-            EntityPrefab = Resources.Load<GameObject>("Prefabs/PlayerPrefab");
+            EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Mino_Prefab");
             MoveSpeed = 7f;
             Name = "Biv";
             MaxTileCount = 15;
