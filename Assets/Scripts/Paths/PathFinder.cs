@@ -11,13 +11,11 @@ namespace Paths
     {
         public Vector3Int cellPosition;
         public int depth;
-        public CellInfo previous;
 
-        public CellInfo(Vector3Int cellPosition, int depth, CellInfo previous)
+        public CellInfo(Vector3Int cellPosition, int depth)
         {
             this.cellPosition = cellPosition;
             this.depth = depth;
-            this.previous = previous;
         }
     }
 
@@ -25,18 +23,17 @@ namespace Paths
     {
         public static List<Vector3Int> BFS(GameObject activeEntity, GameObject targetEntity)
         {
-            var wallCollider = GameModel.Instance.Walls.GetComponent<TilemapCollider2D>();
             var activeEntityLogic = activeEntity.GetComponent<EntityWrapper>().Entity;
             var weapon = activeEntityLogic.CurrentWeapon;
             
             var startCellPos = GameModel.Instance.Floor.WorldToCell(activeEntity.transform.position);
-            var startCell = new CellInfo(startCellPos, 0, null);
+            var startCell = new CellInfo(startCellPos, 0);
             
             var queue = new Queue<CellInfo>();
             queue.Enqueue(startCell);
             
-            var visited = new HashSet<Vector3Int>();
-            visited.Add(startCellPos);
+            var paths = new Dictionary<Vector3Int?, Vector3Int?>();
+            paths[startCellPos] = null;
             
             while (queue.Count != 0)
             {
@@ -44,14 +41,14 @@ namespace Paths
                 if (Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(currentCell.cellPosition), 
                         targetEntity.transform.position) <= weapon.Range &&
                     !IsBlocked(currentCell.cellPosition, targetEntity))
-                    return ReconstructPath(currentCell);
+                    return ReconstructPath(paths, currentCell.cellPosition);
                 if (currentCell.depth >= activeEntityLogic.CurrentTileCount) continue;
                 foreach (var neighbor in GetNeighbors(currentCell.cellPosition))
                 {
-                    if (CanMove(currentCell.cellPosition, neighbor) && !visited.Contains(neighbor))
+                    if (CanMove(currentCell.cellPosition, neighbor) && !paths.ContainsKey(neighbor))
                     {
-                        queue.Enqueue(new CellInfo(neighbor, currentCell.depth + 1, currentCell));
-                        visited.Add(neighbor);
+                        queue.Enqueue(new CellInfo(neighbor, currentCell.depth + 1));
+                        paths[neighbor] = currentCell.cellPosition;
                     }
                 }
             }
@@ -59,13 +56,13 @@ namespace Paths
             return null;
         }
 
-        private static List<Vector3Int> ReconstructPath(CellInfo cell)
+        private static List<Vector3Int> ReconstructPath(Dictionary<Vector3Int?, Vector3Int?> paths, Vector3Int? cellpos)
         {
             var path = new List<Vector3Int>();
-            while (cell.previous != null)
+            while (paths[cellpos] != null)
             {
-                path.Add(cell.cellPosition);
-                cell = cell.previous;
+                path.Add((Vector3Int)cellpos);
+                cellpos = paths[cellpos];
             }
             path.Reverse();
             return path;
