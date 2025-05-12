@@ -65,7 +65,6 @@ namespace Entities.MainPlayers
                 if (target != null)
                 {
                     self.Attack(target.GetComponent<EntityWrapper>().Entity);
-                    self.MainActionPoint--;
                 }
                 stateMachine.ChangeState(ActiveState.Instance);
             }

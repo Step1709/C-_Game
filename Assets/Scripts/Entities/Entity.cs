@@ -40,6 +40,8 @@ namespace Entities
             {
                 Debug.Log($"{Name} не попадает по {target.Name}");
             }
+
+            MainActionPoint--;
         }
 
         public void UpdateStats()
