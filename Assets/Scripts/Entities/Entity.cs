@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Abilities;
 using Scenes;
 using UnityEngine;
 using Weapons;
 
 namespace Entities
 {
-    public class Entity
+    public abstract class Entity
     {
         public int Health;
 
@@ -31,6 +32,8 @@ namespace Entities
         
         public int MainActionPoint;
         
+        public IAbility currentAbility { get; protected set; }
+        
         public void Attack(Entity target)
         {
             if (Random.Range(1, 20) > target.ArmorClass)
@@ -51,5 +54,9 @@ namespace Entities
             CurrentTileCount = MaxTileCount;
             MainActionPoint = 1;
         }
+
+        public abstract void ChangeAbility(IAbility ability);
+        
+        public abstract void UseAbility();
     }
 }

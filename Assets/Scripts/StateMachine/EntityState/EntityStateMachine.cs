@@ -4,13 +4,10 @@ using UnityEngine;
 
 namespace Scenes.EntityState2
 {
-    public class EntityStateMachine : MonoBehaviour
+    public abstract class EntityStateMachine : MonoBehaviour
     {
         public IEntityState currentState { get; protected set; }
 
-        public virtual void ChangeState(IEntityState newState)
-        {
-            
-        }
+        public abstract void ChangeState(IEntityState newState);
     }
 }

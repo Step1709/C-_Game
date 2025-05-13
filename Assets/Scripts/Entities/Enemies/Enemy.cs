@@ -1,3 +1,4 @@
+using Abilities;
 using Scenes;
 using UnityEngine;
 
@@ -11,6 +12,18 @@ namespace Entities
             MoveSpeed = moveSpeed;
             EntityPrefab = Resources.Load<GameObject>(pathToPrefab);
             Name = name;
+        }
+
+        public override void ChangeAbility(IAbility ability)
+        {
+            currentAbility.Remove(this);
+            ability.Choose(this);
+            currentAbility = ability;
+        }
+
+        public override void UseAbility()
+        {
+            currentAbility.Use(this);
         }
     }
 }
