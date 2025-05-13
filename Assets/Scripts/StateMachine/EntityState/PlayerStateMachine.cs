@@ -25,8 +25,8 @@ namespace Scenes.EntityState2
         
         public override void ChangeState(IEntityState newState)
         {
-            currentState.Exit(this);
-            newState.Enter(this);
+            currentState?.Exit(this);
+            newState?.Enter(this);
             currentState = newState;
         }
     }

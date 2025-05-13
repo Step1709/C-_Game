@@ -8,14 +8,21 @@ namespace Scenes
     {
         public override void ChangeAbility(IAbility ability)
         {
-            currentAbility.Remove(this);
-            ability.Choose(this);
+            currentAbility?.Remove(this);
+            ability?.Choose(this);
             currentAbility = ability;
         }
         
         public override void UseAbility()
         {
-            currentAbility.Use(this);
+            if (currentAbility is null)
+            {
+                
+            }
+            else
+            {
+                currentAbility.Use(this);
+            }
         }
     }
 }
