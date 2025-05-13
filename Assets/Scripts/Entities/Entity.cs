@@ -20,6 +20,8 @@ namespace Entities
         public float MoveSpeed;
         
         public GameObject EntityPrefab;
+
+        public GameObject GameObject;
         
         public string Name;
 
