@@ -15,9 +15,9 @@ namespace Scenes
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
-            Ashen.Instance.PlayerObject = InitPlayer(Ashen.Instance);
-            Biv.Instance.PlayerObject = InitPlayer(Biv.Instance);
-            GameModel.Instance.ChosenPlayer = Ashen.Instance.PlayerObject;
+            GameModel.Instance.MainPlayers.Add(InitPlayer(Ashen.Instance));
+            GameModel.Instance.MainPlayers.Add(InitPlayer(Biv.Instance));
+            GameModel.Instance.ChosenPlayer = Ashen.Instance.GameObject;
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer;
         }
 
@@ -35,7 +35,7 @@ namespace Scenes
             playerAction.self = logic;
             var playerFightController = player.GetComponent<PlayerFightController>();
             playerFightController.player = logic;
-            GameModel.Instance.MainPlayers.Add(player);
+            logic.GameObject = player;
             return player;
         }
     }

@@ -5,7 +5,6 @@ namespace Scenes
 {
     public class MainPlayer : Entity
     {
-        public GameObject PlayerObject;
     }
 }
 
