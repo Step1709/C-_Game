@@ -1,3 +1,4 @@
+using Abilities;
 using Scenes;
 using Scenes.EntityState2;
 using UnityEngine;
@@ -6,21 +7,23 @@ namespace Entities.MainPlayers
 {
     public class PlayerFightController : MonoBehaviour
     {
-        [SerializeField]
-        private PathController pathController;
-        [SerializeField]
-        private PlayerStateMachine stateMachine;
-
         public MainPlayer player;
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(1) && pathController.path != null)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (player.MainActionPoint <=0 && pathController.target!=null)
-                    Debug.Log("нет очков основного действия");
-                else
-                    stateMachine.ChangeState(PlayerActionState.Instance);
+                player.ChangeAbility(NoAbility.Instance);
+                Debug.Log("убрали все");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                player.ChangeAbility(player.CurrentWeapon);
+                Debug.Log("взяли оружие");
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                player.UseAbility();
             }
         }
     }

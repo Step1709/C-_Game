@@ -15,14 +15,7 @@ namespace Scenes
         
         public override void UseAbility()
         {
-            if (currentAbility is null)
-            {
-                
-            }
-            else
-            {
-                currentAbility.Use(this);
-            }
+            currentAbility.Use(this);
         }
     }
 }

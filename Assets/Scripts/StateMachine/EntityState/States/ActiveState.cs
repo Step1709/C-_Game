@@ -1,3 +1,5 @@
+using Abilities;
+using Entities;
 using Scenes.Scene;
 
 namespace Scenes.EntityState2
@@ -8,14 +10,13 @@ namespace Scenes.EntityState2
         public void Enter(PlayerStateMachine stateMachine)
         { 
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
-            stateMachine.pathController.enabled = true;
+            stateMachine.gameObject.GetComponent<EntityWrapper>().Entity.ChangeAbility(NoAbility.Instance);
             stateMachine.fightController.enabled = true;
             stateMachine.finishMove.enabled = true;
         }
 
         public void Exit(PlayerStateMachine stateMachine)
         {
-            stateMachine.pathController.enabled = false;
             stateMachine.fightController.enabled = false;
             stateMachine.finishMove.enabled = false;
         }

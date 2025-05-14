@@ -10,6 +10,7 @@ namespace Entities
         {
             Health = 10;
             ArmorClass = 8;
+            currentAbility = new Weapon(6, 14,1.2f, 0);
             CurrentWeapon = new Weapon(6, 14,1.2f, 0);
             MaxTileCount = 9;
         }

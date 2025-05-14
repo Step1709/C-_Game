@@ -32,7 +32,7 @@ namespace Entities
             var minPathLenght = int.MaxValue;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                var currentpath = PathFinder.BFS(gameObject, player);
+                var currentpath = PathFinder.BFS(gameObject, player.transform.position);
                 if (currentpath != null && currentpath.Count < minPathLenght)
                 {
                     path = currentpath;

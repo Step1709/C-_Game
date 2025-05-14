@@ -13,8 +13,6 @@ namespace Scenes.EntityState2
         
         public PlayerBaseHandler baseHandler;
         
-        public PathController pathController;
-        
         public PlayerFightController fightController;
         
         public PlayerAction playerAction;
