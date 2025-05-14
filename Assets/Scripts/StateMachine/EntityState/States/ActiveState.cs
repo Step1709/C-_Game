@@ -10,7 +10,6 @@ namespace Scenes.EntityState2
         public void Enter(PlayerStateMachine stateMachine)
         { 
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
-            stateMachine.gameObject.GetComponent<EntityWrapper>().Entity.ChangeAbility(NoAbility.Instance);
             stateMachine.fightController.enabled = true;
             stateMachine.finishMove.enabled = true;
         }

@@ -15,7 +15,7 @@ namespace Scenes.EntityState2
         
         public PlayerFightController fightController;
         
-        public PlayerAction playerAction;
+        public PathController pathController;
         void Awake()
         {
             currentState = PreparingState.Instance;

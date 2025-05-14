@@ -1,16 +1,16 @@
 namespace Scenes.EntityState2
 {
-    public class PlayerActionState : IEntityState
+    public class AttackState : IEntityState
     {
-        public  static PlayerActionState Instance { get; } = new PlayerActionState();
+        public static AttackState Instance { get; } = new AttackState();
         public void Enter(PlayerStateMachine stateMachine)
         {
-            stateMachine.playerAction.enabled = true;
+            stateMachine.pathController.enabled = false;
         }
 
         public void Exit(PlayerStateMachine stateMachine)
         {
-            stateMachine.playerAction.enabled = false;
+            stateMachine.pathController.enabled = true;
         }
 
         public void Enter(EnemyStateMachine stateMachine)

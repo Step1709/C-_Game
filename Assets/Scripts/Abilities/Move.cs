@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Entities;
 using Scenes;
+using Scenes.EntityState2;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,6 +11,7 @@ namespace Abilities
     {
         public List<Vector3Int> path;
         public Entity self;
+        public bool isUsed;
         private List<Vector3> pathWorldPositions;
         private bool isMoving;
         private Vector3 offset = new Vector3(0, 0.4f, 0);
@@ -56,6 +58,7 @@ namespace Abilities
             if (isMoving == false)
             {
                 enabled = false;
+                if (!isUsed) gameObject.GetComponent<EntityStateMachine>().ChangeState(ActiveState.Instance);
             }
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Entities;
+using Scenes.EntityState2;
 using UnityEngine;
 
 namespace Abilities
@@ -12,6 +13,7 @@ namespace Abilities
         public Move move;
         void OnEnable()
         {
+            move.isUsed = true;
             move.path = pathToTarget;
             move.enabled = true;
         }
@@ -25,6 +27,7 @@ namespace Abilities
                     Debug.Log("атакуем ничего");
                 }
                 else self.Attack(target.GetComponent<EntityWrapper>().Entity);
+                gameObject.GetComponent<EntityStateMachine>().ChangeState(ActiveState.Instance);
                 enabled = false;
             }
         }

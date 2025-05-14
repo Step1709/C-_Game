@@ -1,6 +1,7 @@
 using Abilities;
 using Entities;
 using Scenes;
+using Scenes.EntityState2;
 using UnityEngine;
 
 namespace Weapons
@@ -51,6 +52,7 @@ namespace Weapons
                     player.MainActionPoint--;
                     attack.target = pathController.target;
                     attack.pathToTarget = pathController.path;
+                    player.GameObject.GetComponent<EntityStateMachine>().ChangeState(AttackState.Instance);
                     attack.enabled = true;
                 }
             }

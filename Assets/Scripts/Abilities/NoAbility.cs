@@ -1,5 +1,6 @@
 using Entities;
 using Scenes;
+using Scenes.EntityState2;
 using UnityEngine;
 
 namespace Abilities
@@ -16,7 +17,7 @@ namespace Abilities
         public void Remove(MainPlayer player)
         {
             var playerObj = player.GameObject;
-            playerObj.GetComponent<PathController>().enabled = true;
+            playerObj.GetComponent<PathController>().enabled = false;
         }
 
         public void Use(MainPlayer player)
@@ -27,6 +28,8 @@ namespace Abilities
             {
                 var move = playerObj.GetComponent<Move>();
                 move.path = pathController.path;
+                move.isUsed = false;
+                player.GameObject.GetComponent<EntityStateMachine>().ChangeState(MovingState.Instance);
                 move.enabled = true;
             }
         }

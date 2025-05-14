@@ -1,27 +1,26 @@
-using Abilities;
-using Entities;
-
 namespace Scenes.EntityState2
 {
-    public class WaitingState : IEntityState
+    public class MovingState : IEntityState
     {
-        public static WaitingState Instance { get; } = new WaitingState();
+        public static MovingState Instance { get; } = new MovingState();
         public void Enter(PlayerStateMachine stateMachine)
         {
-            stateMachine.gameObject.GetComponent<EntityWrapper>().Entity.ChangeAbility(NoAbility.Instance);
-            stateMachine.finishMove.enabled = false;
+            stateMachine.pathController.enabled = false;
         }
 
         public void Exit(PlayerStateMachine stateMachine)
         {
+            stateMachine.pathController.enabled = true;
         }
 
         public void Enter(EnemyStateMachine stateMachine)
         {
+            throw new System.NotImplementedException();
         }
 
         public void Exit(EnemyStateMachine stateMachine)
         {
+            throw new System.NotImplementedException();
         }
     }
 }
