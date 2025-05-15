@@ -13,6 +13,7 @@ namespace Abilities
         public Move move;
         void OnEnable()
         {
+            gameObject.GetComponent<EntityStateMachine>().ChangeState(AttackState.Instance);
             move.isUsed = true;
             move.path = pathToTarget;
             move.enabled = true;

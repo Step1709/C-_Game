@@ -40,11 +40,11 @@ public class PathController : MonoBehaviour
              if (hit.collider != null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player")))
              {
                  target = hit.collider.gameObject;
-                 path = PathFinder.BFS(gameObject, target.transform.position);
+                 path = PathFinder.BFS(player, (Weapon)player.currentAbility, target.transform.position);
              }
              else if (GameModel.Instance.Floor.HasTile(GameModel.Instance.Floor.WorldToCell(mouseWorldPos)))
              {
-                 path = PathFinder.BFS(gameObject, mouseWorldPos);
+                 path = PathFinder.BFS(player, (Weapon)player.currentAbility,mouseWorldPos);
              }
          }
     }

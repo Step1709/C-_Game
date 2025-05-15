@@ -25,13 +25,12 @@ namespace Abilities
         }
         void OnEnable()
         {
+            if (!isUsed) gameObject.GetComponent<EntityStateMachine>().ChangeState(MovingState.Instance);
             pathWorldPositions = new List<Vector3>();
             foreach (var cell in path)
             {
                 pathWorldPositions.Add(tileMap.GetCellCenterWorld(cell) + offset);
             }
-
-            self.CurrentTileCount -= path.Count;
             currentTargetIndex = 0;
             isMoving = true;
         }
@@ -47,6 +46,8 @@ namespace Abilities
                 if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
                 {
                     currentTargetIndex++;
+                    self.CurrentTileCount--;
+                    Debug.Log(self.CurrentTileCount);
                     if (currentTargetIndex >= pathWorldPositions.Count)
                     {
                         isMoving = false;

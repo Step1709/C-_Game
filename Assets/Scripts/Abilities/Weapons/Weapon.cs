@@ -49,11 +49,15 @@ namespace Weapons
                 var pathController = playerObj.GetComponent<PathController>();
                 if (pathController.path != null)
                 {
-                    player.MainActionPoint--;
-                    attack.target = pathController.target;
-                    attack.pathToTarget = pathController.path;
-                    player.GameObject.GetComponent<EntityStateMachine>().ChangeState(AttackState.Instance);
-                    attack.enabled = true;
+                    if (pathController.target is not null && pathController.target.CompareTag("Player"))
+                        Debug.Log("нельзя атаковать союзника");
+                    else
+                    {
+                        player.MainActionPoint--;
+                        attack.target = pathController.target;
+                        attack.pathToTarget = pathController.path;
+                        attack.enabled = true;
+                    }
                 }
             }
             else Debug.Log("Нет очков действия");

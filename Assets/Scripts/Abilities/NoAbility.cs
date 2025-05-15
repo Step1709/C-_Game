@@ -29,7 +29,6 @@ namespace Abilities
                 var move = playerObj.GetComponent<Move>();
                 move.path = pathController.path;
                 move.isUsed = false;
-                player.GameObject.GetComponent<EntityStateMachine>().ChangeState(MovingState.Instance);
                 move.enabled = true;
             }
         }

@@ -53,6 +53,7 @@ namespace Fighting
         {
             var enemy = Instantiate(logic.EntityPrefab, logic.StartPosition, Quaternion.identity);
             enemy.name = logic.Name;
+            logic.GameObject = enemy;
             var wrapper = enemy.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
             var enemyAI = enemy.GetComponent<EnemyAI>();

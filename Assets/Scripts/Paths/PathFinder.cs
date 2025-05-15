@@ -22,12 +22,9 @@ namespace Paths
 
     public class PathFinder
     {
-        public static List<Vector3Int> BFS(GameObject activeEntity, Vector3 targetPosition)
+        public static List<Vector3Int> BFS(Entity activeEntityLogic, Weapon weapon, Vector3 targetPosition)
         {
-            var activeEntityLogic = activeEntity.GetComponent<EntityWrapper>().Entity;
-            var weapon = (Weapon)activeEntityLogic.currentAbility;
-            
-            var startCellPos = GameModel.Instance.Floor.WorldToCell(activeEntity.transform.position);
+            var startCellPos = GameModel.Instance.Floor.WorldToCell(activeEntityLogic.GameObject.transform.position);
             var startCell = new CellInfo(startCellPos, 0);
             
             var queue = new Queue<CellInfo>();
