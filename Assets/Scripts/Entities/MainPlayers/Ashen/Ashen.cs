@@ -17,7 +17,7 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Ashen";
             MaxTileCount = 15;
-            CurrentWeapon = new Weapon(10, 20, 10f, 0);
+            CurrentWeapon = new Weapon(10, 20, 10f, 5f);
         }
         
     }

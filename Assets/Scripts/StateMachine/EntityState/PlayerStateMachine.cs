@@ -13,11 +13,9 @@ namespace Scenes.EntityState2
         
         public PlayerBaseHandler baseHandler;
         
-        public PathController pathController;
-        
         public PlayerFightController fightController;
         
-        public PlayerAction playerAction;
+        public PathController pathController;
         void Awake()
         {
             currentState = PreparingState.Instance;
@@ -25,8 +23,8 @@ namespace Scenes.EntityState2
         
         public override void ChangeState(IEntityState newState)
         {
-            currentState.Exit(this);
-            newState.Enter(this);
+            currentState?.Exit(this);
+            newState?.Enter(this);
             currentState = newState;
         }
     }

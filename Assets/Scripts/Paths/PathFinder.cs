@@ -4,6 +4,7 @@ using Entities;
 using Scenes;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Weapons;
 
 namespace Paths
 {
@@ -21,12 +22,9 @@ namespace Paths
 
     public class PathFinder
     {
-        public static List<Vector3Int> BFS(GameObject activeEntity, GameObject targetEntity)
+        public static List<Vector3Int> BFS(Entity activeEntityLogic, Weapon weapon, Vector3 targetPosition)
         {
-            var activeEntityLogic = activeEntity.GetComponent<EntityWrapper>().Entity;
-            var weapon = activeEntityLogic.CurrentWeapon;
-            
-            var startCellPos = GameModel.Instance.Floor.WorldToCell(activeEntity.transform.position);
+            var startCellPos = GameModel.Instance.Floor.WorldToCell(activeEntityLogic.GameObject.transform.position);
             var startCell = new CellInfo(startCellPos, 0);
             
             var queue = new Queue<CellInfo>();
@@ -39,8 +37,8 @@ namespace Paths
             {
                 var currentCell = queue.Dequeue();
                 if (Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(currentCell.cellPosition), 
-                        targetEntity.transform.position) <= weapon.Range &&
-                    !IsBlocked(currentCell.cellPosition, targetEntity))
+                        targetPosition) <= weapon.Range &&
+                    !IsBlocked(currentCell.cellPosition, targetPosition))
                     return ReconstructPath(paths, currentCell.cellPosition);
                 if (currentCell.depth >= activeEntityLogic.CurrentTileCount) continue;
                 foreach (var neighbor in GetNeighbors(currentCell.cellPosition))
@@ -169,9 +167,9 @@ namespace Paths
             yield return new Vector3Int(cell.x, cell.y - 1, cell.z);
         }
 
-        private static bool IsBlocked(Vector3 start, GameObject targetEntity)
+        private static bool IsBlocked(Vector3 start, Vector3 targetPosition)
         {
-            var hits = Physics2D.LinecastAll(start, targetEntity.transform.position);
+            var hits = Physics2D.LinecastAll(start, targetPosition);
             foreach (var hit in hits)
             {
                 if (hit.collider != null)

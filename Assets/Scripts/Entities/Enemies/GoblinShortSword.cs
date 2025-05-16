@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Abilities;
 using UnityEngine;
 using Weapons;
 
@@ -10,8 +12,11 @@ namespace Entities
         {
             Health = 10;
             ArmorClass = 8;
-            CurrentWeapon = new Weapon(6, 14,1.2f, 0);
+            currentAbility = new Weapon(6, 14,5f, 0);
             MaxTileCount = 9;
+            Abilities = new List<IAbility>();
+            Abilities.Add(currentAbility);
+            Abilities.Add(NoAbility.Instance);
         }
     }
 }

@@ -1,3 +1,4 @@
+using Abilities;
 using Entities;
 using Entities.MainPlayers;
 using Scenes.Scene;
@@ -31,10 +32,12 @@ namespace Scenes
             baseHandler.mainPlayer = logic;
             var pathController = player.GetComponent<PathController>();
             pathController.player = logic;
-            var playerAction = player.GetComponent<PlayerAction>();
-            playerAction.self = logic;
             var playerFightController = player.GetComponent<PlayerFightController>();
             playerFightController.player = logic;
+            var move = player.GetComponent<Move>();
+            move.self = logic;
+            var attack = player.GetComponent<Attack>();
+            attack.self = logic;
             logic.GameObject = player;
             return player;
         }

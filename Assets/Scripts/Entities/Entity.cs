@@ -1,17 +1,18 @@
 using System.Collections.Generic;
+using Abilities;
 using Scenes;
 using UnityEngine;
 using Weapons;
 
 namespace Entities
 {
-    public class Entity
+    public abstract class Entity
     {
         public int Health;
 
         public int ArmorClass;
         
-        public List<Weapon> Weapons;
+        public List<IAbility> Abilities;
 
         public Weapon CurrentWeapon;
         
@@ -31,25 +32,16 @@ namespace Entities
         
         public int MainActionPoint;
         
-        public void Attack(Entity target)
-        {
-            if (Random.Range(1, 20) > target.ArmorClass)
-            {
-                Debug.Log($"{Name} попадает по {target.Name}");
-                CurrentWeapon.Attack(target);
-            }
-            else
-            {
-                Debug.Log($"{Name} не попадает по {target.Name}");
-            }
-
-            MainActionPoint--;
-        }
+        public IAbility currentAbility { get; protected set; }
 
         public void UpdateStats()
         {
             CurrentTileCount = MaxTileCount;
             MainActionPoint = 1;
         }
+
+        public abstract void ChangeAbility(IAbility ability);
+        
+        public abstract void UseAbility();
     }
 }

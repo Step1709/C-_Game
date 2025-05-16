@@ -1,27 +1,23 @@
 using System.Collections.Generic;
-using System.Linq;
-using Paths;
+using Entities;
 using Scenes;
 using Scenes.EntityState2;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Entities.MainPlayers
+namespace Abilities
 {
-    public class PlayerAction : MonoBehaviour
+    public class Move : MonoBehaviour
     {
-        [SerializeField]
-        private PlayerStateMachine stateMachine;
-        [SerializeField]
-        private PathController pathController;
-        
+        public List<Vector3Int> path;
+        public Entity self;
+        public bool isUsed;
         private List<Vector3> pathWorldPositions;
-        private GameObject target;
         private bool isMoving;
         private Vector3 offset = new Vector3(0, 0.4f, 0);
         private Tilemap tileMap;
         private int currentTargetIndex;
-        public MainPlayer self;
+        
 
         void Awake()
         {
@@ -29,16 +25,14 @@ namespace Entities.MainPlayers
         }
         void OnEnable()
         {
-            target = pathController.target;
+            if (!isUsed) gameObject.GetComponent<EntityStateMachine>().ChangeState(MovingState.Instance);
             pathWorldPositions = new List<Vector3>();
-            foreach (var cell in pathController.path)
+            foreach (var cell in path)
             {
                 pathWorldPositions.Add(tileMap.GetCellCenterWorld(cell) + offset);
             }
-
             currentTargetIndex = 0;
             isMoving = true;
-            self.CurrentTileCount-=pathWorldPositions.Count;
         }
 
         void Update()
@@ -52,6 +46,8 @@ namespace Entities.MainPlayers
                 if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
                 {
                     currentTargetIndex++;
+                    self.CurrentTileCount--;
+                    Debug.Log(self.CurrentTileCount);
                     if (currentTargetIndex >= pathWorldPositions.Count)
                     {
                         isMoving = false;
@@ -62,11 +58,8 @@ namespace Entities.MainPlayers
 
             if (isMoving == false)
             {
-                if (target != null)
-                {
-                    self.Attack(target.GetComponent<EntityWrapper>().Entity);
-                }
-                stateMachine.ChangeState(ActiveState.Instance);
+                enabled = false;
+                if (!isUsed) gameObject.GetComponent<EntityStateMachine>().ChangeState(ActiveState.Instance);
             }
         }
     }
