@@ -228,9 +228,8 @@ MonoBehaviour:
   TileGraph: {fileID: -8763126673787654160}
   finishMove: {fileID: 8789734002763866422}
   baseHandler: {fileID: 6188297143758377618}
-  pathController: {fileID: 6285000392341898648}
   fightController: {fileID: 5733863758617329464}
-  playerAction: {fileID: 0}
+  pathController: {fileID: 6285000392341898648}
 --- !u!114 &6285000392341898648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: []
   target: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
 --- !u!61 &-9114815161218707179
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -316,6 +316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: []
+  isUsed: 0
+  stateMachine: {fileID: -8056622404269193303}
 --- !u!114 &1101626443504123071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c941afb194c84f55a835059d4e86915a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   pathToTarget: []
   move: {fileID: 8148023024319343748}
+  stateMachine: {fileID: -8056622404269193303}

@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: []
   isUsed: 0
+  stateMachine: {fileID: -6996931107153907824}
 --- !u!114 &-8619082799470862193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c941afb194c84f55a835059d4e86915a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   pathToTarget: []
   move: {fileID: -5904656507165315651}
+  stateMachine: {fileID: -6996931107153907824}

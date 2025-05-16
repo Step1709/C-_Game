@@ -18,6 +18,8 @@ namespace Abilities
         private Tilemap tileMap;
         private int currentTargetIndex;
         
+        [SerializeField]
+        private EntityStateMachine stateMachine;
 
         void Awake()
         {
@@ -25,7 +27,7 @@ namespace Abilities
         }
         void OnEnable()
         {
-            if (!isUsed) gameObject.GetComponent<EntityStateMachine>().ChangeState(MovingState.Instance);
+            if (!isUsed) stateMachine.ChangeState(MovingState.Instance);
             pathWorldPositions = new List<Vector3>();
             foreach (var cell in path)
             {
@@ -47,7 +49,6 @@ namespace Abilities
                 {
                     currentTargetIndex++;
                     self.CurrentTileCount--;
-                    Debug.Log(self.CurrentTileCount);
                     if (currentTargetIndex >= pathWorldPositions.Count)
                     {
                         isMoving = false;
@@ -59,7 +60,7 @@ namespace Abilities
             if (isMoving == false)
             {
                 enabled = false;
-                if (!isUsed) gameObject.GetComponent<EntityStateMachine>().ChangeState(ActiveState.Instance);
+                if (!isUsed) stateMachine.ChangeState(ActiveState.Instance);
             }
         }
     }

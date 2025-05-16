@@ -13,9 +13,12 @@ namespace Abilities
         public List<Vector3Int> pathToTarget;
         public Entity self;
         public Move move;
+        
+        [SerializeField]
+        private EntityStateMachine stateMachine;
         void OnEnable()
         {
-            gameObject.GetComponent<EntityStateMachine>().ChangeState(AttackState.Instance);
+            stateMachine.ChangeState(AttackState.Instance);
             move.isUsed = true;
             move.path = pathToTarget;
             move.enabled = true;
@@ -27,7 +30,7 @@ namespace Abilities
             {
                 ((Weapon)self.currentAbility).Attack(self, target?.GetComponent<EntityWrapper>().Entity, targetPosition);
                 self.MainActionPoint--;
-                gameObject.GetComponent<EntityStateMachine>().ChangeState(ActiveState.Instance);
+                stateMachine.ChangeState(ActiveState.Instance);
                 enabled = false;
             }
         }
