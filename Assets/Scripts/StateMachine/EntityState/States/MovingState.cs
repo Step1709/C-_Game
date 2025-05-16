@@ -15,12 +15,10 @@ namespace Scenes.EntityState2
 
         public void Enter(EnemyStateMachine stateMachine)
         {
-            throw new System.NotImplementedException();
         }
 
         public void Exit(EnemyStateMachine stateMachine)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

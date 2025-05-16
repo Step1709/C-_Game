@@ -15,6 +15,7 @@ public class PathController : MonoBehaviour
 
     public List<Vector3Int> path;
     public GameObject target;
+    public Vector3 targetPos;
 
     private void Start()
     {
@@ -41,10 +42,12 @@ public class PathController : MonoBehaviour
              {
                  target = hit.collider.gameObject;
                  path = PathFinder.BFS(player, (Weapon)player.currentAbility, target.transform.position);
+                 targetPos = target.transform.position;
              }
              else if (GameModel.Instance.Floor.HasTile(GameModel.Instance.Floor.WorldToCell(mouseWorldPos)))
              {
                  path = PathFinder.BFS(player, (Weapon)player.currentAbility,mouseWorldPos);
+                 targetPos = mouseWorldPos;
              }
          }
     }

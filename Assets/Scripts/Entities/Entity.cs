@@ -12,7 +12,7 @@ namespace Entities
 
         public int ArmorClass;
         
-        public List<Weapon> Weapons;
+        public List<IAbility> Abilities;
 
         public Weapon CurrentWeapon;
         
@@ -33,21 +33,6 @@ namespace Entities
         public int MainActionPoint;
         
         public IAbility currentAbility { get; protected set; }
-        
-        public void Attack(Entity target)
-        {
-            if (Random.Range(1, 20) > target.ArmorClass)
-            {
-                Debug.Log($"{Name} попадает по {target.Name}");
-                CurrentWeapon.Attack(target);
-            }
-            else
-            {
-                Debug.Log($"{Name} не попадает по {target.Name}");
-            }
-
-            MainActionPoint--;
-        }
 
         public void UpdateStats()
         {

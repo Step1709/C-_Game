@@ -7,10 +7,10 @@ namespace Abilities
     {
         void Choose(MainPlayer player);
         void Remove(MainPlayer player);
-        void Use(MainPlayer player);
+        bool Use(MainPlayer player);
         
         void Choose(Enemy enemy);
         void Remove(Enemy enemy);
-        void Use(Enemy enemy);
+        bool Use(Enemy enemy);
     }
 }

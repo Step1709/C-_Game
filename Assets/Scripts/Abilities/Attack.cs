@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using Entities;
 using Scenes.EntityState2;
 using UnityEngine;
+using Weapons;
 
 namespace Abilities
 {
     public class Attack : MonoBehaviour
     {
+        public Vector3 targetPosition;
         public GameObject target;
         public List<Vector3Int> pathToTarget;
         public Entity self;
@@ -23,11 +25,8 @@ namespace Abilities
         {
             if (!move.enabled)
             {
-                if (target is null)
-                {
-                    Debug.Log("атакуем ничего");
-                }
-                else self.Attack(target.GetComponent<EntityWrapper>().Entity);
+                ((Weapon)self.currentAbility).Attack(self, target?.GetComponent<EntityWrapper>().Entity, targetPosition);
+                self.MainActionPoint--;
                 gameObject.GetComponent<EntityStateMachine>().ChangeState(ActiveState.Instance);
                 enabled = false;
             }

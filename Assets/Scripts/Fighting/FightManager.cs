@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Abilities;
 using Entities;
 using Scenes;
 using Scenes.EntityState2;
@@ -58,6 +59,10 @@ namespace Fighting
             wrapper.Entity = logic;
             var enemyAI = enemy.GetComponent<EnemyAI>();
             enemyAI.self = logic;
+            var move = enemy.GetComponent<Move>();
+            move.self = logic;
+            var attack = enemy.GetComponent<Attack>();
+            attack.self = logic;
             return enemy;
         }
     }

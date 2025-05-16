@@ -10,6 +10,7 @@ namespace Scenes.EntityState2
         public void Enter(PlayerStateMachine stateMachine)
         { 
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
+            CameraClass.Instance.IsFree = false;
             stateMachine.fightController.enabled = true;
             stateMachine.finishMove.enabled = true;
         }
@@ -23,6 +24,7 @@ namespace Scenes.EntityState2
         public void Enter(EnemyStateMachine stateMachine)
         {
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
+            CameraClass.Instance.IsFree = false;
             stateMachine.EnemyAI.enabled = true;
         }
 

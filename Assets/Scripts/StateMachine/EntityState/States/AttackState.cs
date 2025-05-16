@@ -15,12 +15,12 @@ namespace Scenes.EntityState2
 
         public void Enter(EnemyStateMachine stateMachine)
         {
-            throw new System.NotImplementedException();
+            stateMachine.EnemyAI.enabled = false;
         }
 
         public void Exit(EnemyStateMachine stateMachine)
         {
-            throw new System.NotImplementedException();
+            stateMachine.EnemyAI.enabled = true;
         }
     }
 }
