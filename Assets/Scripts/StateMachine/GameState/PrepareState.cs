@@ -16,7 +16,7 @@ namespace Scenes
             changeChosen.enabled = true;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                var stateMachine = player.GetComponent<PlayerStateMachine>();
+                var stateMachine = player.GameObject.GetComponent<PlayerStateMachine>();
                 stateMachine.ChangeState(PreparingState.Instance);
             }
             prepareManager.enabled = true;

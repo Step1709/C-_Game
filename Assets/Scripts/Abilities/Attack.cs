@@ -9,7 +9,7 @@ namespace Abilities
     public class Attack : MonoBehaviour
     {
         public Vector3 targetPosition;
-        public GameObject target;
+        public Entity target;
         public List<Vector3Int> pathToTarget;
         public Entity self;
         public Move move;
@@ -28,7 +28,7 @@ namespace Abilities
         {
             if (!move.enabled)
             {
-                ((Weapon)self.currentAbility).Attack(self, target?.GetComponent<EntityWrapper>().Entity, targetPosition);
+                ((Weapon)self.currentAbility).Attack(self, target, targetPosition);
                 self.MainActionPoint--;
                 stateMachine.ChangeState(ActiveState.Instance);
                 enabled = false;

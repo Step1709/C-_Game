@@ -53,7 +53,7 @@ namespace Abilities
             var selfCellPos = GameModel.Instance.Floor.WorldToCell(enemy.GameObject.transform.position);
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                var playerCellPos = GameModel.Instance.Floor.WorldToCell(player.transform.position);
+                var playerCellPos = GameModel.Instance.Floor.WorldToCell(player.GameObject.transform.position);
                 var currentpath = PathFinder.AStar(selfCellPos, playerCellPos).Take(enemy.CurrentTileCount).ToList();
                 if (currentpath.Count < minPathLenght)
                 {

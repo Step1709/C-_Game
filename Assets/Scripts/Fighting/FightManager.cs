@@ -11,7 +11,7 @@ namespace Fighting
     public class FightManager : MonoBehaviour
     {
         private Wave currentWave;
-        private List<GameObject> entities;
+        private List<Entity> entities;
         private int currentEntityIndex;
         private EntityStateMachine stateMachine;
         private Entity entity;
@@ -19,22 +19,23 @@ namespace Fighting
         {
             currentEntityIndex = 0;
             currentWave = GameModel.Instance.Waves.Dequeue();
-            entities = GameModel.Instance.MainPlayers.ToList();
+            entities = GameModel.Instance.MainPlayers.Select(x=>(Entity)x).ToList();
             foreach (var entity in currentWave.enemies)
             {
-                entities.Add(InitEnemy(entity));
+                entities.Add(entity);
+                InitEnemy(entity);
             }
             entities = entities.OrderByDescending(entity => Random.Range(1,20)).ToList();
             Debug.Log("порядок ходов");
             foreach (var entity in entities)
             {
-                Debug.Log(entity.name);
+                Debug.Log(entity.Name);
             }
-            stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
-            entity = entities[currentEntityIndex].GetComponent<EntityWrapper>().Entity;
+            stateMachine = entities[currentEntityIndex].GameObject.GetComponent<EntityStateMachine>();
+            entity = entities[currentEntityIndex];
             entity.UpdateStats();
             stateMachine.ChangeState(ActiveState.Instance);
-            Debug.Log($"ход {entities[currentEntityIndex].name}");
+            Debug.Log($"ход {entities[currentEntityIndex].Name}");
         }
 
         void Update()
@@ -42,9 +43,9 @@ namespace Fighting
             if (stateMachine.currentState == WaitingState.Instance)
             {
                 currentEntityIndex = (currentEntityIndex + 1) % entities.Count;
-                Debug.Log($"ход {entities[currentEntityIndex].name}");
-                stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
-                entity = entities[currentEntityIndex].GetComponent<EntityWrapper>().Entity;
+                Debug.Log($"ход {entities[currentEntityIndex].Name}");
+                stateMachine = entities[currentEntityIndex].GameObject.GetComponent<EntityStateMachine>();
+                entity = entities[currentEntityIndex];
                 entity.UpdateStats();
                 stateMachine.ChangeState(ActiveState.Instance);
             }

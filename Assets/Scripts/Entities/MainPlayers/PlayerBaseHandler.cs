@@ -12,7 +12,7 @@ namespace Scenes
         private Vector2 movement;
         public void Update()
         {
-            if (gameObject == GameModel.Instance.ChosenPlayer)
+            if (gameObject == GameModel.Instance.ChosenPlayer.GameObject)
             {
                 movement.x = Input.GetAxisRaw("Horizontal");
                 movement.y = Input.GetAxisRaw("Vertical");
@@ -22,7 +22,7 @@ namespace Scenes
         public void FixedUpdate()
         {
             
-            if (gameObject == GameModel.Instance.ChosenPlayer)
+            if (gameObject == GameModel.Instance.ChosenPlayer.GameObject)
             {
                 rb.MovePosition(rb.position + mainPlayer.MoveSpeed 
                     * Time.fixedDeltaTime * movement.normalized);

@@ -54,6 +54,7 @@ namespace Weapons
                 Debug.Log($"{user.Name} попадает по {target.Name}");
                 var damage = Random.Range(minDamage, maxDamage);
                 target.Health -= damage;
+                if (target.Health <= 0) target.Health = 0;
                 Debug.Log($"у {target.Name} осталось {target.Health} хп после тычки на {damage} урона");
             }
             else
@@ -90,7 +91,7 @@ namespace Weapons
                 Debug.Log("нельзя атаковать себя");
                 return false;
             }
-            attack.target = pathController.target;
+            attack.target = pathController.target?.GetComponent<EntityWrapper>().Entity;
             attack.pathToTarget = pathController.path;
             attack.targetPosition = pathController.targetPos;
             attack.enabled = true;
@@ -111,12 +112,12 @@ namespace Weapons
             {
                 return false;
             }
-            GameObject target = null;
+            Entity target = null;
             List<Vector3Int> path = null;
             var minPathLenght = int.MaxValue;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                var currentpath = PathFinder.BFS(enemy, this, player.transform.position);
+                var currentpath = PathFinder.BFS(enemy, this, player.GameObject.transform.position);
                 if (currentpath != null && currentpath.Count < minPathLenght)
                 {
                     path = currentpath;
@@ -130,7 +131,7 @@ namespace Weapons
             var attack = enemy.GameObject.GetComponent<Attack>();
             attack.target = target;
             attack.pathToTarget = path;
-            attack.targetPosition = target.transform.position;
+            attack.targetPosition = target.GameObject.transform.position;
             enemy.ChangeAbility(this);
             attack.enabled = true;
             return true;

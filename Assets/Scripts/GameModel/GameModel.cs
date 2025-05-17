@@ -12,9 +12,11 @@ namespace Scenes
     {
         public static GameModel Instance { get; } = new GameModel();
         
-        public GameObject ChosenPlayer;
+        public MainPlayer ChosenPlayer;
         
-        public List<GameObject> MainPlayers;
+        public List<MainPlayer> MainPlayers = new List<MainPlayer>();
+        
+        public List<Enemy> Enemies = new List<Enemy>();
 
         public GameObject GameModelObject;
         
@@ -26,7 +28,6 @@ namespace Scenes
         
         public GameModel()
         {
-            MainPlayers = new List<GameObject>();
             Waves.Enqueue(new Wave(
                 new GoblinShortSword(new Vector2(5,5), 7f, "Prefabs/GoblinShortSwordPrefab", "pedik"), 
                 new GoblinShortSword(new Vector2(10,5), 7f, "Prefabs/GoblinShortSwordPrefab", "loh")));

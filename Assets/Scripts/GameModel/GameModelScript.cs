@@ -7,11 +7,11 @@ public class GameModelScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            GameModel.Instance.ChosenPlayer = Ashen.Instance.GameObject;
+            GameModel.Instance.ChosenPlayer = Ashen.Instance;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            GameModel.Instance.ChosenPlayer = Biv.Instance.GameObject;
+            GameModel.Instance.ChosenPlayer = Biv.Instance;
         }
     }
 }

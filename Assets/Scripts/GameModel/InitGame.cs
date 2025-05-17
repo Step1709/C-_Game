@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Abilities;
 using Entities;
 using Entities.MainPlayers;
@@ -16,10 +17,13 @@ namespace Scenes
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
-            GameModel.Instance.MainPlayers.Add(InitPlayer(Ashen.Instance));
-            GameModel.Instance.MainPlayers.Add(InitPlayer(Biv.Instance));
-            GameModel.Instance.ChosenPlayer = Ashen.Instance.GameObject;
-            CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer;
+            GameModel.Instance.MainPlayers = new List<MainPlayer>();
+            GameModel.Instance.MainPlayers.Add(Ashen.Instance);
+            InitPlayer(Ashen.Instance);
+            GameModel.Instance.MainPlayers.Add(Biv.Instance);
+            InitPlayer(Biv.Instance);
+            GameModel.Instance.ChosenPlayer = Ashen.Instance;
+            CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer.GameObject;
         }
 
         private GameObject InitPlayer(MainPlayer logic)
