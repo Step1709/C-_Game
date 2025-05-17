@@ -85,9 +85,9 @@ namespace Weapons
             var attack = playerObj.GetComponent<Attack>();
             var pathController = playerObj.GetComponent<PathController>();
             if (pathController.path == null) return false;
-            if (pathController.target is not null && pathController.target.CompareTag("Player"))
+            if (pathController.target is not null && pathController.target == player.GameObject)
             {
-                Debug.Log("нельзя атаковать союзника");
+                Debug.Log("нельзя атаковать себя");
                 return false;
             }
             attack.target = pathController.target;
