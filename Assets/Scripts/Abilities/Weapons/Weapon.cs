@@ -9,7 +9,7 @@ using UnityEngine.TextCore.Text;
 
 namespace Weapons
 {
-    public class Weapon : IAbility
+    public abstract class Weapon : IAbility
     {
         public int minDamage;
         public int maxDamage;
@@ -47,21 +47,7 @@ namespace Weapons
             }
         }
 
-        private void Damage(Entity user, Entity target)
-        {
-            if (Random.Range(1, 20) > target.ArmorClass)
-            {
-                Debug.Log($"{user.Name} попадает по {target.Name}");
-                var damage = Random.Range(minDamage, maxDamage);
-                target.Health -= damage;
-                if (target.Health <= 0) target.Health = 0;
-                Debug.Log($"у {target.Name} осталось {target.Health} хп после тычки на {damage} урона");
-            }
-            else
-            {
-                Debug.Log($"{user.Name} не попадает по {target.Name}");
-            }
-        }
+        protected abstract void Damage(Entity user, Entity target);
 
         public void Choose(MainPlayer player)
         {
@@ -75,28 +61,7 @@ namespace Weapons
             playerObj.GetComponent<PathController>().enabled = false;
         }
 
-        public bool Use(MainPlayer player)
-        {
-            if (player.MainActionPoint <= 0)
-            {
-                Debug.Log("Нет очков действия");
-                return false;
-            }
-            var playerObj = player.GameObject;
-            var attack = playerObj.GetComponent<Attack>();
-            var pathController = playerObj.GetComponent<PathController>();
-            if (pathController.path == null) return false;
-            if (pathController.target is not null && pathController.target == player.GameObject)
-            {
-                Debug.Log("нельзя атаковать себя");
-                return false;
-            }
-            attack.target = pathController.target?.GetComponent<EntityWrapper>().Entity;
-            attack.pathToTarget = pathController.path;
-            attack.targetPosition = pathController.targetPos;
-            attack.enabled = true;
-            return true;
-        }
+        public abstract bool Use(MainPlayer player);
 
         public void Choose(Enemy enemy)
         {
@@ -106,35 +71,6 @@ namespace Weapons
         {
         }
 
-        public bool Use(Enemy enemy)
-        {
-            if (enemy.MainActionPoint <= 0)
-            {
-                return false;
-            }
-            Entity target = null;
-            List<Vector3Int> path = null;
-            var minPathLenght = int.MaxValue;
-            foreach (var player in GameModel.Instance.MainPlayers)
-            {
-                var currentpath = PathFinder.BFS(enemy, this, player.GameObject.transform.position);
-                if (currentpath != null && currentpath.Count < minPathLenght)
-                {
-                    path = currentpath;
-                    minPathLenght = currentpath.Count;
-                    target = player;
-                }
-            }
-
-            if (path == null) return false;
-            
-            var attack = enemy.GameObject.GetComponent<Attack>();
-            attack.target = target;
-            attack.pathToTarget = path;
-            attack.targetPosition = target.GameObject.transform.position;
-            enemy.ChangeAbility(this);
-            attack.enabled = true;
-            return true;
-        }
+        public abstract bool Use(Enemy enemy);
     }
 }

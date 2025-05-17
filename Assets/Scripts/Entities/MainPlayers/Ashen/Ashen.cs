@@ -10,6 +10,7 @@ namespace Scenes
 
         public Ashen()
         {
+            MaxHealth = 20;
             Health = 20;
             ArmorClass = 10;
             StartPosition = new Vector2(0, 0);
@@ -17,7 +18,8 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Ashen";
             MaxTileCount = 15;
-            CurrentWeapon = new Weapon(10, 20, 10f, 5f);
+            CurrentWeapon = new DamageWeapon(10, 20, 10f, 5f);
+            CurrentHealWeapon = new HealWeapon(5, 10, 10f, 3f);
         }
         
     }

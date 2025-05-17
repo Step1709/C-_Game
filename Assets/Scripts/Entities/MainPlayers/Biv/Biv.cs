@@ -10,6 +10,7 @@ namespace Scenes
 
         public Biv()
         {
+            MaxHealth = 30;
             Health = 30;
             ArmorClass = 15;
             StartPosition = new Vector2(5, 0);
@@ -17,7 +18,8 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Biv";
             MaxTileCount = 15;
-            CurrentWeapon = new Weapon(15, 30, 1.5f, 0);
+            CurrentWeapon = new DamageWeapon(15, 30, 1.5f, 0);
+            CurrentHealWeapon = new HealWeapon(10, 15, 1.5f, 0);
         }
     }
 }

@@ -9,6 +9,8 @@ namespace Entities
     public abstract class Entity
     {
         public int Health;
+        
+        public int MaxHealth;
 
         public int ArmorClass;
         

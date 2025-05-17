@@ -19,9 +19,12 @@ namespace Abilities
         void OnEnable()
         {
             stateMachine.ChangeState(AttackState.Instance);
-            move.isUsed = true;
-            move.path = pathToTarget;
-            move.enabled = true;
+            if (targetPosition != gameObject.transform.position && target?.GameObject != gameObject)
+            {
+                move.isUsed = true;
+                move.path = pathToTarget;
+                move.enabled = true;
+            }
         }
 
         void Update()

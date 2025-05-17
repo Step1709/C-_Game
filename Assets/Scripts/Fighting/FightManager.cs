@@ -17,12 +17,14 @@ namespace Fighting
         private Entity entity;
         void OnEnable()
         {
+            GameModel.Instance.Enemies = new List<Enemy>();
             currentEntityIndex = 0;
             currentWave = GameModel.Instance.Waves.Dequeue();
             entities = GameModel.Instance.MainPlayers.Select(x=>(Entity)x).ToList();
             foreach (var entity in currentWave.enemies)
             {
                 entities.Add(entity);
+                GameModel.Instance.Enemies.Add(entity);
                 InitEnemy(entity);
             }
             entities = entities.OrderByDescending(entity => Random.Range(1,20)).ToList();
