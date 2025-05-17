@@ -32,12 +32,6 @@ namespace Scenes
             player.name = logic.Name;
             var wrapper = player.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
-            var baseHandler = player.GetComponent<PlayerBaseHandler>();
-            baseHandler.mainPlayer = logic;
-            var pathController = player.GetComponent<PathController>();
-            pathController.player = logic;
-            var playerFightController = player.GetComponent<PlayerFightController>();
-            playerFightController.player = logic;
             var move = player.GetComponent<Move>();
             move.self = logic;
             var attack = player.GetComponent<Attack>();

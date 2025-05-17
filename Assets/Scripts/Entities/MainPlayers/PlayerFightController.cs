@@ -11,6 +11,13 @@ namespace Entities.MainPlayers
         [SerializeField]
         private PlayerStateMachine stateMachine;
 
+        [SerializeField] private EntityWrapper wrapper;
+
+        void Start()
+        {
+            player = (MainPlayer)wrapper.Entity;
+        }
+
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))

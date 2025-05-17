@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Abilities;
+using Entities;
 using UnityEngine;
 using Fighting;
 using Paths;
@@ -17,9 +18,12 @@ public class PathController : MonoBehaviour
     public GameObject target;
     public Vector3? targetPos;
 
+    [SerializeField] private EntityWrapper wrapper;
+
     private void Start()
     {
         mainCamera = Camera.main;
+        player = (MainPlayer)wrapper.Entity;
     }
 
      private void FixedUpdate()

@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4772111833561171668}
+  wrapper: {fileID: 7553711737853740138}
 --- !u!114 &-8056622404269193303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileGraph: {fileID: -8763126673787654160}
-  finishMove: {fileID: 0}
   baseHandler: {fileID: 6188297143758377618}
   fightController: {fileID: -6279196710432508528}
   pathController: {fileID: 7415149881533520769}
@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: []
   target: {fileID: 0}
+  wrapper: {fileID: 7553711737853740138}
 --- !u!61 &7556538939870815696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -289,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: -8056622404269193303}
+  wrapper: {fileID: 7553711737853740138}
 --- !u!114 &8563606976796345132
 MonoBehaviour:
   m_ObjectHideFlags: 0

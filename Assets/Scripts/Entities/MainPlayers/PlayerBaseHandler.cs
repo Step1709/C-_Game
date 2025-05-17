@@ -10,6 +10,14 @@ namespace Scenes
         public Rigidbody2D rb;
     
         private Vector2 movement;
+        
+        [SerializeField]
+        private EntityWrapper wrapper;
+
+        private void Start()
+        {
+            mainPlayer = (MainPlayer)wrapper.Entity;
+        }
         public void Update()
         {
             if (gameObject == GameModel.Instance.ChosenPlayer.GameObject)
