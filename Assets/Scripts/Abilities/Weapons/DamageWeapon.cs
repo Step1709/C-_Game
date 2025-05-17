@@ -47,7 +47,7 @@ namespace Weapons
             }
             attack.target = pathController.target?.GetComponent<EntityWrapper>().Entity;
             attack.pathToTarget = pathController.path;
-            attack.targetPosition = pathController.targetPos;
+            attack.targetPosition = (Vector3)pathController.targetPos;
             attack.enabled = true;
             return true;
         }

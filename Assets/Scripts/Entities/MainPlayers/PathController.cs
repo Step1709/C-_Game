@@ -15,7 +15,7 @@ public class PathController : MonoBehaviour
 
     public List<Vector3Int> path;
     public GameObject target;
-    public Vector3 targetPos;
+    public Vector3? targetPos;
 
     private void Start()
     {
@@ -28,6 +28,7 @@ public class PathController : MonoBehaviour
          var hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
          target = null;
          path = null;
+         targetPos = null;
          if (player.currentAbility is NoAbility &&
              GameModel.Instance.Floor.HasTile(GameModel.Instance.Floor.WorldToCell(mouseWorldPos)))
          {
