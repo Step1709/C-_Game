@@ -21,9 +21,9 @@ namespace Entities
             currentAbility = ability;
         }
 
-        public override void UseAbility()
+        public override bool UseAbility(IAbility ability)
         {
-            currentAbility.Use(this);
+            return ability.Use(this);
         }
     }
 }

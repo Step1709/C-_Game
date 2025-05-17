@@ -42,6 +42,6 @@ namespace Entities
 
         public abstract void ChangeAbility(IAbility ability);
         
-        public abstract void UseAbility();
+        public abstract bool UseAbility(IAbility ability);
     }
 }

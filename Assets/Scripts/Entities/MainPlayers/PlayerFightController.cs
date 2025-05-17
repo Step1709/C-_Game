@@ -23,7 +23,7 @@ namespace Entities.MainPlayers
             }
             if (Input.GetMouseButtonDown(1))
             {
-                player.UseAbility();
+                player.UseAbility(player.currentAbility);
             }
         }
     }

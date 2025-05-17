@@ -18,7 +18,7 @@ namespace Entities
             var isBreak = false;
             foreach (var ability in self.Abilities)
             {
-                if (ability.Use(self))
+                if (self.UseAbility(ability))
                 {
                     isBreak = true;
                     break;
