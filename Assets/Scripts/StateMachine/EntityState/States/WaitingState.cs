@@ -9,7 +9,6 @@ namespace Scenes.EntityState2
         public void Enter(PlayerStateMachine stateMachine)
         {
             stateMachine.gameObject.GetComponent<EntityWrapper>().Entity.ChangeAbility(NoAbility.Instance);
-            stateMachine.finishMove.enabled = false;
         }
 
         public void Exit(PlayerStateMachine stateMachine)

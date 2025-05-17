@@ -9,8 +9,6 @@ namespace Scenes.EntityState2
     {
         public TileMovement TileGraph;
         
-        public FinishMove finishMove;
-        
         public PlayerBaseHandler baseHandler;
         
         public PlayerFightController fightController;

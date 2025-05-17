@@ -8,6 +8,8 @@ namespace Entities.MainPlayers
     public class PlayerFightController : MonoBehaviour
     {
         public MainPlayer player;
+        [SerializeField]
+        private PlayerStateMachine stateMachine;
 
         void Update()
         {
@@ -26,9 +28,13 @@ namespace Entities.MainPlayers
                 player.ChangeAbility(player.CurrentHealWeapon);
                 Debug.Log("взяли хилку");
             }
-            if (Input.GetMouseButtonDown(1))
+            else if (Input.GetMouseButtonDown(1))
             {
                 player.UseAbility(player.currentAbility);
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                stateMachine.ChangeState(WaitingState.Instance);
             }
         }
     }

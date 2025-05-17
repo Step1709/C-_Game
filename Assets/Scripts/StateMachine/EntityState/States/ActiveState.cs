@@ -12,13 +12,11 @@ namespace Scenes.EntityState2
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
             CameraClass.Instance.IsFree = false;
             stateMachine.fightController.enabled = true;
-            stateMachine.finishMove.enabled = true;
         }
 
         public void Exit(PlayerStateMachine stateMachine)
         {
             stateMachine.fightController.enabled = false;
-            stateMachine.finishMove.enabled = false;
         }
 
         public void Enter(EnemyStateMachine stateMachine)
