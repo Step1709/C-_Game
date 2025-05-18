@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1d7778698472e2b48b4a1b520ac1d2f5
+guid: 26d1f4f14286f914f8b6092911bc5c56
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3984793834014418241
-    second: Player_Wizard_0
+      213: -6459171289703447636
+    second: Player_Wizard_Animations_Left2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Wizard_0
+      name: Player_Wizard_Animations_Left2_0
       rect:
         serializedVersion: 2
-        x: 263
-        y: 35
-        width: 500
-        height: 920
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 4
+        y: 0
+        width: 250
+        height: 380
+      alignment: 9
+      pivot: {x: 0.59457594, y: 0.4902043}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fba576cce1b23b8c0800000000000000
-      internalID: -3984793834014418241
+      spriteID: ca303d52fe96c56a0800000000000000
+      internalID: -6459171289703447636
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f34b65f2d9fa0a348b459719709e8716
+    spriteID: cdd7f24f677bebf47a64ddae72ac954b
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Player_Wizard_0: -3984793834014418241
+      Player_Wizard_Animations_Left2_0: -6459171289703447636
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

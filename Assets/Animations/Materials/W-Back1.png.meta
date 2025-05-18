@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1d7778698472e2b48b4a1b520ac1d2f5
+guid: e6343b2f46d9974458a3c07ebafa732e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3984793834014418241
-    second: Player_Wizard_0
+      213: -7977843833380697744
+    second: W-Back1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Wizard_0
+      name: W-Back1_0
       rect:
         serializedVersion: 2
-        x: 263
-        y: 35
-        width: 500
-        height: 920
+        x: 2
+        y: 8
+        width: 1022
+        height: 1503
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fba576cce1b23b8c0800000000000000
-      internalID: -3984793834014418241
+      spriteID: 0798dcd4d41094190800000000000000
+      internalID: -7977843833380697744
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f34b65f2d9fa0a348b459719709e8716
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Player_Wizard_0: -3984793834014418241
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
