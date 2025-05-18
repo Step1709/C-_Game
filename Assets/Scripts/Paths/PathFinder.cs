@@ -111,11 +111,11 @@ namespace Paths
 
         private static List<Vector3Int> ReconstructPath(Dictionary<Vector3Int, Vector3Int> cameFrom, Vector3Int current)
         {
-            var totalPath = new List<Vector3Int> { current };
+            var totalPath = new List<Vector3Int> {};
             while (cameFrom.ContainsKey(current))
             {
-                current = cameFrom[current];
                 totalPath.Insert(0, current);
+                current = cameFrom[current];
             }
             return totalPath;
         }
