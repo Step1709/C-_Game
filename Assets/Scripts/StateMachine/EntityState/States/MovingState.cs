@@ -1,6 +1,6 @@
 namespace Scenes.EntityState2
 {
-    public class MovingState : IEntityState
+    public class MovingState : IPlayerState, IEnemyState
     {
         public static MovingState Instance { get; } = new MovingState();
         public void Enter(PlayerStateMachine stateMachine)

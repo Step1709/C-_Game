@@ -3,7 +3,7 @@ using Entities;
 
 namespace Scenes.EntityState2
 {
-    public class WaitingState : IEntityState
+    public class WaitingState : IPlayerState, IEnemyState
     {
         public static WaitingState Instance { get; } = new WaitingState();
         public void Enter(PlayerStateMachine stateMachine)

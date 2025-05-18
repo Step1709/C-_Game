@@ -27,8 +27,8 @@ namespace Scenes.EntityState2
         }
         public override void ChangeState(IEntityState newState)
         {
-            currentState?.Exit(this);
-            newState?.Enter(this);
+            ((IPlayerState)currentState)?.Exit(this);
+            ((IPlayerState)newState)?.Enter(this);
             currentState = newState;
         }
     }

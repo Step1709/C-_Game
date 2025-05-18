@@ -18,8 +18,8 @@ namespace Scenes.EntityState2
         }
         public override void ChangeState(IEntityState newState)
         {
-            currentState?.Exit(this);
-            newState?.Enter(this);
+            ((IEnemyState)currentState)?.Exit(this);
+            ((IEnemyState)newState)?.Enter(this);
             currentState = newState;
         }
     }

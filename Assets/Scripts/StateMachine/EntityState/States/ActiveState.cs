@@ -4,7 +4,7 @@ using Scenes.Scene;
 
 namespace Scenes.EntityState2
 {
-    public class ActiveState : IEntityState
+    public class ActiveState : IPlayerState, IEnemyState
     {
         public static ActiveState Instance { get; } = new ActiveState();
         public void Enter(PlayerStateMachine stateMachine)
