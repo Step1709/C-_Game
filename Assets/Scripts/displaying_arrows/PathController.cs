@@ -20,13 +20,13 @@ public class PathController : MonoBehaviour
 
     [SerializeField] private EntityWrapper wrapper;
 
-    private void Start()
+    public void Start()
     {
         mainCamera = Camera.main;
         player = (MainPlayer)wrapper.Entity;
     }
 
-     private void FixedUpdate()
+     public void FixedUpdate()
      {
          var mouseWorldPos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
          var hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
