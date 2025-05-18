@@ -45,6 +45,7 @@ namespace Weapons
                 Debug.Log("нельзя атаковать себя");
                 return false;
             }
+            pathController.enabled = false;
             attack.target = pathController.target?.GetComponent<EntityWrapper>().Entity;
             attack.pathToTarget = pathController.path;
             attack.targetPosition = (Vector3)pathController.targetPos;

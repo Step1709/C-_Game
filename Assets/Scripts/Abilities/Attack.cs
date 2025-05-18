@@ -18,7 +18,7 @@ namespace Abilities
         private EntityStateMachine stateMachine;
         void OnEnable()
         {
-            stateMachine.ChangeState(AttackState.Instance);
+            stateMachine.ChangeState(UsingAbilityState.Instance);
             if (pathToTarget.Count != 0)
             {
                 move.isUsed = true;

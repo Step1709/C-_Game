@@ -30,6 +30,7 @@ namespace Abilities
             if (pathController.path is null || pathController.path.Count == 0 || player.CurrentTileCount<=0)
                 return false;
             var move = playerObj.GetComponent<Move>();
+            pathController.enabled = false;
             move.path = pathController.path;
             move.isUsed = false;
             move.enabled = true;

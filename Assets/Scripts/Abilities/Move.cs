@@ -27,7 +27,7 @@ namespace Abilities
         }
         void OnEnable()
         {
-            if (!isUsed) stateMachine.ChangeState(MovingState.Instance);
+            if (!isUsed) stateMachine.ChangeState(UsingAbilityState.Instance);
             pathWorldPositions = new List<Vector3>();
             foreach (var cell in path)
             {

@@ -32,6 +32,7 @@ namespace Weapons
             var attack = playerObj.GetComponent<Attack>();
             var pathController = playerObj.GetComponent<PathController>();
             if (pathController.path == null) return false;
+            pathController.enabled = false;
             attack.target = pathController.target?.GetComponent<EntityWrapper>().Entity;
             attack.pathToTarget = pathController.path;
             attack.targetPosition = (Vector3)pathController.targetPos;
