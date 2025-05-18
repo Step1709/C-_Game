@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Abilities
 {
-    public class NoAbility : IAbility
+    public class NoAbility : IPlayerAbility, IEnemyAbility
     {
         public static NoAbility Instance{get; private set;} = new NoAbility();
         public void Choose(MainPlayer player)

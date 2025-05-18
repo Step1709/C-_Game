@@ -9,7 +9,7 @@ using UnityEngine.TextCore.Text;
 
 namespace Weapons
 {
-    public abstract class Weapon : IAbility
+    public abstract class Weapon : IPlayerAbility, IEnemyAbility
     {
         public int minDamage;
         public int maxDamage;

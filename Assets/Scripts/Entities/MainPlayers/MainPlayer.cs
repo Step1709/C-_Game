@@ -10,14 +10,14 @@ namespace Scenes
         public HealWeapon CurrentHealWeapon;
         public override void ChangeAbility(IAbility ability)
         {
-            currentAbility?.Remove(this);
-            ability?.Choose(this);
+            ((IPlayerAbility)currentAbility)?.Remove(this);
+            ((IPlayerAbility)ability)?.Choose(this);
             currentAbility = ability;
         }
         
         public override bool UseAbility(IAbility ability)
         {
-            return ability.Use(this);
+            return ((IPlayerAbility)ability).Use(this);
         }
     }
 }
