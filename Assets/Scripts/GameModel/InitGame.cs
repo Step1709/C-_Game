@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using Abilities;
 using Entities;
+using Entities.MainPlayers;
 using Scenes.Scene;
 using TailMap;
 using UnityEngine;
@@ -11,13 +14,16 @@ namespace Scenes
     {
         void Awake()
         {
-            Ashen.Instance.PlayerObject = InitPlayer(Ashen.Instance);
-            Biv.Instance.PlayerObject = InitPlayer(Biv.Instance);
-            GameModel.Instance.ChosenPlayer = Ashen.Instance.PlayerObject;
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
-            CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer;
+            GameModel.Instance.MainPlayers = new List<MainPlayer>();
+            GameModel.Instance.MainPlayers.Add(Ashen.Instance);
+            InitPlayer(Ashen.Instance);
+            GameModel.Instance.MainPlayers.Add(Biv.Instance);
+            InitPlayer(Biv.Instance);
+            GameModel.Instance.ChosenPlayer = Ashen.Instance;
+            CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer.GameObject;
         }
 
         private GameObject InitPlayer(MainPlayer logic)
@@ -26,9 +32,11 @@ namespace Scenes
             player.name = logic.Name;
             var wrapper = player.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
-            var baseHandler = player.GetComponent<PlayerBaseHandler>();
-            baseHandler.mainPlayer = logic;
-            GameModel.Instance.MainPlayers.Add(player);
+            var move = player.GetComponent<Move>();
+            move.self = logic;
+            var attack = player.GetComponent<Attack>();
+            attack.self = logic;
+            logic.GameObject = player;
             return player;
         }
     }

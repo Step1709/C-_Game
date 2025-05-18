@@ -17,7 +17,7 @@ namespace Scenes
             changeChosen.enabled = false;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                var stateMachine = player.GetComponent<PlayerStateMachine>();
+                var stateMachine = player.GameObject.GetComponent<PlayerStateMachine>();
                 stateMachine.ChangeState(WaitingState.Instance);
             }
             fightManager.enabled = true;

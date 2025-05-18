@@ -31,7 +31,7 @@ namespace TailMap
         }
         public void Update()
         {
-            if (gameObject == GameModel.Instance.ChosenPlayer)
+            if (gameObject == GameModel.Instance.ChosenPlayer.GameObject)
             {
                 if (Input.GetMouseButtonDown(1))
                 {

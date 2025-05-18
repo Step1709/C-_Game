@@ -1,6 +1,6 @@
 namespace Scenes.EntityState2
 {
-    public class PreparingState : IEntityState
+    public class PreparingState : IPlayerState
     {
         public static PreparingState Instance { get; } = new PreparingState();
         public void Enter(PlayerStateMachine stateMachine)
@@ -13,16 +13,6 @@ namespace Scenes.EntityState2
         {
             stateMachine.TileGraph.enabled = false;
             stateMachine.baseHandler.enabled = false;
-        }
-
-        public void Enter(EnemyStateMachine stateMachine)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Exit(EnemyStateMachine stateMachine)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

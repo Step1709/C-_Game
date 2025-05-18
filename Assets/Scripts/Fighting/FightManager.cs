@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Abilities;
 using Entities;
 using Scenes;
 using Scenes.EntityState2;
@@ -10,27 +11,33 @@ namespace Fighting
     public class FightManager : MonoBehaviour
     {
         private Wave currentWave;
-        private List<GameObject> entities;
+        private List<Entity> entities;
         private int currentEntityIndex;
         private EntityStateMachine stateMachine;
+        private Entity entity;
         void OnEnable()
         {
+            GameModel.Instance.Enemies = new List<Enemy>();
             currentEntityIndex = 0;
             currentWave = GameModel.Instance.Waves.Dequeue();
-            entities = GameModel.Instance.MainPlayers.ToList();
+            entities = GameModel.Instance.MainPlayers.Select(x=>(Entity)x).ToList();
             foreach (var entity in currentWave.enemies)
             {
-                entities.Add(InitEnemy(entity));
+                entities.Add(entity);
+                GameModel.Instance.Enemies.Add(entity);
+                InitEnemy(entity);
             }
             entities = entities.OrderByDescending(entity => Random.Range(1,20)).ToList();
             Debug.Log("порядок ходов");
             foreach (var entity in entities)
             {
-                Debug.Log(entity.name);
+                Debug.Log(entity.Name);
             }
-            stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
+            stateMachine = entities[currentEntityIndex].GameObject.GetComponent<EntityStateMachine>();
+            entity = entities[currentEntityIndex];
+            entity.UpdateStats();
             stateMachine.ChangeState(ActiveState.Instance);
-            Debug.Log($"ход {entities[currentEntityIndex].name}");
+            Debug.Log($"ход {entities[currentEntityIndex].Name}");
         }
 
         void Update()
@@ -38,8 +45,10 @@ namespace Fighting
             if (stateMachine.currentState == WaitingState.Instance)
             {
                 currentEntityIndex = (currentEntityIndex + 1) % entities.Count;
-                Debug.Log($"ход {entities[currentEntityIndex].name}");
-                stateMachine = entities[currentEntityIndex].GetComponent<EntityStateMachine>();
+                Debug.Log($"ход {entities[currentEntityIndex].Name}");
+                stateMachine = entities[currentEntityIndex].GameObject.GetComponent<EntityStateMachine>();
+                entity = entities[currentEntityIndex];
+                entity.UpdateStats();
                 stateMachine.ChangeState(ActiveState.Instance);
             }
         }
@@ -48,10 +57,15 @@ namespace Fighting
         {
             var enemy = Instantiate(logic.EntityPrefab, logic.StartPosition, Quaternion.identity);
             enemy.name = logic.Name;
+            logic.GameObject = enemy;
             var wrapper = enemy.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
             var enemyAI = enemy.GetComponent<EnemyAI>();
             enemyAI.self = logic;
+            var move = enemy.GetComponent<Move>();
+            move.self = logic;
+            var attack = enemy.GetComponent<Attack>();
+            attack.self = logic;
             return enemy;
         }
     }
