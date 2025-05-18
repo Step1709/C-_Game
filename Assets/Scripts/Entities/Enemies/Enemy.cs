@@ -16,14 +16,14 @@ namespace Entities
 
         public override void ChangeAbility(IAbility ability)
         {
-            currentAbility?.Remove(this);
-            ability?.Choose(this);
+            ((IEnemyAbility)currentAbility)?.Remove(this);
+            ((IEnemyAbility)ability)?.Choose(this);
             currentAbility = ability;
         }
 
         public override bool UseAbility(IAbility ability)
         {
-            return ability.Use(this);
+            return ((IEnemyAbility)ability).Use(this);
         }
     }
 }
