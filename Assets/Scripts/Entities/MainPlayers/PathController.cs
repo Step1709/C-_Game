@@ -11,7 +11,7 @@ using Weapons;
 
 public class PathController : MonoBehaviour
 {
-    public MainPlayer player;
+    private MainPlayer player;
     private Camera mainCamera;
 
     public List<Vector3Int> path;

@@ -7,6 +7,8 @@ namespace Scenes.EntityState2
 {
     public class PlayerStateMachine : EntityStateMachine
     {
+        public MainPlayer player;
+        
         public TileMovement TileGraph;
         
         public PlayerBaseHandler baseHandler;
@@ -18,7 +20,11 @@ namespace Scenes.EntityState2
         {
             currentState = PreparingState.Instance;
         }
-        
+
+        void Start()
+        {
+            player = (MainPlayer)wrapper.Entity;
+        }
         public override void ChangeState(IEntityState newState)
         {
             currentState?.Exit(this);

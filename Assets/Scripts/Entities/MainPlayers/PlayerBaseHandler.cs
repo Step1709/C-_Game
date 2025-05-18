@@ -5,7 +5,7 @@ namespace Scenes
 {
     public class PlayerBaseHandler : MonoBehaviour
     {
-        public MainPlayer mainPlayer;
+        private MainPlayer mainPlayer;
         
         public Rigidbody2D rb;
     

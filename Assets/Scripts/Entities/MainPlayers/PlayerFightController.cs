@@ -7,7 +7,7 @@ namespace Entities.MainPlayers
 {
     public class PlayerFightController : MonoBehaviour
     {
-        public MainPlayer player;
+        private MainPlayer player;
         [SerializeField]
         private PlayerStateMachine stateMachine;
 

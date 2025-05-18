@@ -12,6 +12,7 @@ namespace Scenes.EntityState2
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
             CameraClass.Instance.IsFree = false;
             stateMachine.fightController.enabled = true;
+            stateMachine.player.ChangeAbility(NoAbility.Instance);
         }
 
         public void Exit(PlayerStateMachine stateMachine)

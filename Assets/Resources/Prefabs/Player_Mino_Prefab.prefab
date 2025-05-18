@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a864a11876b64a8ab39fb86a7de661d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wrapper: {fileID: 7553711737853740138}
   TileGraph: {fileID: -8763126673787654160}
   baseHandler: {fileID: 6188297143758377618}
   fightController: {fileID: -6279196710432508528}
@@ -223,7 +224,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5355213896438806703}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2c3d05de4cc5bc4fa6c84da0daa4c36, type: 3}
   m_Name: 

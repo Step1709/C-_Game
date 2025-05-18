@@ -8,7 +8,7 @@ namespace Scenes.EntityState2
         public static WaitingState Instance { get; } = new WaitingState();
         public void Enter(PlayerStateMachine stateMachine)
         {
-            stateMachine.gameObject.GetComponent<EntityWrapper>().Entity.ChangeAbility(NoAbility.Instance);
+            stateMachine.player.ChangeAbility(null);
         }
 
         public void Exit(PlayerStateMachine stateMachine)
@@ -17,6 +17,7 @@ namespace Scenes.EntityState2
 
         public void Enter(EnemyStateMachine stateMachine)
         {
+            stateMachine.enemy.ChangeAbility(null);
         }
 
         public void Exit(EnemyStateMachine stateMachine)

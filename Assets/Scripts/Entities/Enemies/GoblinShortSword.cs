@@ -13,7 +13,7 @@ namespace Entities
             MaxHealth = 10;
             Health = 10;
             ArmorClass = 8;
-            currentAbility = NoAbility.Instance;
+            currentAbility = null;
             MaxTileCount = 9;
             Abilities = new List<IAbility>();
             Abilities.Add(new HealWeapon(5,10, 1f, 0));

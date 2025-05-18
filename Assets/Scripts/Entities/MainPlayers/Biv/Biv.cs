@@ -18,6 +18,7 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Biv";
             MaxTileCount = 15;
+            currentAbility = null;
             CurrentWeapon = new DamageWeapon(15, 30, 1.5f, 0);
             CurrentHealWeapon = new HealWeapon(10, 15, 1.5f, 0);
         }

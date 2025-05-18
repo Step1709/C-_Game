@@ -18,6 +18,7 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Ashen";
             MaxTileCount = 15;
+            currentAbility = null;
             CurrentWeapon = new DamageWeapon(10, 20, 10f, 5f);
             CurrentHealWeapon = new HealWeapon(5, 10, 10f, 3f);
         }

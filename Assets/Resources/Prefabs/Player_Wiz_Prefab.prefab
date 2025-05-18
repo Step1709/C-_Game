@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a864a11876b64a8ab39fb86a7de661d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wrapper: {fileID: 7553711737853740138}
   TileGraph: {fileID: -8763126673787654160}
   baseHandler: {fileID: 6188297143758377618}
   fightController: {fileID: 5733863758617329464}

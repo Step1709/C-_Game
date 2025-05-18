@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f907ebc36d44480a948c896c4ff41233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wrapper: {fileID: 5804782870060982564}
   EnemyAI: {fileID: -1665448996427175619}
 --- !u!114 &-1665448996427175619
 MonoBehaviour:
@@ -271,7 +272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
-  target: {fileID: 0}
   pathToTarget: []
   move: {fileID: -5904656507165315651}
   stateMachine: {fileID: -6996931107153907824}
