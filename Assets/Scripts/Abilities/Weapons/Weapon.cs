@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Abilities;
 using Entities;
 using Paths;
@@ -36,7 +37,9 @@ namespace Weapons
                 var damagedEntities = new HashSet<GameObject>();
                 foreach (var hitCollider in hitColliders)
                 {
-                    if (damagedEntities.Contains(hitCollider.gameObject))
+                    if (damagedEntities.Contains(hitCollider.gameObject) 
+                        || Physics2D.LinecastAll(targetPosition, hitCollider.transform.position)
+                            .Any(hit=>hit.collider.CompareTag("Wall")))
                         continue;
                     if (hitCollider.CompareTag("Player") || hitCollider.CompareTag("Enemy"))
                     {
