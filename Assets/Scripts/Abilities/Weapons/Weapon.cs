@@ -32,7 +32,7 @@ namespace Weapons
             {
                 Damage(user,target);
             }
-            else
+            else if (SplashRadius != 0)
             {
                 var hitColliders = Physics2D.OverlapCircleAll(targetPosition, SplashRadius);
                 var damagedEntities = new HashSet<GameObject>();
