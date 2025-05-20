@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Abilities;
@@ -48,6 +49,8 @@ namespace Weapons
                     }
                 }
             }
+
+            if (user is Enemy) user.CurrentTileCount = Math.Min(3, user.CurrentTileCount);
         }
 
         protected abstract void Damage(Entity user, Entity target);
