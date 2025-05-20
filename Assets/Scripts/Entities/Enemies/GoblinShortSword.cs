@@ -15,9 +15,10 @@ namespace Entities
             ArmorClass = 8;
             currentAbility = null;
             MaxTileCount = 9;
+            SupportDistance = 5f;
             Abilities = new List<IAbility>();
             Abilities.Add(new HealWeapon(5,10, 1f, 0));
-            Abilities.Add(new DamageWeapon(6, 14,1.5f, 0));
+            Abilities.Add(new DamageWeapon(6, 14,5f, 0));
             Abilities.Add(NoAbility.Instance);
         }
     }

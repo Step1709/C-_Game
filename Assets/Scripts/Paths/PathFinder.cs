@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Entities;
@@ -22,9 +23,9 @@ namespace Paths
 
     public class PathFinder
     {
-        public static List<Vector3Int> BFS(Entity activeEntityLogic, Weapon weapon, Vector3 targetPosition)
+        public static List<Vector3Int> BFS(Entity EntityLogic, Func<Vector3, bool> StopCondition)
         {
-            var startCellPos = GameModel.Instance.Floor.WorldToCell(activeEntityLogic.GameObject.transform.position);
+            var startCellPos = GameModel.Instance.Floor.WorldToCell(EntityLogic.GameObject.transform.position);
             var startCell = new CellInfo(startCellPos, 0);
             
             var queue = new Queue<CellInfo>();
@@ -36,11 +37,9 @@ namespace Paths
             while (queue.Count != 0)
             {
                 var currentCell = queue.Dequeue();
-                if (Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(currentCell.cellPosition), 
-                        targetPosition) <= weapon.Range &&
-                    !IsBlocked(currentCell.cellPosition, targetPosition))
+                if (StopCondition(GameModel.Instance.Floor.GetCellCenterWorld(currentCell.cellPosition)))
                     return ReconstructPath(paths, currentCell.cellPosition);
-                if (currentCell.depth >= activeEntityLogic.CurrentTileCount) continue;
+                if (currentCell.depth >= EntityLogic.CurrentTileCount) continue;
                 foreach (var neighbor in GetNeighbors(currentCell.cellPosition))
                 {
                     if (CanMove(currentCell.cellPosition, neighbor) && !paths.ContainsKey(neighbor))
@@ -167,7 +166,7 @@ namespace Paths
             yield return new Vector3Int(cell.x, cell.y - 1, cell.z);
         }
 
-        private static bool IsBlocked(Vector3 start, Vector3 targetPosition)
+        public static bool IsBlocked(Vector3 start, Vector3 targetPosition)
         {
             var hits = Physics2D.LinecastAll(start, targetPosition);
             foreach (var hit in hits)

@@ -6,6 +6,7 @@ namespace Entities
 {
     public class Enemy : Entity
     {
+        public float SupportDistance;
         public Enemy(Vector2 startPos, float moveSpeed, string pathToPrefab, string name)
         {
             StartPosition = startPos;

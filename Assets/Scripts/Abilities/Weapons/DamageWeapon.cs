@@ -64,7 +64,9 @@ namespace Weapons
             var minPathLenght = int.MaxValue;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                var currentpath = PathFinder.BFS(enemy, this, player.GameObject.transform.position);
+                var currentpath = PathFinder.BFS(enemy, 
+                    x=>Vector3.Distance(x, player.GameObject.transform.position) <= Range 
+                       && !PathFinder.IsBlocked(x, player.GameObject.transform.position));
                 if (currentpath != null && currentpath.Count < minPathLenght)
                 {
                     path = currentpath;

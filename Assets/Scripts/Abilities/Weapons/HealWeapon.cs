@@ -51,7 +51,9 @@ namespace Weapons
             var minHealth = int.MaxValue;
             foreach (var entity in GameModel.Instance.Enemies)
             {
-                var currentpath = PathFinder.BFS(enemy, this, entity.GameObject.transform.position);
+                var currentpath = PathFinder.BFS(enemy, 
+                    x=>Vector3.Distance(x, entity.GameObject.transform.position) <= Range 
+                       && !PathFinder.IsBlocked(x, entity.GameObject.transform.position));
                 if (currentpath != null && entity.Health <= 5 && entity.Health<=minHealth)
                 {
                     path = currentpath;

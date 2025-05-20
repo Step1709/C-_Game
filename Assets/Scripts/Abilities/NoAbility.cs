@@ -50,20 +50,48 @@ namespace Abilities
         public bool Use(Enemy enemy)
         {
             List<Vector3Int> path = null;
-            var minPathLenght = int.MaxValue;
-            var selfCellPos = GameModel.Instance.Floor.WorldToCell(enemy.GameObject.transform.position);
+            MainPlayer targetPlayer = null;
+            var minDistance = float.MaxValue;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
-                var playerCellPos = GameModel.Instance.Floor.WorldToCell(player.GameObject.transform.position);
-                var currentpath = PathFinder.AStar(selfCellPos, playerCellPos).Take(enemy.CurrentTileCount).ToList();
-                if (currentpath.Count < minPathLenght)
+                var curDistance = Vector3.Distance(player.GameObject.transform.position,
+                    enemy.GameObject.transform.position);
+                if (curDistance < minDistance)
                 {
-                    path = currentpath;
-                    minPathLenght = currentpath.Count;
+                    targetPlayer = player;
+                    minDistance = curDistance;
                 }
             }
 
-            if (path is null || path.Count <= 2) return false;
+            if (Vector3.Distance(targetPlayer.GameObject.transform.position, enemy.GameObject.transform.position) >=
+                enemy.SupportDistance  || PathFinder.IsBlocked(enemy.GameObject.transform.position, 
+                    targetPlayer.GameObject.transform.position))
+            {
+                path = PathFinder.AStar(GameModel.Instance.Floor.WorldToCell(enemy.GameObject.transform.position),
+                    GameModel.Instance.Floor.WorldToCell(targetPlayer.GameObject.transform.position))
+                    .Take(enemy.CurrentTileCount)
+                    .ToList();
+                var tileCount = 0;
+                foreach (var tile in path)
+                {
+                    var tileWorldPos = GameModel.Instance.Floor.GetCellCenterWorld(tile);
+                    if (Vector3.Distance(tileWorldPos, targetPlayer.GameObject.transform.position) <
+                        enemy.SupportDistance
+                        && !PathFinder.IsBlocked(tileWorldPos, targetPlayer.GameObject.transform.position))
+                    {
+                        path = path.Take(tileCount).ToList();
+                        break;
+                    };
+                    tileCount++;
+                }
+            }
+            else
+            {
+                path = PathFinder.BFS(enemy, 
+                    x=>Vector3.Distance(x, targetPlayer.GameObject.transform.position) > enemy.SupportDistance);
+            }
+
+            if (path is null || path.Count == 0) return false;
             var move = enemy.GameObject.GetComponent<Move>();
             move.path = path;
             move.isUsed = false;
