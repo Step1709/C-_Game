@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
 
     public void Update()
     {
-        if (!CameraClass.Instance.IsFree)
+        if (!CameraClass.Instance.IsFree && CameraClass.Instance.ChosenEntity is not null)
         {
             targetPos = CameraClass.Instance.ChosenEntity.transform.position + offset;
         }

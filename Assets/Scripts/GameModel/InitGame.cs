@@ -34,6 +34,7 @@ namespace Scenes
             InitPlayer(Biv.Instance);
             GameModel.Instance.ChosenPlayer = Ashen.Instance;
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer.GameObject;
+            StateMachine.Instance.ChangeState(PrepareState.Instance);
         }
 
         private void InitPlayer(MainPlayer logic)

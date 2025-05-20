@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -5649097949980554145}
   - component: {fileID: -5904656507165315651}
   - component: {fileID: -8619082799470862193}
+  - component: {fileID: 1983370858704242672}
   m_Layer: 0
   m_Name: GoblinShortSwordPrefab
   m_TagString: Enemy
@@ -275,3 +276,15 @@ MonoBehaviour:
   pathToTarget: []
   move: {fileID: -5904656507165315651}
   stateMachine: {fileID: -6996931107153907824}
+--- !u!114 &1983370858704242672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3668459266504802064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5faedd45fef1490ba80c54c26335a978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,13 +5,14 @@ using Entities;
 using Scenes;
 using Scenes.EntityState2;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Fighting
 {
     public class FightManager : MonoBehaviour
     {
-        private List<Entity> entities;
-        private int currentEntityIndex;
+        public List<Entity> entities;
+        public int currentEntityIndex;
         private EntityStateMachine stateMachine;
         private Entity entity;
         void OnEnable()
@@ -39,7 +40,13 @@ namespace Fighting
 
         void Update()
         {
-            if (stateMachine.currentState == WaitingState.Instance)
+            if (GameModel.Instance.MainPlayers.Count == 0) SceneManager.LoadScene("Menu");
+            else if (GameModel.Instance.Enemies.Count == 0)
+            {
+                if (GameModel.Instance.Waves.Count == 0) SceneManager.LoadScene("Menu");
+                else StateMachine.Instance.ChangeState(PrepareState.Instance);
+            }
+            else if (stateMachine.currentState == WaitingState.Instance || stateMachine.currentState == DeathState.Instance)
             {
                 currentEntityIndex = (currentEntityIndex + 1) % entities.Count;
                 Debug.Log($"ход {entities[currentEntityIndex].Name}");

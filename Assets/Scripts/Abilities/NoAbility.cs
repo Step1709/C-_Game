@@ -62,7 +62,7 @@ namespace Abilities
                     minDistance = curDistance;
                 }
             }
-
+            if (targetPlayer == null) return false;
             if (Vector3.Distance(targetPlayer.GameObject.transform.position, enemy.GameObject.transform.position) >=
                 enemy.SupportDistance  || PathFinder.IsBlocked(enemy.GameObject.transform.position, 
                     targetPlayer.GameObject.transform.position))
