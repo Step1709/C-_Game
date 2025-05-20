@@ -5,7 +5,7 @@ using Weapons;
 
 namespace Scenes
 {
-    public class MainPlayer : Entity
+    public abstract class MainPlayer : Entity
     {
         public HealWeapon CurrentHealWeapon;
         public override void ChangeAbility(IAbility ability)
@@ -19,6 +19,8 @@ namespace Scenes
         {
             return ((IPlayerAbility)ability).Use(this);
         }
+        
+        public abstract void Update();
     }
 }
 

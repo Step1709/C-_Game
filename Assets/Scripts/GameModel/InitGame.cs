@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Abilities;
 using Entities;
 using Entities.MainPlayers;
@@ -14,9 +15,18 @@ namespace Scenes
     {
         void Awake()
         {
+            GameModel.Instance.Waves = new();
+            GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave1[Random.Range(0, GameModel.Instance.Wave1.Count)]
+                .Select(x=>x.Copy())
+                .ToList());
+            GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave2[Random.Range(0, GameModel.Instance.Wave1.Count)]
+                .Select(x=>x.Copy())
+                .ToList());
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
+            Ashen.Instance.Update();
+            Biv.Instance.Update();
             GameModel.Instance.MainPlayers = new List<MainPlayer>();
             GameModel.Instance.MainPlayers.Add(Ashen.Instance);
             InitPlayer(Ashen.Instance);
@@ -26,7 +36,7 @@ namespace Scenes
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer.GameObject;
         }
 
-        private GameObject InitPlayer(MainPlayer logic)
+        private void InitPlayer(MainPlayer logic)
         {
             var player = Instantiate(logic.EntityPrefab, logic.StartPosition, Quaternion.identity);
             player.name = logic.Name;
@@ -37,7 +47,6 @@ namespace Scenes
             var attack = player.GetComponent<Attack>();
             attack.self = logic;
             logic.GameObject = player;
-            return player;
         }
     }
 }

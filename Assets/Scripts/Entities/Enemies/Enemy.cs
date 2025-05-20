@@ -26,5 +26,10 @@ namespace Entities
         {
             return ((IEnemyAbility)ability).Use(this);
         }
+
+        public Enemy Copy()
+        {
+            return (Enemy)this.MemberwiseClone();
+        }
     }
 }

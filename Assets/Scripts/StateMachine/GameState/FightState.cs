@@ -8,12 +8,10 @@ namespace Scenes
     {
         public static FightState Instance { get; } = new FightState();
         
-        private FightManager fightManager = GameModel.Instance.GameModelObject.GetComponent<FightManager>();
-
-        private ChangeChosen changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
-        
         public void Enter()
         {
+            var fightManager = GameModel.Instance.GameModelObject.GetComponent<FightManager>();
+            var changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
             changeChosen.enabled = false;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
@@ -25,6 +23,7 @@ namespace Scenes
 
         public void Exit()
         {
+            var fightManager = GameModel.Instance.GameModelObject.GetComponent<FightManager>();
             fightManager.enabled = false;
         }
     }

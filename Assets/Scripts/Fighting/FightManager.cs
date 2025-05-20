@@ -10,21 +10,18 @@ namespace Fighting
 {
     public class FightManager : MonoBehaviour
     {
-        private Wave currentWave;
         private List<Entity> entities;
         private int currentEntityIndex;
         private EntityStateMachine stateMachine;
         private Entity entity;
         void OnEnable()
         {
-            GameModel.Instance.Enemies = new List<Enemy>();
+            GameModel.Instance.Enemies = GameModel.Instance.Waves.Dequeue();
             currentEntityIndex = 0;
-            currentWave = GameModel.Instance.Waves.Dequeue();
             entities = GameModel.Instance.MainPlayers.Select(x=>(Entity)x).ToList();
-            foreach (var entity in currentWave.enemies)
+            foreach (var entity in GameModel.Instance.Enemies)
             {
                 entities.Add(entity);
-                GameModel.Instance.Enemies.Add(entity);
                 InitEnemy(entity);
             }
             entities = entities.OrderByDescending(entity => Random.Range(1,20)).ToList();
@@ -53,7 +50,7 @@ namespace Fighting
             }
         }
 
-        private GameObject InitEnemy(Enemy logic)
+        private void InitEnemy(Enemy logic)
         {
             var enemy = Instantiate(logic.EntityPrefab, logic.StartPosition, Quaternion.identity);
             enemy.name = logic.Name;
@@ -66,7 +63,6 @@ namespace Fighting
             move.self = logic;
             var attack = enemy.GetComponent<Attack>();
             attack.self = logic;
-            return enemy;
         }
     }
 }
