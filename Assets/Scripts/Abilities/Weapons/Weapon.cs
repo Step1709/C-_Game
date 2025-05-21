@@ -17,13 +17,15 @@ namespace Weapons
         public int maxDamage;
         public float Range;
         public float SplashRadius;
+        public bool DamageSelf;
 
-        public Weapon(int minDamage, int maxDamage, float range, float splashRadius)
+        public Weapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf)
         {
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
             Range = range;
             SplashRadius = splashRadius;
+            DamageSelf = damageSelf;
         }
 
         public void Attack(Entity user, Entity target, Vector3 targetPosition)
@@ -40,7 +42,7 @@ namespace Weapons
                 {
                     if (damagedEntities.Contains(hitCollider.gameObject) 
                         || Physics2D.LinecastAll(targetPosition, hitCollider.transform.position)
-                            .Any(hit=>hit.collider.CompareTag("Wall")))
+                            .Any(hit=>hit.collider.CompareTag("Wall")) || (hitCollider.gameObject == user.GameObject && !DamageSelf))
                         continue;
                     if (hitCollider.CompareTag("Player") || hitCollider.CompareTag("Enemy"))
                     {

@@ -17,8 +17,8 @@ namespace Entities
             MaxTileCount = 9;
             SupportDistance = 5f;
             Abilities = new List<IAbility>();
-            Abilities.Add(new HealWeapon(5,10, 1f, 0));
-            Abilities.Add(new DamageWeapon(6, 14,5f, 0));
+            Abilities.Add(new HealWeapon(5,10, 1f, 0, false));
+            Abilities.Add(new DamageWeapon(6, 14,5f, 0, true));
             Abilities.Add(NoAbility.Instance);
         }
     }
