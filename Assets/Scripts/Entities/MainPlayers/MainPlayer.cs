@@ -21,6 +21,8 @@ namespace Scenes
         }
         
         public abstract void Update();
+
+        public abstract void ChangeButton();
     }
 }
 

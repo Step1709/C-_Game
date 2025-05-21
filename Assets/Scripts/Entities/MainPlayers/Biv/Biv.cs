@@ -26,5 +26,10 @@ namespace Scenes
             Health = MaxHealth;
             currentAbility = null;
         }
+
+        public override void ChangeButton()
+        {
+            UI.Screen.Instance.BivButton.interactable = false;
+        }
     }
 }

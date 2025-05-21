@@ -10,6 +10,7 @@ namespace Scenes
         
         public void Enter()
         {
+            UI.Screen.Instance.PlayerButtons.SetActive(true);
             var prepareManager = GameModel.Instance.GameModelObject.GetComponent<PrepareManager>();
             var changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
             changeChosen.enabled = true;
@@ -23,6 +24,7 @@ namespace Scenes
 
         public void Exit()
         {
+            UI.Screen.Instance.PlayerButtons.SetActive(false);
             var prepareManager = GameModel.Instance.GameModelObject.GetComponent<PrepareManager>();
             prepareManager.enabled = false;
         }

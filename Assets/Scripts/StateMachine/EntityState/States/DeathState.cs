@@ -10,6 +10,7 @@ namespace Scenes.EntityState2
         public static DeathState Instance { get; } = new DeathState();
         public void Enter(PlayerStateMachine stateMachine)
         {
+            stateMachine.player.ChangeButton();
             GameModel.Instance.MainPlayers.Remove(stateMachine.player);
             var fightManager = GameModel.Instance.GameModelObject.GetComponent<FightManager>();
             if (fightManager.entities.IndexOf(stateMachine.player) <= fightManager.currentEntityIndex)
