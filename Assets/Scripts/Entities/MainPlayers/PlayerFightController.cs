@@ -20,6 +20,7 @@ namespace Entities.MainPlayers
 
         void Update()
         {
+            if (GameModel.Instance.OnPause) return;
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 player.ChangeAbility(NoAbility.Instance);

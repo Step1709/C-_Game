@@ -15,6 +15,7 @@ namespace Scenes
     {
         void Awake()
         {
+            GameModel.Instance.OnPause = false;
             GameModel.Instance.Waves = new();
             GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave1[Random.Range(0, GameModel.Instance.Wave1.Count)]
                 .Select(x=>x.Copy())

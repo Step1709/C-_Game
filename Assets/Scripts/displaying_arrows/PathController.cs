@@ -29,7 +29,6 @@ public class PathController : MonoBehaviour
      public void FixedUpdate()
      {
          var mouseWorldPos = (Vector2)mainCamera.ScreenToWorldPoint(Input.mousePosition);
-         var hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
          target = null;
          path = null;
          targetPos = null;
@@ -43,6 +42,7 @@ public class PathController : MonoBehaviour
          }
          else if (player.currentAbility is Weapon)
          {
+             var hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
              if (hit.collider != null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player")))
              {
                  target = hit.collider.gameObject;

@@ -11,6 +11,8 @@ namespace Scenes
     public class GameModel
     {
         public static GameModel Instance { get; } = new GameModel();
+
+        public bool OnPause = false;
         
         public MainPlayer ChosenPlayer;
         
