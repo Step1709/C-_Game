@@ -169,13 +169,16 @@ namespace Paths
         public static bool IsBlocked(Vector3 start, Vector3 targetPosition, GameObject self, GameObject target)
         {
             var hits = Physics2D.LinecastAll(start, targetPosition);
+            var exceptColliders = Physics2D.OverlapCircleAll(targetPosition, 0.1f)
+                .ToHashSet();
             foreach (var hit in hits)
             {
                 if (hit.collider is not null)
                 {
                     if (hit.collider.CompareTag("Wall")) return true;
                     if ((hit.collider.CompareTag("Player") || hit.collider.CompareTag("Enemy"))
-                        && hit.collider.gameObject != self && hit.collider.gameObject != target) return true;
+                        && hit.collider.gameObject != self && hit.collider.gameObject != target &&
+                        !exceptColliders.Contains(hit.collider)) return true;
                 }
             }
             return false;
