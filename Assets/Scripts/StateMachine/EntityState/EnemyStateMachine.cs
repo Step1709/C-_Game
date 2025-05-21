@@ -7,11 +7,6 @@ namespace Scenes.EntityState2
         public Enemy enemy;
         
         public EnemyAI EnemyAI;
-        void Awake()
-        {
-            currentState = WaitingState.Instance;
-        }
-
         void Start()
         {
             enemy = (Enemy)wrapper.Entity;

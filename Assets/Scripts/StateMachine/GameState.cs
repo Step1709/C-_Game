@@ -8,7 +8,7 @@ namespace Scenes
     {
         public static StateMachine Instance { get; }= new StateMachine();
         
-        private IState currentState = null;
+        private IState currentState;
 
         public void ChangeState(IState newState)
         {

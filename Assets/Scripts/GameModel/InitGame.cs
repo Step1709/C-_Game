@@ -25,13 +25,12 @@ namespace Scenes
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
-            Ashen.Instance.Update();
-            Biv.Instance.Update();
-            GameModel.Instance.MainPlayers = new List<MainPlayer>();
-            GameModel.Instance.MainPlayers.Add(Ashen.Instance);
-            InitPlayer(Ashen.Instance);
-            GameModel.Instance.MainPlayers.Add(Biv.Instance);
-            InitPlayer(Biv.Instance);
+            GameModel.Instance.MainPlayers = new List<MainPlayer>() {Ashen.Instance, Biv.Instance};
+            foreach (var player in GameModel.Instance.MainPlayers)
+            {
+                InitPlayer(player);
+                player.Update();
+            }
             GameModel.Instance.ChosenPlayer = Ashen.Instance;
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer.GameObject;
             StateMachine.Instance.ChangeState(PrepareState.Instance);
