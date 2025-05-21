@@ -64,7 +64,7 @@ namespace Abilities
             }
             if (targetPlayer == null) return false;
             if (Vector3.Distance(targetPlayer.GameObject.transform.position, enemy.GameObject.transform.position) >=
-                enemy.SupportDistance  || PathFinder.IsBlocked(enemy.GameObject.transform.position, 
+                enemy.SupportDistance  || PathFinder.IsBlockedOnlyWalls(enemy.GameObject.transform.position, 
                     targetPlayer.GameObject.transform.position))
             {
                 path = PathFinder.AStar(GameModel.Instance.Floor.WorldToCell(enemy.GameObject.transform.position),
@@ -77,7 +77,7 @@ namespace Abilities
                     var tileWorldPos = GameModel.Instance.Floor.GetCellCenterWorld(tile);
                     if (Vector3.Distance(tileWorldPos, targetPlayer.GameObject.transform.position) <
                         enemy.SupportDistance
-                        && !PathFinder.IsBlocked(tileWorldPos, targetPlayer.GameObject.transform.position))
+                        && !PathFinder.IsBlockedOnlyWalls(tileWorldPos, targetPlayer.GameObject.transform.position))
                     {
                         path = path.Take(tileCount).ToList();
                         break;

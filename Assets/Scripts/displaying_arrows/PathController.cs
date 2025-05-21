@@ -43,19 +43,19 @@ public class PathController : MonoBehaviour
          else if (player.currentAbility is Weapon)
          {
              var hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
-             if (hit.collider != null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player")))
+             if (hit.collider is not null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player")))
              {
                  target = hit.collider.gameObject;
                  targetPos = target.transform.position;
                  path = PathFinder.BFS(player, 
                      x=>Vector3.Distance(x, (Vector3)targetPos) <= ((Weapon)player.currentAbility).Range 
-                        && !PathFinder.IsBlocked(x, (Vector3)targetPos));
+                        && !PathFinder.IsBlocked(x, (Vector3)targetPos, gameObject, target));
              }
              else if (GameModel.Instance.Floor.HasTile(GameModel.Instance.Floor.WorldToCell(mouseWorldPos)))
              {
                  path = PathFinder.BFS(player, 
                      x=>Vector3.Distance(x, mouseWorldPos) <= ((Weapon)player.currentAbility).Range 
-                        && !PathFinder.IsBlocked(x, mouseWorldPos));
+                        && !PathFinder.IsBlocked(x, mouseWorldPos, gameObject, target));
                  targetPos = mouseWorldPos;
              }
          }

@@ -166,17 +166,27 @@ namespace Paths
             yield return new Vector3Int(cell.x, cell.y - 1, cell.z);
         }
 
-        public static bool IsBlocked(Vector3 start, Vector3 targetPosition)
+        public static bool IsBlocked(Vector3 start, Vector3 targetPosition, GameObject self, GameObject target)
         {
             var hits = Physics2D.LinecastAll(start, targetPosition);
             foreach (var hit in hits)
             {
-                if (hit.collider != null)
+                if (hit.collider is not null)
                 {
                     if (hit.collider.CompareTag("Wall")) return true;
-                    // if (hit.collider.CompareTag("Player") && hit.collider.gameObject != targetEntity) return true;
-                    // if (hit.collider.CompareTag("Enemy") && hit.collider.gameObject != targetEntity) return true;
+                    if ((hit.collider.CompareTag("Player") || hit.collider.CompareTag("Enemy"))
+                        && hit.collider.gameObject != self && hit.collider.gameObject != target) return true;
                 }
+            }
+            return false;
+        }
+        
+        public static bool IsBlockedOnlyWalls(Vector3 start, Vector3 targetPosition)
+        {
+            var hits = Physics2D.LinecastAll(start, targetPosition);
+            foreach (var hit in hits)
+            {
+                if (hit.collider is not null && hit.collider.CompareTag("Wall")) return true;
             }
             return false;
         }

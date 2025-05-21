@@ -67,7 +67,7 @@ namespace Weapons
             {
                 var currentpath = PathFinder.BFS(enemy, 
                     x=>Vector3.Distance(x, player.GameObject.transform.position) <= Range 
-                       && !PathFinder.IsBlocked(x, player.GameObject.transform.position));
+                       && !PathFinder.IsBlocked(x, player.GameObject.transform.position, enemy.GameObject, player.GameObject));
                 if (currentpath != null && currentpath.Count < minPathLenght)
                 {
                     path = currentpath;
