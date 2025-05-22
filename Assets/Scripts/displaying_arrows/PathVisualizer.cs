@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Tilemap))]
 public class PathVisualizer : MonoBehaviour
+//аааааа
 {
     [SerializeField] private Tilemap floorTilemap;
     [SerializeField] private TileBase pathTile;
