@@ -17,11 +17,14 @@ public class PathController : MonoBehaviour
     public List<Vector3Int> path;
     public GameObject target;
     public Vector3? targetPos;
+    
+    private TargetController targetController;
 
     [SerializeField] private EntityWrapper wrapper;
 
     public void Start()
     {
+        targetController = GameObject.Find("GameModel").GetComponent<TargetController>();
         mainCamera = Camera.main;
         player = (MainPlayer)wrapper.Entity;
     }
@@ -42,10 +45,9 @@ public class PathController : MonoBehaviour
          }
          else if (player.currentAbility is Weapon)
          {
-             var hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
-             if (hit.collider is not null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player")))
+             if (targetController.target is not null)
              {
-                 target = hit.collider.gameObject;
+                 target = targetController.target;
                  targetPos = target.transform.position;
                  path = PathFinder.BFS(player, 
                      x=>Vector3.Distance(x, (Vector3)targetPos) <= ((Weapon)player.currentAbility).Range 
