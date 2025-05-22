@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 namespace UI
@@ -11,6 +12,8 @@ namespace UI
         public Button AshenButton;
         
         public Button BivButton;
+
+        public TextMeshProUGUI TimeCountText;
         
         public void Init()
         {
@@ -18,6 +21,7 @@ namespace UI
             AshenButton = PlayerButtons.transform.Find("AshenButton").GetComponent<Button>();
             BivButton = PlayerButtons.transform.Find("BivButton").GetComponent<Button>();
             PlayerButtons.SetActive(false);
+            TimeCountText = GameObject.Find("TimeCountText").GetComponent<TextMeshProUGUI>();
         }
     }
 }
