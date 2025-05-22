@@ -23,6 +23,9 @@ public class PathRenderer : MonoBehaviour
 
         arrowPrefab = Resources.Load<GameObject>("Arrow");
         startMarkerPrefab = Resources.Load<GameObject>("StartMarker");
+        
+        if (arrowPrefab == null) Debug.LogError("Arrow prefab not found in Resources");
+        if (startMarkerPrefab == null) Debug.LogError("StartMarker prefab not found in Resources");
     }
 
     public void RenderPath(List<Vector3Int> path, Vector3? targetPos, int tileCount)
