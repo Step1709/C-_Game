@@ -4,8 +4,6 @@ using Entities;
 using Scenes;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
-[RequireComponent(typeof(Tilemap))]
 public class PathVisualizer : MonoBehaviour
 {
     [SerializeField] private Tilemap floorTilemap;
