@@ -15,12 +15,14 @@ namespace Abilities
         {
             var playerObj = player.GameObject;
             playerObj.GetComponent<PathController>().enabled = true;
+            playerObj.GetComponent<PathVisualizer>().enabled = true;
         }
 
         public void Remove(MainPlayer player)
         {
             var playerObj = player.GameObject;
             playerObj.GetComponent<PathController>().enabled = false;
+            playerObj.GetComponent<PathVisualizer>().enabled = false;
         }
 
         public bool Use(MainPlayer player)
@@ -31,6 +33,7 @@ namespace Abilities
                 return false;
             var move = playerObj.GetComponent<Move>();
             pathController.enabled = false;
+            playerObj.GetComponent<PathVisualizer>().enabled = false;
             move.path = pathController.path;
             move.isUsed = false;
             move.enabled = true;

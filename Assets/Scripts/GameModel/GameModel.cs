@@ -27,6 +27,8 @@ namespace Scenes
         public Tilemap Floor;
 
         public Tilemap Walls;
+        
+        public Tilemap HighlightTilemap; 
 
         public List<List<Enemy>> Wave1 = new();
         

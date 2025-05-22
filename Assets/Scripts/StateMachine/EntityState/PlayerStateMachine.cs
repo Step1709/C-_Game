@@ -14,7 +14,7 @@ namespace Scenes.EntityState2
         public PlayerBaseHandler baseHandler;
         
         public PlayerFightController fightController;
-
+        
         void Start()
         {
             player = (MainPlayer)wrapper.Entity;

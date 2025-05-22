@@ -59,12 +59,14 @@ namespace Weapons
         {
             var playerObj = player.GameObject;
             playerObj.GetComponent<PathController>().enabled = true;
+            playerObj.GetComponent<PathVisualizer>().enabled = true;
         }
 
         public void Remove(MainPlayer player)
         {
             var playerObj = player.GameObject;
             playerObj.GetComponent<PathController>().enabled = false;
+            playerObj.GetComponent<PathVisualizer>().enabled = false;
         }
 
         public abstract bool Use(MainPlayer player);

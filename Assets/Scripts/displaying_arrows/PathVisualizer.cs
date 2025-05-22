@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Entities;
 using Scenes;
@@ -6,7 +7,6 @@ using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Tilemap))]
 public class PathVisualizer : MonoBehaviour
-//аааааа
 {
     [SerializeField] private Tilemap floorTilemap;
     [SerializeField] private TileBase pathTile;
@@ -20,11 +20,12 @@ public class PathVisualizer : MonoBehaviour
     private PathController pathController;
     private MainPlayer player;
 
-    public void Awake()
+    void Start()
     {
-        highlightTilemap = GetComponent<Tilemap>();
-        pathController = FindObjectOfType<PathController>();
-        player = (MainPlayer)GameObject.FindGameObjectWithTag("Player").GetComponent<EntityWrapper>().Entity;
+        floorTilemap = GameModel.Instance.Floor;
+        highlightTilemap = GameModel.Instance.HighlightTilemap;
+        pathController = gameObject.GetComponent<PathController>();
+        player = (MainPlayer)gameObject.GetComponent<EntityWrapper>().Entity;
     }
 
     void FixedUpdate()
@@ -34,30 +35,33 @@ public class PathVisualizer : MonoBehaviour
         VisualizeTarget();
     }
 
+    private void OnDisable()
+    {
+        if (highlightTilemap != null) highlightTilemap.ClearAllTiles();
+    }
+
     private void VisualizePath()
     {
         if (pathController.path == null) return;
         var startCell = floorTilemap.WorldToCell(pathController.transform.position);
         highlightTilemap.SetTile(startCell, startTile);
-        DisplayMovementRange(startCell);
+        //DisplayMovementRange(startCell);
 
         if (pathController.path.Count == 0) return;
         foreach (var cell in pathController.path)
         {
             highlightTilemap.SetTile(cell, pathTile);
         }
-
         if (!pathController.targetPos.HasValue) return;
-        {
-            var lastPathCell = pathController.path[^1];
-            var targetCell = floorTilemap.WorldToCell(pathController.targetPos.Value);
+        
+        var lastPathCell = pathController.path[^1];
+        var targetCell = floorTilemap.WorldToCell(pathController.targetPos.Value);
 
-            if (lastPathCell == targetCell) return;
-            var lineCells = GetLine(lastPathCell, targetCell);
-            foreach (var cell in lineCells)
-            {
-                highlightTilemap.SetTile(cell, rangeIndicatorTile);
-            }
+        //if (lastPathCell == targetCell) return;
+        var lineCells = GetLine(lastPathCell, targetCell);
+        foreach (var cell in lineCells)
+        {
+            highlightTilemap.SetTile(cell, rangeIndicatorTile);
         }
     }
 

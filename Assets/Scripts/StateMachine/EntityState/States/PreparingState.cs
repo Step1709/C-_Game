@@ -5,6 +5,7 @@ namespace Scenes.EntityState2
         public static PreparingState Instance { get; } = new PreparingState();
         public void Enter(PlayerStateMachine stateMachine)
         {
+            stateMachine.player?.ChangeAbility(null);
             stateMachine.TileGraph.enabled = true;
             stateMachine.baseHandler.enabled = true;
         }

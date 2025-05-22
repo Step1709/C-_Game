@@ -47,6 +47,7 @@ namespace Weapons
                 return false;
             }
             pathController.enabled = false;
+            playerObj.GetComponent<PathVisualizer>().enabled = false;
             attack.target = pathController.target?.GetComponent<EntityWrapper>().Entity;
             attack.pathToTarget = pathController.path;
             attack.targetPosition = (Vector3)pathController.targetPos;

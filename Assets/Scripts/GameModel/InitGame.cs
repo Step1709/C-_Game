@@ -27,6 +27,7 @@ namespace Scenes
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
+            GameModel.Instance.HighlightTilemap = GameObject.Find("HighlightTilemap").GetComponent<Tilemap>();
             GameModel.Instance.MainPlayers = new List<MainPlayer>() {Ashen.Instance, Biv.Instance};
             foreach (var player in GameModel.Instance.MainPlayers)
             {
