@@ -39,8 +39,8 @@ Transform:
   m_GameObject: {fileID: 5355213896438806703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
-  m_LocalScale: {x: 0.17861919, y: 0.17201526, z: 1}
+  m_LocalPosition: {x: 9.9158, y: -0.1492, z: 0}
+  m_LocalScale: {x: 0.14493161, y: 0.13957319, z: 0.8114}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -218,6 +218,7 @@ MonoBehaviour:
   TileGraph: {fileID: -8763126673787654160}
   baseHandler: {fileID: 6188297143758377618}
   fightController: {fileID: 5733863758617329464}
+  Interface: {fileID: 0}
 --- !u!114 &6285000392341898648
 MonoBehaviour:
   m_ObjectHideFlags: 0

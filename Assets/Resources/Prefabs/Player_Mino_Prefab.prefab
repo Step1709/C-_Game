@@ -39,8 +39,8 @@ Transform:
   m_GameObject: {fileID: 5355213896438806703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8526, y: -0.2282, z: 0}
-  m_LocalScale: {x: 0.27142665, y: 0.24477997, z: 8.626735}
+  m_LocalPosition: {x: 0.187, y: -0.7908, z: 0}
+  m_LocalScale: {x: 0.14092283, y: 0.13434705, z: 6.559667}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -162,8 +162,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -2.5}
-  m_Radius: 2
+  m_Offset: {x: 0, y: -1.8}
+  m_Radius: 2.8
 --- !u!114 &7553711737853740138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +218,7 @@ MonoBehaviour:
   TileGraph: {fileID: -8763126673787654160}
   baseHandler: {fileID: 6188297143758377618}
   fightController: {fileID: -6279196710432508528}
+  Interface: {fileID: 0}
 --- !u!114 &7415149881533520769
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,7 +59,7 @@ namespace Weapons
                 var currentpath = PathFinder.BFS(enemy, 
                     x=>Vector3.Distance(x, entity.GameObject.transform.position) <= Range 
                        && !PathFinder.IsBlocked(x, entity.GameObject.transform.position, enemy.GameObject, entity.GameObject, exceptColliders));
-                if (currentpath != null && entity.Health <= 5 && entity.Health<=minHealth)
+                if (currentpath != null && entity.Health <= 10  && entity.Health<=minHealth)
                 {
                     path = currentpath;
                     minHealth = entity.Health;
