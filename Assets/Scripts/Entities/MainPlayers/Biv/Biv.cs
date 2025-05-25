@@ -26,10 +26,11 @@ namespace Scenes
             Health = MaxHealth;
             currentAbility = null;
         }
-
-        public override void ChangeButton()
+        
+        public override void ChangeButton(bool isActive)
         {
-            UI.Screen.Instance.BivButton.interactable = false;
+            UI.Screen.Instance.BivButton.interactable = isActive;
         }
+        
     }
 }

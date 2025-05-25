@@ -10,13 +10,13 @@ namespace Scenes
         
         public void Enter()
         {
-            UI.Screen.Instance.PlayerButtons.SetActive(true);
             var prepareManager = GameModel.Instance.GameModelObject.GetComponent<PrepareManager>();
             var changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
             changeChosen.enabled = true;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
                 var stateMachine = player.GameObject.GetComponent<PlayerStateMachine>();
+                player.ChangeButton(true);
                 stateMachine.ChangeState(PreparingState.Instance);
             }
             prepareManager.enabled = true;
@@ -24,7 +24,6 @@ namespace Scenes
 
         public void Exit()
         {
-            UI.Screen.Instance.PlayerButtons.SetActive(false);
             UI.Screen.Instance.TimeCountText.text = "";
             var prepareManager = GameModel.Instance.GameModelObject.GetComponent<PrepareManager>();
             prepareManager.enabled = false;

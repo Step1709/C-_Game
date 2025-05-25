@@ -22,7 +22,7 @@ namespace Scenes
         
         public abstract void Update();
 
-        public abstract void ChangeButton();
+        public abstract void ChangeButton(bool isActive);
     }
 }
 

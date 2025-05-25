@@ -22,7 +22,6 @@ namespace UI
             PlayerButtons = GameObject.Find("PlayerButtons");
             AshenButton = PlayerButtons.transform.Find("AshenButton").GetComponent<Button>();
             BivButton = PlayerButtons.transform.Find("BivButton").GetComponent<Button>();
-            PlayerButtons.SetActive(false);
             TimeCountText = GameObject.Find("TimeCountText").GetComponent<TextMeshProUGUI>();
             TargetInfo = GameObject.Find("TargetInfo");
             TargetInfo.SetActive(false);

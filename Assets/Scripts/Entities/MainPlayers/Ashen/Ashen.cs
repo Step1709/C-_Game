@@ -27,9 +27,9 @@ namespace Scenes
             currentAbility = null;
         }
 
-        public override void ChangeButton()
+        public override void ChangeButton(bool isActive)
         {
-            UI.Screen.Instance.AshenButton.interactable = false;
+            UI.Screen.Instance.AshenButton.interactable = isActive;
         }
     }
 }
