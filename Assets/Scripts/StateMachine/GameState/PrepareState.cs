@@ -20,6 +20,7 @@ namespace Scenes
                 stateMachine.ChangeState(PreparingState.Instance);
             }
             prepareManager.enabled = true;
+            UI.Screen.Instance.PlayerInterface.SetActive(false);
         }
 
         public void Exit()

@@ -16,9 +16,13 @@ namespace UI
         public TextMeshProUGUI TimeCountText;
 
         public GameObject TargetInfo;
+
+        public GameObject PlayerInterface;
         
         public void Init()
         {
+            PlayerInterface = GameObject.Find("PlayerInterface");
+            PlayerInterface.SetActive(false);
             PlayerButtons = GameObject.Find("PlayerButtons");
             AshenButton = PlayerButtons.transform.Find("AshenButton").GetComponent<Button>();
             BivButton = PlayerButtons.transform.Find("BivButton").GetComponent<Button>();

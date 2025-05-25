@@ -1,6 +1,7 @@
 using Abilities;
 using Entities;
 using Scenes.Scene;
+using UI;
 
 namespace Scenes.EntityState2
 {
@@ -11,6 +12,8 @@ namespace Scenes.EntityState2
         { 
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
             CameraClass.Instance.IsFree = false;
+            stateMachine.Interface.player = stateMachine.player;
+            Screen.Instance.PlayerInterface.SetActive(true);
             stateMachine.fightController.enabled = true;
             stateMachine.player.ChangeAbility(NoAbility.Instance);
         }

@@ -1,5 +1,6 @@
 using Abilities;
 using Entities;
+using UI;
 
 namespace Scenes.EntityState2
 {
@@ -8,6 +9,8 @@ namespace Scenes.EntityState2
         public static WaitingState Instance { get; } = new WaitingState();
         public void Enter(PlayerStateMachine stateMachine)
         {
+            stateMachine.Interface.player = null;
+            Screen.Instance.PlayerInterface.SetActive(false);
             stateMachine.player.ChangeAbility(null);
         }
 
