@@ -37,7 +37,7 @@ namespace Scenes
         public GameModel()
         {
             Wave1.Add(new List<Enemy>
-                { new GoblinShortSword(new Vector2(5, 5), 7f, "Prefabs/GoblinShortSwordPrefab", "pedik"), 
+                { new GoblinShortSword(new Vector2(3, 3), 7f, "Prefabs/GoblinShortSwordPrefab", "pedik"), 
                     new GoblinShortSword(new Vector2(10,5), 7f, "Prefabs/GoblinShortSwordPrefab", "loh") });
             
             Wave2.Add(new List<Enemy>
