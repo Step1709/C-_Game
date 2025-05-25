@@ -166,14 +166,12 @@ namespace Paths
             yield return new Vector3Int(cell.x, cell.y - 1, cell.z);
         }
 
-        public static bool IsBlocked(Vector3 start, Vector3 targetPosition, GameObject self, GameObject target)
+        public static bool IsBlocked(Vector3 start, Vector3 targetPosition, GameObject self, GameObject target, HashSet<Collider2D> exceptColliders)
         {
             var hits = Physics2D.LinecastAll(start, targetPosition);
-            var exceptColliders = Physics2D.OverlapCircleAll(targetPosition, 0.1f)
-                .ToHashSet();
             foreach (var hit in hits)
             {
-                if (hit.collider is not null)
+                if (hit.collider is not null && !hit.collider.isTrigger)
                 {
                     if (hit.collider.CompareTag("Wall")) return true;
                     if ((hit.collider.CompareTag("Player") || hit.collider.CompareTag("Enemy"))

@@ -47,15 +47,19 @@ public class PathController : MonoBehaviour
              {
                  target = hit.collider.gameObject;
                  targetPos = target.transform.position;
+                 var exceptColliders = Physics2D.OverlapCircleAll((Vector3)targetPos, 0.1f)
+                     .ToHashSet();
                  path = PathFinder.BFS(player, 
                      x=>Vector3.Distance(x, (Vector3)targetPos) <= ((Weapon)player.currentAbility).Range 
-                        && !PathFinder.IsBlocked(x, (Vector3)targetPos, gameObject, target));
+                        && !PathFinder.IsBlocked(x, (Vector3)targetPos, gameObject, target, exceptColliders));
              }
              else if (GameModel.Instance.Floor.HasTile(GameModel.Instance.Floor.WorldToCell(mouseWorldPos)))
              {
+                 var exceptColliders = Physics2D.OverlapCircleAll(mouseWorldPos, 0.1f)
+                     .ToHashSet();
                  path = PathFinder.BFS(player, 
                      x=>Vector3.Distance(x, mouseWorldPos) <= ((Weapon)player.currentAbility).Range 
-                        && !PathFinder.IsBlocked(x, mouseWorldPos, gameObject, target));
+                        && !PathFinder.IsBlocked(x, mouseWorldPos, gameObject, target, exceptColliders));
                  targetPos = mouseWorldPos;
              }
          }

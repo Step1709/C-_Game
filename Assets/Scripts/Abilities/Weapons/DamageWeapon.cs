@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Abilities;
 using Entities;
 using Paths;
@@ -66,9 +67,11 @@ namespace Weapons
             var minPathLenght = int.MaxValue;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
+                var exceptColliders = Physics2D.OverlapCircleAll(player.GameObject.transform.position, 0.1f)
+                    .ToHashSet();
                 var currentpath = PathFinder.BFS(enemy, 
                     x=>Vector3.Distance(x, player.GameObject.transform.position) <= Range 
-                       && !PathFinder.IsBlocked(x, player.GameObject.transform.position, enemy.GameObject, player.GameObject));
+                       && !PathFinder.IsBlocked(x, player.GameObject.transform.position, enemy.GameObject, player.GameObject, exceptColliders));
                 if (currentpath != null && currentpath.Count < minPathLenght)
                 {
                     path = currentpath;
