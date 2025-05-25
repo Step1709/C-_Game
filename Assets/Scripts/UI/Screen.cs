@@ -14,6 +14,8 @@ namespace UI
         public Button BivButton;
 
         public TextMeshProUGUI TimeCountText;
+
+        public GameObject TargetInfo;
         
         public void Init()
         {
@@ -22,6 +24,8 @@ namespace UI
             BivButton = PlayerButtons.transform.Find("BivButton").GetComponent<Button>();
             PlayerButtons.SetActive(false);
             TimeCountText = GameObject.Find("TimeCountText").GetComponent<TextMeshProUGUI>();
+            TargetInfo = GameObject.Find("TargetInfo");
+            TargetInfo.SetActive(false);
         }
     }
 }

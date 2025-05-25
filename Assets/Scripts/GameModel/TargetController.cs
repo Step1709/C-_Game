@@ -1,4 +1,7 @@
+using Entities;
+using UI;
 using UnityEngine;
+using Screen = UI.Screen;
 
 namespace Scenes
 {
@@ -6,10 +9,12 @@ namespace Scenes
     {
         public GameObject target;
         private Camera mainCamera;
+        private TargetInfo targetInfo;
 
         void Start()
         {
             mainCamera = Camera.main;
+            targetInfo = Screen.Instance.TargetInfo.GetComponent<TargetInfo>();
         }
         void FixedUpdate()
         {
@@ -19,6 +24,17 @@ namespace Scenes
             if (hit.collider is not null && (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Player")))
             {
                 target = hit.collider.gameObject;
+            }
+
+            if (target is not null)
+            {
+                targetInfo.targetEntity = target.GetComponent<EntityWrapper>().Entity;
+                Screen.Instance.TargetInfo.SetActive(true);
+            }
+            else
+            {
+                targetInfo.targetEntity = null;
+                Screen.Instance.TargetInfo.SetActive(false);
             }
         }
     }
