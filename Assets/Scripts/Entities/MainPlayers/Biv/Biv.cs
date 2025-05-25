@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Abilities;
 using UnityEngine;
 using Scenes;
 using Weapons;
@@ -17,8 +19,12 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Biv";
             MaxTileCount = 15;
-            CurrentWeapon = new DamageWeapon(15, 30, 1f, 0f, false);
-            CurrentHealWeapon = new HealWeapon(10, 15, 1.5f, 0, false);
+            Abilities = new List<IAbility>()
+            {
+                NoAbility.Instance,
+                new DamageWeapon(15, 30, 1f, 0f, false, "UI/swordImage"),
+                new HealWeapon(10, 15, 1.5f, 0, false, "UI/swordImage")
+            };
         }
 
         public override void Update()

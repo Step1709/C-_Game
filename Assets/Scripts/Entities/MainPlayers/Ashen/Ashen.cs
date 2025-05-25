@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Abilities;
 using UnityEngine;
 using Scenes;
 using Weapons;
@@ -17,8 +19,12 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Ashen";
             MaxTileCount = 15;
-            CurrentWeapon = new DamageWeapon(10, 20, 10f, 5f, true);
-            CurrentHealWeapon = new HealWeapon(5, 10, 10f, 3f, true);
+            Abilities = new List<IAbility>()
+            {
+                NoAbility.Instance,
+                new DamageWeapon(10, 20, 10f, 5f, true, "UI/swordImage"),
+                new HealWeapon(5, 10, 10f, 3f, true, "UI/swordImage")
+            };
         }
 
         public override void Update()

@@ -21,19 +21,22 @@ namespace Entities.MainPlayers
         void Update()
         {
             if (GameModel.Instance.OnPause) return;
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                player.ChangeAbility(NoAbility.Instance);
+                player.ChangeAbility(player.Abilities[0]);
+                player.AbilityIndex = 0;
                 Debug.Log("убрали все");
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                player.ChangeAbility(player.CurrentWeapon);
-                Debug.Log("взяли оружие");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                player.ChangeAbility(player.CurrentHealWeapon);
+                player.ChangeAbility(player.Abilities[1]);
+                player.AbilityIndex = 1;
+                Debug.Log("взяли оружие");
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                player.ChangeAbility(player.Abilities[2]);
+                player.AbilityIndex = 2;
                 Debug.Log("взяли хилку");
             }
             else if (Input.GetMouseButtonDown(1))

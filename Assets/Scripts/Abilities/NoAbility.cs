@@ -5,12 +5,15 @@ using Paths;
 using Scenes;
 using Scenes.EntityState2;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Abilities
 {
     public class NoAbility : IPlayerAbility, IEnemyAbility
     {
         public static NoAbility Instance{get; private set;} = new NoAbility();
+        public Sprite Image { get; set; } = Resources.Load<Sprite>("UI/swordImage");
+
         public void Choose(MainPlayer player)
         {
             var playerObj = player.GameObject;

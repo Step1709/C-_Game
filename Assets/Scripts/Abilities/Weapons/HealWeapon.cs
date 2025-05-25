@@ -10,8 +10,8 @@ namespace Weapons
 {
     public class HealWeapon : Weapon
     {
-        public HealWeapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf) 
-            : base(minDamage, maxDamage, range, splashRadius, damageSelf)
+        public HealWeapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf, string imagePath) 
+            : base(minDamage, maxDamage, range, splashRadius, damageSelf, imagePath)
         {
         }
 

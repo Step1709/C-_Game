@@ -17,7 +17,7 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI bivHpText;
 
-        void Update()
+        void FixedUpdate()
         {
             UpdateButton(Ashen.Instance, ashenHpBar, ashenHpText);
             UpdateButton(Biv.Instance, bivHpBar, bivHpText);

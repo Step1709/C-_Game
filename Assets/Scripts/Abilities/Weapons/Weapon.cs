@@ -8,6 +8,7 @@ using Scenes;
 using Scenes.EntityState2;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 namespace Weapons
 {
@@ -19,13 +20,14 @@ namespace Weapons
         public float SplashRadius;
         public bool DamageSelf;
 
-        public Weapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf)
+        public Weapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf, string imagePath)
         {
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
             Range = range;
             SplashRadius = splashRadius;
             DamageSelf = damageSelf;
+            Image = Resources.Load<Sprite>(imagePath);
         }
 
         public void Attack(Entity user, Entity target, Vector3 targetPosition)
@@ -54,6 +56,8 @@ namespace Weapons
         }
 
         protected abstract void Damage(Entity user, Entity target);
+
+        public Sprite Image { get; set; }
 
         public void Choose(MainPlayer player)
         {

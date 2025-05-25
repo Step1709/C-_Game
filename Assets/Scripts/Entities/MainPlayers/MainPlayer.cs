@@ -7,7 +7,7 @@ namespace Scenes
 {
     public abstract class MainPlayer : Entity
     {
-        public HealWeapon CurrentHealWeapon;
+        public int AbilityIndex;
         public override void ChangeAbility(IAbility ability)
         {
             ((IPlayerAbility)currentAbility)?.Remove(this);

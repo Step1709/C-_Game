@@ -19,7 +19,7 @@ namespace UI
         [SerializeField]
         private TextMeshProUGUI textName;
         
-        void Update()
+        void FixedUpdate()
         {
             bar.fillAmount = (float)targetEntity.Health / targetEntity.MaxHealth;
             textHp.text = targetEntity.Health + "/" + targetEntity.MaxHealth;

@@ -13,8 +13,10 @@ namespace Scenes.EntityState2
             CameraClass.Instance.ChosenEntity = stateMachine.gameObject;
             CameraClass.Instance.IsFree = false;
             stateMachine.Interface.player = stateMachine.player;
+            stateMachine.Interface.UpdateAbilityImages();
             Screen.Instance.PlayerInterface.SetActive(true);
             stateMachine.fightController.enabled = true;
+            stateMachine.player.AbilityIndex = 0;
             stateMachine.player.ChangeAbility(NoAbility.Instance);
         }
 

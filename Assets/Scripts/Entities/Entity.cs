@@ -15,8 +15,6 @@ namespace Entities
         public int ArmorClass;
         
         public List<IAbility> Abilities;
-
-        public Weapon CurrentWeapon;
         
         public Vector2 StartPosition;
 
