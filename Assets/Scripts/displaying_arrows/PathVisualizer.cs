@@ -45,7 +45,7 @@ public class PathVisualizer : MonoBehaviour
             }
         }
 
-        if (pathController == null || !pathController.targetPos.HasValue) return;
+        if (pathController == null || pathController.path == null || !pathController.targetPos.HasValue) return;
         var lineStart = (pathController.path != null && pathController.path.Count > 0)
             ? pathController.path[^1]
             : floorTilemap.WorldToCell(transform.position);
