@@ -29,6 +29,7 @@ public class PathVisualizer : MonoBehaviour
 
     private void OnDisable()
     {
+        if (highlightTilemap == null) return;
         highlightTilemap.ClearAllTiles();
     }
 
