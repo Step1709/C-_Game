@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: -4084381770008649689}
   - component: {fileID: -1621570448277675763}
   - component: {fileID: 8026163734696021399}
+  - component: {fileID: 2577288421210377575}
+  - component: {fileID: 5329071153704632459}
   m_Layer: 0
   m_Name: Player_Mino_Prefab
   m_TagString: Player
@@ -352,8 +354,55 @@ MonoBehaviour:
   floorTilemap: {fileID: 0}
   pathTile: {fileID: 11400000, guid: 35ce889118c49b04b8245e9569aa653a, type: 2}
   startTile: {fileID: 11400000, guid: cc7cc74f32380484a859232b8428d6da, type: 2}
-  targetTile: {fileID: 11400000, guid: 2e6a4c14b725fc24c9ca83a90ce20544, type: 2}
-  enemyHighlightTile: {fileID: 11400000, guid: 9167cc9f8fb661f4e844f422a2cd7964, type: 2}
-  playerHighlightTile: {fileID: 11400000, guid: d425cf0c65d32454e9d1c3c68c4fb3e1,
-    type: 2}
   rangeIndicatorTile: {fileID: 11400000, guid: d35b44401bb6fe1429e2326dc96ba1af, type: 2}
+--- !u!1839735485 &2577288421210377575
+Tilemap:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 1
+  m_Tiles: {}
+  m_AnimatedTiles: {}
+  m_TileAssetArray: []
+  m_TileSpriteArray: []
+  m_TileMatrixArray: []
+  m_TileColorArray: []
+  m_TileObjectToInstantiateArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0, y: 0, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+--- !u!114 &5329071153704632459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e61aa2b37464fa8bb23d2a3411cf7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.37613475, g: 0.44527897, b: 0.759434, a: 1}
