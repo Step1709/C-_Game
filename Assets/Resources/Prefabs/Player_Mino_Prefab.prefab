@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4734441781305219401}
   - component: {fileID: 7553711737853740138}
   - component: {fileID: -8763126673787654160}
-  - component: {fileID: 6188297143758377618}
   - component: {fileID: -8056622404269193303}
   - component: {fileID: 7415149881533520769}
   - component: {fileID: 7556538939870815696}
@@ -190,20 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f34861c9764d5690601c830ad5a69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6188297143758377618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355213896438806703}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 844a8a0a43f14ec4b78e6d4fe2aa7c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 4772111833561171668}
-  wrapper: {fileID: 7553711737853740138}
 --- !u!114 &-8056622404269193303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wrapper: {fileID: 7553711737853740138}
   TileGraph: {fileID: -8763126673787654160}
-  baseHandler: {fileID: 6188297143758377618}
+  baseHandler: {fileID: 0}
   fightController: {fileID: -6279196710432508528}
   Interface: {fileID: 0}
 --- !u!114 &7415149881533520769

@@ -34,7 +34,7 @@ namespace TailMap
             if (GameModel.Instance.OnPause) return;
             if (gameObject == GameModel.Instance.ChosenPlayer.GameObject)
             {
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonDown(0))
                 {
                     var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     mouseWorldPos.z = 0f;
@@ -53,8 +53,6 @@ namespace TailMap
                         isMoving = true;
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) ||
-                    Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) isMoving = false;
                 if (isMoving && pathWorldPositions != null && pathWorldPositions.Count > 0)
                 {
                     var targetPosition = pathWorldPositions[currentTargetIndex];

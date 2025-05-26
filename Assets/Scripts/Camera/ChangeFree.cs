@@ -6,7 +6,7 @@ public class ChangeFree : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             CameraClass.Instance.IsFree = !CameraClass.Instance.IsFree;
         }

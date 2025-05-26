@@ -39,7 +39,7 @@ namespace Entities.MainPlayers
                 player.AbilityIndex = 2;
                 Debug.Log("взяли хилку");
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetMouseButtonDown(0))
             {
                 player.UseAbility(player.currentAbility);
             }

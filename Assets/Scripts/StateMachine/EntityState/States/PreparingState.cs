@@ -7,13 +7,11 @@ namespace Scenes.EntityState2
         {
             stateMachine.player?.ChangeAbility(null);
             stateMachine.TileGraph.enabled = true;
-            stateMachine.baseHandler.enabled = true;
         }
 
         public void Exit(PlayerStateMachine stateMachine)
         {
             stateMachine.TileGraph.enabled = false;
-            stateMachine.baseHandler.enabled = false;
         }
     }
 }

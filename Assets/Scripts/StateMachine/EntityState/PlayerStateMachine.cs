@@ -13,8 +13,6 @@ namespace Scenes.EntityState2
         
         public TileMovement TileGraph;
         
-        public PlayerBaseHandler baseHandler;
-        
         public PlayerFightController fightController;
         
         public PlayerInterface Interface;

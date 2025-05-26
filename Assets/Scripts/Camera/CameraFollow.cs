@@ -27,17 +27,8 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                lastMousePosition = Input.mousePosition;
-            }
-            if (Input.GetMouseButton(0))
-            {
-                var mouseDelta = Input.mousePosition - lastMousePosition;
-                var deltaMove = -new Vector3(mouseDelta.x, mouseDelta.y, 0f) * cameraSpeed;
-                targetPos += deltaMove;
-                lastMousePosition = Input.mousePosition;
-            }
+            var deltaMove = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") , 0f) * cameraSpeed;
+            targetPos += deltaMove;
         }
     }
     public void FixedUpdate()
