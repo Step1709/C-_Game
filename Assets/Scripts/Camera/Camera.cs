@@ -10,9 +10,5 @@ namespace Scenes.Scene
         public GameObject ChosenEntity;
         
         public bool IsFree;
-        public CameraClass()
-        {
-            IsFree = false;
-        }
     }
 }

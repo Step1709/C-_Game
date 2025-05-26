@@ -40,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 5355213896438806703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.187, y: -0.7908, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14092283, y: 0.13434705, z: 6.559667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707fd63e8e16447194ebe99930b4c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatingTextPrefab: {fileID: 684585627081111670, guid: 027f307e909cfc843918e9da0ba09101,
+    type: 3}
 --- !u!114 &-8763126673787654160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wrapper: {fileID: 7553711737853740138}
   TileGraph: {fileID: -8763126673787654160}
-  baseHandler: {fileID: 0}
   fightController: {fileID: -6279196710432508528}
   Interface: {fileID: 0}
 --- !u!114 &7415149881533520769

@@ -23,10 +23,12 @@ namespace Weapons
                 var damage = Random.Range(minDamage, maxDamage);
                 target.Health -= damage;
                 if (target.Health <= 0) target.Health = 0;
+                UI.Screen.Instance.DamageShower.ShowDamage(target, damage, Color.red);
                 Debug.Log($"у {target.Name} осталось {target.Health} хп после тычки на {damage} урона");
             }
             else
             {
+                UI.Screen.Instance.DamageShower.ShowDamage(target, 0, Color.white);
                 Debug.Log($"{user.Name} не попадает по {target.Name}");
             }
         }

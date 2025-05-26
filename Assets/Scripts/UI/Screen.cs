@@ -1,3 +1,4 @@
+using Scenes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,8 +22,11 @@ namespace UI
         
         public GameObject AbilityInfo;
         
+        public DamageShower DamageShower;
+        
         public void Init()
         {
+            DamageShower = GameModel.Instance.GameModelObject.GetComponent<DamageShower>();
             PlayerInterface = GameObject.Find("PlayerInterface");
             PlayerInterface.SetActive(false);
             AbilityInfo = GameObject.Find("AbilityInfo");

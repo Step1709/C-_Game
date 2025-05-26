@@ -15,7 +15,6 @@ namespace Scenes
     {
         void Awake()
         {
-            UI.Screen.Instance.Init();
             GameModel.Instance.OnPause = false;
             GameModel.Instance.Waves = new();
             GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave1[Random.Range(0, GameModel.Instance.Wave1.Count)]
@@ -35,7 +34,9 @@ namespace Scenes
                 player.Update();
             }
             GameModel.Instance.ChosenPlayer = Ashen.Instance;
+            CameraClass.Instance.IsFree = false;
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer.GameObject;
+            UI.Screen.Instance.Init();
             StateMachine.Instance.ChangeState(PrepareState.Instance);
         }
 
