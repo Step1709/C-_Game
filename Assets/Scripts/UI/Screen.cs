@@ -19,10 +19,14 @@ namespace UI
 
         public GameObject PlayerInterface;
         
+        public GameObject AbilityInfo;
+        
         public void Init()
         {
             PlayerInterface = GameObject.Find("PlayerInterface");
             PlayerInterface.SetActive(false);
+            AbilityInfo = GameObject.Find("AbilityInfo");
+            AbilityInfo.SetActive(false);
             PlayerButtons = GameObject.Find("PlayerButtons");
             AshenButton = PlayerButtons.transform.Find("AshenButton").GetComponent<Button>();
             BivButton = PlayerButtons.transform.Find("BivButton").GetComponent<Button>();

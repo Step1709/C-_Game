@@ -7,11 +7,13 @@ using UnityEngine;
 using Fighting;
 using Paths;
 using Scenes;
+using UI;
 using Weapons;
+using Screen = UI.Screen;
 
 public class PathController : MonoBehaviour
 {
-    private MainPlayer player;
+    public MainPlayer player;
     private Camera mainCamera;
 
     public List<Vector3Int> path;
@@ -19,8 +21,22 @@ public class PathController : MonoBehaviour
     public Vector3? targetPos;
 
     [SerializeField] private EntityWrapper wrapper;
+    
+    private AbilityInfo abilityInfo;
+    
+    void OnEnable()
+    {
+        abilityInfo ??= Screen.Instance.AbilityInfo.GetComponent<AbilityInfo>();
+        abilityInfo.pathController = this;
+        Screen.Instance.AbilityInfo.SetActive(true);
+    }
 
-    public void Start()
+    void OnDisable()
+    {
+        if (abilityInfo != null) abilityInfo.pathController = null;
+        if (Screen.Instance.AbilityInfo != null) Screen.Instance.AbilityInfo.SetActive(false);
+    }
+    void Start()
     {
         mainCamera = Camera.main;
         player = (MainPlayer)wrapper.Entity;

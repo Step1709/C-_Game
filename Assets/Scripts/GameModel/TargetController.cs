@@ -10,6 +10,7 @@ namespace Scenes
         public GameObject target;
         private Camera mainCamera;
         private TargetInfo targetInfo;
+        public Entity targetEntity;
 
         void Start()
         {
@@ -28,14 +29,15 @@ namespace Scenes
 
             if (target is not null)
             {
-                targetInfo.targetEntity = target.GetComponent<EntityWrapper>().Entity;
+                targetEntity = target.GetComponent<EntityWrapper>().Entity;
                 Screen.Instance.TargetInfo.SetActive(true);
             }
             else
             {
-                targetInfo.targetEntity = null;
+                targetEntity = null;
                 Screen.Instance.TargetInfo.SetActive(false);
             }
+            targetInfo.targetEntity = targetEntity;
         }
     }
 }
