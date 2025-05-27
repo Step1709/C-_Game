@@ -9,7 +9,7 @@ namespace Scenes.EntityState2
     {
         public IEntityState currentState { get; protected set; }
 
-        [SerializeField] protected EntityWrapper wrapper;
+        [SerializeField] public EntityWrapper wrapper;
 
         public abstract void ChangeState(IEntityState newState);
     }

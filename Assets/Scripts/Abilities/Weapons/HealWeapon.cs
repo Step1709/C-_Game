@@ -20,7 +20,7 @@ namespace Weapons
             var damage = Random.Range(minDamage, maxDamage);
             target.Health += damage;
             if (target.Health >=target.MaxHealth) target.Health = target.MaxHealth;
-            UI.Screen.Instance.DamageShower.ShowDamage(target, damage, Color.green);
+            UI.Screen.Instance.DamageShower.ShowDamage(target, damage.ToString(), Color.green);
             Debug.Log($"у {target.Name} осталось {target.Health} хп после хила на {damage} от {user.Name}");
         }
 

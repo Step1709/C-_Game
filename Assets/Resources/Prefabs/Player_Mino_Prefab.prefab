@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 8026163734696021399}
   - component: {fileID: 2577288421210377575}
   - component: {fileID: 5329071153704632459}
+  - component: {fileID: -121914901417501745}
   m_Layer: 0
   m_Name: Player_Mino_Prefab
   m_TagString: Player
@@ -177,8 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707fd63e8e16447194ebe99930b4c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingTextPrefab: {fileID: 684585627081111670, guid: 027f307e909cfc843918e9da0ba09101,
-    type: 3}
 --- !u!114 &-8763126673787654160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,3 +391,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 0.37613475, g: 0.44527897, b: 0.759434, a: 1}
+--- !u!114 &-121914901417501745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f07239ac2a140588040497d23b25a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateMachine: {fileID: -8056622404269193303}

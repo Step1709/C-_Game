@@ -2,6 +2,7 @@ using Entities;
 using Scenes;
 using Scenes.EntityState2;
 using UnityEngine;
+using Weapons;
 
 namespace Abilities
 {
@@ -20,11 +21,7 @@ namespace Abilities
         public bool Use(MainPlayer player)
         {
             if (player.MainActionPoint <=0) return false;
-            var stateMachine = player.GameObject.GetComponent<EntityStateMachine>();
-            stateMachine.ChangeState(UsingAbilityState.Instance);
-            player.CurrentTileCount += 3;
-            player.MainActionPoint--;
-            stateMachine.ChangeState(ActiveState.Instance);
+            player.GameObject.GetComponent<UsingBoost>().enabled = true;
             return true;
         }
 
@@ -39,12 +36,7 @@ namespace Abilities
         public bool Use(Enemy enemy)
         {
             if (enemy.MainActionPoint <=0) return false;
-            var stateMachine = enemy.GameObject.GetComponent<EntityStateMachine>();
-            stateMachine.ChangeState(UsingAbilityState.Instance);
-            enemy.CurrentTileCount += 3;
-            enemy.MainActionPoint--;
-            Debug.Log("враг использовал буст");
-            stateMachine.ChangeState(ActiveState.Instance);
+            enemy.GameObject.GetComponent<UsingBoost>().enabled = true;
             return true;
         }
     }
