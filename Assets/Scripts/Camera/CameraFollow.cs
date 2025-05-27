@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     {
         smoothSpeed = 0.125f;
         offset = new Vector3(0f, 0f, -10f);
-        cameraSpeed = 0.05f;
+        cameraSpeed = 10f;
     }
 
     public void Update()
@@ -27,7 +27,7 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            var deltaMove = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") , 0f) * cameraSpeed;
+            var deltaMove = cameraSpeed * Time.deltaTime * new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") , 0f);
             targetPos += deltaMove;
         }
     }

@@ -18,7 +18,7 @@ namespace Scenes
             EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Wiz_Prefab");
             MoveSpeed = 7f;
             Name = "Ashen";
-            MaxTileCount = 15;
+            MaxTileCount = 9;
             Abilities = new List<IAbility>()
             {
                 NoAbility.Instance,

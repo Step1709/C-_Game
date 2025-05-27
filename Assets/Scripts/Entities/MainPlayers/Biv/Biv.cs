@@ -18,7 +18,7 @@ namespace Scenes
             EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Mino_Prefab");
             MoveSpeed = 7f;
             Name = "Biv";
-            MaxTileCount = 15;
+            MaxTileCount = 12;
             Abilities = new List<IAbility>()
             {
                 NoAbility.Instance,
