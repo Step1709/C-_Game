@@ -53,7 +53,7 @@ public class PathController : MonoBehaviour
          {
              var targetTile = GameModel.Instance.Floor.WorldToCell(mouseWorldPos);
              path = PathFinder.BFS(player, x=>GameModel.Instance.Floor.WorldToCell(x) == targetTile,
-                 x=>x.depth + PathFinder.Heuristic(x.cellPosition, targetTile));
+                 x=>x.depth + Vector3.Distance(x.cellPosition, targetTile));
          }
          else if (player.currentAbility is Weapon)
          {
