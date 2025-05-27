@@ -52,7 +52,8 @@ public class PathController : MonoBehaviour
              GameModel.Instance.Floor.HasTile(GameModel.Instance.Floor.WorldToCell(mouseWorldPos)))
          {
              var targetTile = GameModel.Instance.Floor.WorldToCell(mouseWorldPos);
-             path = PathFinder.BFS(player, x=>GameModel.Instance.Floor.WorldToCell(x) == targetTile);
+             path = PathFinder.BFS(player, x=>GameModel.Instance.Floor.WorldToCell(x) == targetTile,
+                 x=>x.depth + PathFinder.Heuristic(x.cellPosition, targetTile));
          }
          else if (player.currentAbility is Weapon)
          {
@@ -65,7 +66,8 @@ public class PathController : MonoBehaviour
                      .ToHashSet();
                  path = PathFinder.BFS(player, 
                      x=>Vector3.Distance(x, (Vector3)targetPos) <= ((Weapon)player.currentAbility).Range 
-                        && !PathFinder.IsBlocked(x, (Vector3)targetPos, gameObject, target, exceptColliders));
+                        && !PathFinder.IsBlocked(x, (Vector3)targetPos, gameObject, target, exceptColliders),
+                     x=>x.depth + Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(x.cellPosition), target.transform.position));
              }
              else if (GameModel.Instance.Floor.HasTile(GameModel.Instance.Floor.WorldToCell(mouseWorldPos)))
              {
@@ -73,7 +75,8 @@ public class PathController : MonoBehaviour
                      .ToHashSet();
                  path = PathFinder.BFS(player, 
                      x=>Vector3.Distance(x, mouseWorldPos) <= ((Weapon)player.currentAbility).Range 
-                        && !PathFinder.IsBlocked(x, mouseWorldPos, gameObject, target, exceptColliders));
+                        && !PathFinder.IsBlocked(x, mouseWorldPos, gameObject, target, exceptColliders),
+                     x=>x.depth + Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(x.cellPosition), mouseWorldPos));
                  targetPos = mouseWorldPos;
              }
          }

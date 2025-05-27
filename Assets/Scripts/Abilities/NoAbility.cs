@@ -94,7 +94,8 @@ namespace Abilities
             else
             {
                 path = PathFinder.BFS(enemy, 
-                    x=>Vector3.Distance(x, targetPlayer.GameObject.transform.position) > enemy.SupportDistance);
+                    x=>Vector3.Distance(x, targetPlayer.GameObject.transform.position) > enemy.SupportDistance,
+                    x=>x.depth + Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(x.cellPosition), targetPlayer.GameObject.transform.position));
             }
 
             if (path is null || path.Count == 0) return false;

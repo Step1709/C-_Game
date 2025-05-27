@@ -59,7 +59,8 @@ namespace Weapons
                     .ToHashSet();
                 var currentpath = PathFinder.BFS(enemy, 
                     x=>Vector3.Distance(x, entity.GameObject.transform.position) <= Range 
-                       && !PathFinder.IsBlocked(x, entity.GameObject.transform.position, enemy.GameObject, entity.GameObject, exceptColliders));
+                       && !PathFinder.IsBlocked(x, entity.GameObject.transform.position, enemy.GameObject, entity.GameObject, exceptColliders),
+                    x=>x.depth + Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(x.cellPosition), entity.GameObject.transform.position));
                 if (currentpath != null && entity.Health <= 10  && entity.Health<=minHealth)
                 {
                     path = currentpath;

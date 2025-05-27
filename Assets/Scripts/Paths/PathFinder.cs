@@ -9,7 +9,7 @@ using Weapons;
 
 namespace Paths
 {
-    class CellInfo
+    public class CellInfo
     {
         public Vector3Int cellPosition;
         public int depth;
@@ -23,13 +23,13 @@ namespace Paths
 
     public class PathFinder
     {
-        public static List<Vector3Int> BFS(Entity EntityLogic, Func<Vector3, bool> StopCondition)
+        public static List<Vector3Int> BFS(Entity EntityLogic, Func<Vector3, bool> StopCondition, Func<CellInfo, float> Priority)
         {
             var startCellPos = GameModel.Instance.Floor.WorldToCell(EntityLogic.GameObject.transform.position);
             var startCell = new CellInfo(startCellPos, 0);
             
-            var queue = new Queue<CellInfo>();
-            queue.Enqueue(startCell);
+            var queue = new PriorityQueue<CellInfo>();
+            queue.Enqueue(startCell, Priority(startCell));
             
             var paths = new Dictionary<Vector3Int?, Vector3Int?>();
             paths[startCellPos] = null;
@@ -44,7 +44,8 @@ namespace Paths
                 {
                     if (CanMove(currentCell.cellPosition, neighbor) && !paths.ContainsKey(neighbor))
                     {
-                        queue.Enqueue(new CellInfo(neighbor, currentCell.depth + 1));
+                        var newCell = new CellInfo(neighbor, currentCell.depth + 1);
+                        queue.Enqueue(newCell, Priority(newCell));
                         paths[neighbor] = currentCell.cellPosition;
                     }
                 }
@@ -103,7 +104,7 @@ namespace Paths
 
             return null;
         }
-        private static float Heuristic(Vector3Int a, Vector3Int b)
+        public static float Heuristic(Vector3Int a, Vector3Int b)
         {
             return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
         }
