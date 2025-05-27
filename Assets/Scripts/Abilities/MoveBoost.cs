@@ -36,6 +36,7 @@ namespace Abilities
         public bool Use(Enemy enemy)
         {
             if (enemy.MainActionPoint <=0) return false;
+            enemy.ChangeAbility(this);
             enemy.GameObject.GetComponent<UsingBoost>().enabled = true;
             return true;
         }
