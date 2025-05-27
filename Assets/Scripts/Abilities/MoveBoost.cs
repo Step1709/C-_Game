@@ -1,0 +1,51 @@
+using Entities;
+using Scenes;
+using Scenes.EntityState2;
+using UnityEngine;
+
+namespace Abilities
+{
+    public class MoveBoost : IPlayerAbility, IEnemyAbility
+    {
+        public static MoveBoost Instance { get; } = new MoveBoost();
+        public Sprite Image { get; set; } = Resources.Load<Sprite>("UI/swordImage");
+        public void Choose(MainPlayer player)
+        {
+        }
+
+        public void Remove(MainPlayer player)
+        {
+        }
+
+        public bool Use(MainPlayer player)
+        {
+            if (player.MainActionPoint <=0) return false;
+            var stateMachine = player.GameObject.GetComponent<EntityStateMachine>();
+            stateMachine.ChangeState(UsingAbilityState.Instance);
+            player.CurrentTileCount += 3;
+            player.MainActionPoint--;
+            stateMachine.ChangeState(ActiveState.Instance);
+            return true;
+        }
+
+        public void Choose(Enemy enemy)
+        {
+        }
+
+        public void Remove(Enemy enemy)
+        {
+        }
+
+        public bool Use(Enemy enemy)
+        {
+            if (enemy.MainActionPoint <=0) return false;
+            var stateMachine = enemy.GameObject.GetComponent<EntityStateMachine>();
+            stateMachine.ChangeState(UsingAbilityState.Instance);
+            enemy.CurrentTileCount += 3;
+            enemy.MainActionPoint--;
+            Debug.Log("враг использовал буст");
+            stateMachine.ChangeState(ActiveState.Instance);
+            return true;
+        }
+    }
+}

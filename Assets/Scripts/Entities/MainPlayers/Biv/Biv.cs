@@ -23,7 +23,8 @@ namespace Scenes
             {
                 NoAbility.Instance,
                 new DamageWeapon(15, 30, 1f, 0f, false, "UI/swordImage"),
-                new HealWeapon(10, 15, 1.5f, 0, false, "UI/swordImage")
+                new HealWeapon(10, 15, 1.5f, 0, false, "UI/swordImage"),
+                MoveBoost.Instance
             };
         }
 

@@ -19,6 +19,7 @@ namespace Entities
             Abilities = new List<IAbility>();
             Abilities.Add(new HealWeapon(5,10, 2f, 0, false, "UI/swordImage"));
             Abilities.Add(new DamageWeapon(6, 14,5f, 0, true, "UI/swordImage"));
+            Abilities.Add(MoveBoost.Instance);
             Abilities.Add(NoAbility.Instance);
         }
     }

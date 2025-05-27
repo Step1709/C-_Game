@@ -17,15 +17,17 @@ namespace UI
         [SerializeField] private Image slotImage1;
         [SerializeField] private Image slotImage2;
         [SerializeField] private Image slotImage3;
+        [SerializeField] private Image slotImage4;
         
         [SerializeField] public Image abilityImage1;
         [SerializeField] public Image abilityImage2;
         [SerializeField] public Image abilityImage3;
+        [SerializeField] public Image abilityImage4;
 
         private Image[] slots;
         void Awake()
         {
-            slots = new[] {slotImage1, slotImage2, slotImage3};
+            slots = new[] {slotImage1, slotImage2, slotImage3, slotImage4};
         }
         void FixedUpdate()
         {
@@ -42,6 +44,7 @@ namespace UI
             abilityImage1.sprite = ((IPlayerAbility)player.Abilities[0]).Image;
             abilityImage2.sprite = ((IPlayerAbility)player.Abilities[1]).Image;
             abilityImage3.sprite = ((IPlayerAbility)player.Abilities[2]).Image;
+            abilityImage4.sprite = ((IPlayerAbility)player.Abilities[3]).Image;
         }
     }
 }

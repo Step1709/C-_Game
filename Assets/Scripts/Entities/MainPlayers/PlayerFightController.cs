@@ -39,6 +39,12 @@ namespace Entities.MainPlayers
                 player.AbilityIndex = 2;
                 Debug.Log("взяли хилку");
             }
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                player.ChangeAbility(player.Abilities[3]);
+                player.AbilityIndex = 3;
+                Debug.Log("взяли рывок");
+            }
             else if (Input.GetMouseButtonDown(0))
             {
                 player.UseAbility(player.currentAbility);
