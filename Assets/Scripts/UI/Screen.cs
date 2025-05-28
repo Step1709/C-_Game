@@ -13,6 +13,8 @@ namespace UI
         public Button AshenButton;
         
         public Button BivButton;
+        
+        public Button BrightButton;
 
         public TextMeshProUGUI TimeCountText;
 
@@ -34,6 +36,7 @@ namespace UI
             PlayerButtons = GameObject.Find("PlayerButtons");
             AshenButton = PlayerButtons.transform.Find("AshenButton").GetComponent<Button>();
             BivButton = PlayerButtons.transform.Find("BivButton").GetComponent<Button>();
+            BrightButton = PlayerButtons.transform.Find("BrightfireButton").GetComponent<Button>();
             TimeCountText = GameObject.Find("TimeCountText").GetComponent<TextMeshProUGUI>();
             TargetInfo = GameObject.Find("TargetInfo");
             TargetInfo.SetActive(false);

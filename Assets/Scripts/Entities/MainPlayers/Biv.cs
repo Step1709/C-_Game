@@ -10,7 +10,7 @@ namespace Scenes
     {
         public static Biv Instance { get; } = new Biv();
 
-        public Biv()
+        private Biv()
         {
             MaxHealth = 30;
             ArmorClass = 15;
@@ -23,15 +23,9 @@ namespace Scenes
             {
                 NoAbility.Instance,
                 new DamageWeapon(15, 30, 1f, 0f, false, "UI/swordImage"),
-                new HealWeapon(10, 15, 1.5f, 0, false, "UI/swordImage"),
+                new DamageWeapon(10, 20, 1f, 2f, false, "UI/swordImage"),
                 MoveBoost.Instance
             };
-        }
-
-        public override void Update()
-        {
-            Health = MaxHealth;
-            currentAbility = null;
         }
         
         public override void ChangeButton(bool isActive)

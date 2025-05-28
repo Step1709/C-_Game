@@ -19,8 +19,12 @@ namespace Scenes
         {
             return ((IPlayerAbility)ability).Use(this);
         }
-        
-        public abstract void Update();
+
+        public void Update()
+        {
+            Health = MaxHealth;
+            currentAbility = null;
+        }
 
         public abstract void ChangeButton(bool isActive);
     }
