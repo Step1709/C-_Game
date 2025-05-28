@@ -37,13 +37,16 @@ namespace Scenes
         public GameModel()
         {
             Wave1.Add(new List<Enemy>
-                { new GoblinShortSword(new Vector2(3, 3), 7f, "Prefabs/GoblinShortSwordPrefab", "pedik"), 
-                    new GoblinShortSword(new Vector2(10,5), 7f, "Prefabs/GoblinShortSwordPrefab", "loh") });
+                { new Warrior(new Vector2(3, 3), 7f, "Prefabs/GoblinShortSwordPrefab", "warrior"), 
+                    new Magic(new Vector2(10,5), 7f, "Prefabs/GoblinShortSwordPrefab", "magic"),
+                    new Healer(new Vector2(15,5), 7f, "Prefabs/GoblinShortSwordPrefab", "healer")
+                });
             
             Wave2.Add(new List<Enemy>
             {
-                new GoblinShortSword(new Vector2(7,5), 7f, "Prefabs/GoblinShortSwordPrefab", "chort"), 
-                new GoblinShortSword(new Vector2(9,5), 7f, "Prefabs/GoblinShortSwordPrefab", "vitalya")
+                new Warrior(new Vector2(8, 8), 7f, "Prefabs/GoblinShortSwordPrefab", "warrior"), 
+                new Magic(new Vector2(6,5), 7f, "Prefabs/GoblinShortSwordPrefab", "magic"),
+                new Healer(new Vector2(13,5), 7f, "Prefabs/GoblinShortSwordPrefab", "healer")
             });
         }
     }

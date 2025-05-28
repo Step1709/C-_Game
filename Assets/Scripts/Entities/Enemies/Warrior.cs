@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using Abilities;
+using UnityEngine;
+using Weapons;
+
+namespace Entities
+{
+    public class Warrior : Enemy
+    {
+        public Warrior(Vector2 startPos, float moveSpeed, string pathToPrefab, string name) : 
+            base(startPos, moveSpeed, pathToPrefab, name)
+        {
+            MaxHealth = 20;
+            Health = 20;
+            ArmorClass = 12;
+            currentAbility = null;
+            MaxTileCount = 12;
+            SupportDistance = 2f;
+            Abilities = new List<IAbility>();
+            Abilities.Add(new DamageWeapon(6, 14,1.5f, 0, false, "UI/swordImage"));
+            Abilities.Add(MoveBoost.Instance);
+            Abilities.Add(NoAbility.Instance);
+        }
+    }
+}
