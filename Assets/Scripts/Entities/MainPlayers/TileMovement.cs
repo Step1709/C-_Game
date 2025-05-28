@@ -6,6 +6,7 @@ using Paths;
 using Scenes;
 using Scenes.Scene;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
 namespace TailMap
@@ -36,6 +37,7 @@ namespace TailMap
             {
                 if (Input.GetMouseButtonDown(0))
                 {
+                    if (EventSystem.current is not null && EventSystem.current.IsPointerOverGameObject()) return;
                     var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     mouseWorldPos.z = 0f;
                     var targetCell = tilemap.WorldToCell(mouseWorldPos);
