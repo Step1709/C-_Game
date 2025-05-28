@@ -1,105 +1,100 @@
-using System.Collections.Generic;
+using Entities;
 using Scenes;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Weapons;
 
-[RequireComponent(typeof(Tilemap))]
 public class PathVisualizer : MonoBehaviour
 {
-    [SerializeField] private Tilemap floorTilemap;
+    [Header("Tile Settings")]
     [SerializeField] private TileBase pathTile;
     [SerializeField] private TileBase startTile;
-    [SerializeField] private TileBase rangeIndicatorTile;
+    [SerializeField] private TileBase radiusTile;
+    
+    [Header("Line Settings")]
+    [SerializeField] private float lineWidth = 0.2f;
+    [SerializeField] private Color lineColor = Color.red;
 
+    private Tilemap floorTilemap;
     private Tilemap highlightTilemap;
     private PathController pathController;
+    private LineRenderer lineRenderer;
 
     void Start()
     {
-        floorTilemap = GameModel.Instance.Floor;
-        highlightTilemap = GameModel.Instance.HighlightTilemap;
+        floorTilemap = GameModel.Instance?.Floor;
+        highlightTilemap = GameModel.Instance?.HighlightTilemap;
         pathController = GetComponent<PathController>();
+        lineRenderer = gameObject.GetComponent<LineRenderer>();
+        if (lineRenderer == null)
+        {
+            lineRenderer = gameObject.AddComponent<LineRenderer>();
+        }
+        lineRenderer.startWidth = lineWidth;
+        lineRenderer.endWidth = lineWidth;
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default")) { color = lineColor };
+        lineRenderer.positionCount = 0;
+        lineRenderer.useWorldSpace = true;
     }
 
     void Update()
     {
+        if (highlightTilemap == null || lineRenderer == null || pathController == null) return;
         highlightTilemap.ClearAllTiles();
+        lineRenderer.positionCount = 0;
         VisualizePath();
-    }
-
-    private void OnDisable()
-    {
-        if (highlightTilemap == null) return;
-        highlightTilemap.ClearAllTiles();
+        if (pathController.targetPos.HasValue && 
+            GetComponent<EntityWrapper>()?.Entity?.currentAbility is Weapon weapon)
+        {
+            VisualizeAttack(weapon.SplashRadius);
+        }
     }
 
     private void VisualizePath()
     {
-        if (pathController != null && pathController.path != null)
+        if (pathController.path == null) return;
+        
+        var startCell = floorTilemap.WorldToCell(transform.position);
+        highlightTilemap.SetTile(startCell, startTile);
+        
+        foreach (var cell in pathController.path)
         {
-            var playerCell = floorTilemap.WorldToCell(transform.position);
-            highlightTilemap.SetTile(playerCell, startTile);
-            foreach (var cell in pathController.path)
-            {
-                highlightTilemap.SetTile(cell, pathTile);
-            }
-        }
-
-        if (pathController == null || pathController.path == null || !pathController.targetPos.HasValue) return;
-        var lineStart = (pathController.path != null && pathController.path.Count > 0)
-            ? pathController.path[^1]
-            : floorTilemap.WorldToCell(transform.position);
-        var targetCell = floorTilemap.WorldToCell(pathController.targetPos.Value);
-        DrawTargetLine(lineStart, targetCell);
-    }
-
-    private void DrawTargetLine(Vector3Int start, Vector3Int end)
-    {
-        if (rangeIndicatorTile == null)
-           return;
-        if (start.Equals(end))
-            return;
-
-        var lineCells = BresenhamLine(start, end);
-        if(lineCells.Count > 0 && lineCells[0].Equals(start))
-            lineCells.RemoveAt(0);
-        foreach (var cell in lineCells)
-        {
-            highlightTilemap.SetTile(cell, rangeIndicatorTile);
+            highlightTilemap.SetTile(cell, pathTile);
         }
     }
 
-    private List<Vector3Int> BresenhamLine(Vector3Int start, Vector3Int end)
+    private void VisualizeAttack(float radius)
     {
-        var line = new List<Vector3Int>();
-
-        var x0 = start.x;
-        var y0 = start.y;
-        var x1 = end.x;
-        var y1 = end.y;
-
-        var dx = Mathf.Abs(x1 - x0);
-        var dy = Mathf.Abs(y1 - y0);
-        var sx = (x0 < x1) ? 1 : -1;
-        var sy = (y0 < y1) ? 1 : -1;
-        var err = dx - dy;
-
-        while (true)
+        var startPos = pathController.path?.Count > 0 
+            ? floorTilemap.GetCellCenterWorld(pathController.path[^1])
+            : transform.position;
+            
+        lineRenderer.positionCount = 2;
+        lineRenderer.SetPosition(0, startPos);
+        if (pathController.targetPos != null)
         {
-            line.Add(new Vector3Int(x0, y0, 0));
-            if (x0 == x1 && y0 == y1)
-                break;
-            var e2 = 2 * err;
-            if (e2 > -dy)
-            {
-                err -= dy;
-                x0 += sx;
-            }
+            lineRenderer.SetPosition(1, pathController.targetPos.Value);
+            var centerCell = floorTilemap.WorldToCell(pathController.targetPos.Value);
+            var radiusCells = Mathf.CeilToInt(radius / floorTilemap.cellSize.x);
 
-            if (e2 >= dx) continue;
-            err += dx;
-            y0 += sy;
+            for (var x = -radiusCells; x <= radiusCells; x++)
+            {
+                for (var y = -radiusCells; y <= radiusCells; y++)
+                {
+                    var cell = centerCell + new Vector3Int(x, y, 0);
+                    if (Vector3.Distance(floorTilemap.GetCellCenterWorld(cell), pathController.targetPos.Value) <=
+                        radius)
+                    {
+                        highlightTilemap.SetTile(cell, radiusTile);
+                    }
+                }
+            }
         }
-        return line;
+    }
+
+    private void OnDisable()
+    {
+        if (highlightTilemap != null) highlightTilemap.ClearAllTiles();
+        if (lineRenderer != null) lineRenderer.positionCount = 0;
     }
 }
