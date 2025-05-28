@@ -21,14 +21,14 @@ public class CameraController : MonoBehaviour
 
     public void Update()
     {
-        if (!CameraClass.Instance.IsFree && CameraClass.Instance.ChosenEntity is not null)
-        {
-            targetPos = CameraClass.Instance.ChosenEntity.transform.position + offset;
-        }
-        else
+        if (CameraClass.Instance.IsFree)
         {
             var deltaMove = cameraSpeed * Time.deltaTime * new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") , 0f);
             targetPos += deltaMove;
+        }
+        else if (CameraClass.Instance.ChosenEntity != null)
+        {
+            targetPos = CameraClass.Instance.ChosenEntity.transform.position + offset;
         }
     }
     public void FixedUpdate()
