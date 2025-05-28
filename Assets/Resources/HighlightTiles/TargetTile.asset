@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: TargetTile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -6470460504253458178, guid: e9dd673b95f5ff443ae953455ecb00c9,
+  m_DefaultSprite: {fileID: -8208879236478257997, guid: 2cf2ef10c1c33f74196cbb4551bc2786,
     type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1

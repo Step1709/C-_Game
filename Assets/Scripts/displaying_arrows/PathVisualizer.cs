@@ -41,7 +41,7 @@ public class PathVisualizer : MonoBehaviour
         if (pathController.targetPos.HasValue && 
             pathController.path is not null && pathController.player.currentAbility is Weapon)
         {
-            VisualizeAttack(((Weapon)pathController.player.currentAbility).SplashRadius);
+            VisualizeAttack(((Weapon)pathController.player.currentAbility).SplashRadius + 0.5f);
         }
     }
 
