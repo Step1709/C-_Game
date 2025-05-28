@@ -17,19 +17,14 @@ public class PathVisualizer : MonoBehaviour
 
     private Tilemap floorTilemap;
     private Tilemap highlightTilemap;
-    private PathController pathController;
-    private LineRenderer lineRenderer;
+    
+    [SerializeField] private PathController pathController;
+    [SerializeField] private LineRenderer lineRenderer;
 
     void Start()
     {
-        floorTilemap = GameModel.Instance?.Floor;
-        highlightTilemap = GameModel.Instance?.HighlightTilemap;
-        pathController = GetComponent<PathController>();
-        lineRenderer = gameObject.GetComponent<LineRenderer>();
-        if (lineRenderer == null)
-        {
-            lineRenderer = gameObject.AddComponent<LineRenderer>();
-        }
+        floorTilemap = GameModel.Instance.Floor;
+        highlightTilemap = GameModel.Instance.HighlightTilemap;
         lineRenderer.startWidth = lineWidth;
         lineRenderer.endWidth = lineWidth;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default")) { color = lineColor };
@@ -39,14 +34,14 @@ public class PathVisualizer : MonoBehaviour
 
     void Update()
     {
-        if (highlightTilemap == null || lineRenderer == null || pathController == null) return;
+        if (highlightTilemap is null || lineRenderer is null || pathController is null) return;
         highlightTilemap.ClearAllTiles();
         lineRenderer.positionCount = 0;
         VisualizePath();
         if (pathController.targetPos.HasValue && 
-            GetComponent<EntityWrapper>()?.Entity?.currentAbility is Weapon weapon)
+            pathController.path is not null && pathController.player.currentAbility is Weapon)
         {
-            VisualizeAttack(weapon.SplashRadius);
+            VisualizeAttack(((Weapon)pathController.player.currentAbility).SplashRadius);
         }
     }
 

@@ -340,6 +340,10 @@ MonoBehaviour:
   pathTile: {fileID: 11400000, guid: 35ce889118c49b04b8245e9569aa653a, type: 2}
   startTile: {fileID: 11400000, guid: cc7cc74f32380484a859232b8428d6da, type: 2}
   radiusTile: {fileID: 11400000, guid: 2e6a4c14b725fc24c9ca83a90ce20544, type: 2}
+  lineWidth: 0.2
+  lineColor: {r: 1, g: 0, b: 0, a: 1}
+  pathController: {fileID: 6285000392341898648}
+  lineRenderer: {fileID: 247522385874570603}
 --- !u!1839735485 &2577288421210377575
 Tilemap:
   m_ObjectHideFlags: 0
