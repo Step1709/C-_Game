@@ -6,6 +6,7 @@ using Weapons;
 
 public class PathVisualizer : MonoBehaviour
 {
+    //
     [Header("Tile Settings")]
     [SerializeField] private TileBase pathTile;
     [SerializeField] private TileBase startTile;
