@@ -7,8 +7,8 @@ namespace Entities
 {
     public class Magic : Enemy
     {
-        public Magic(Vector2 startPos, float moveSpeed, string pathToPrefab, string name) : 
-            base(startPos, moveSpeed, pathToPrefab, name)
+        public Magic(Vector2 startPos, string name) : 
+            base(startPos,  name)
         {
             MaxHealth = 15;
             Health = 15;
@@ -16,6 +16,8 @@ namespace Entities
             currentAbility = null;
             MaxTileCount = 9;
             SupportDistance = 7f;
+            MoveSpeed = 7f;
+            EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortSwordPrefab");
             Abilities = new List<IAbility>();
             Abilities.Add(new DamageWeapon(6, 14,7f, 0, false, "UI/swordImage"));
             Abilities.Add(MoveBoost.Instance);

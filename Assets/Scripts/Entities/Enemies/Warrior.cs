@@ -7,8 +7,8 @@ namespace Entities
 {
     public class Warrior : Enemy
     {
-        public Warrior(Vector2 startPos, float moveSpeed, string pathToPrefab, string name) : 
-            base(startPos, moveSpeed, pathToPrefab, name)
+        public Warrior(Vector2 startPos, string name) : 
+            base(startPos, name)
         {
             MaxHealth = 20;
             Health = 20;
@@ -16,6 +16,8 @@ namespace Entities
             currentAbility = null;
             MaxTileCount = 12;
             SupportDistance = 2f;
+            MoveSpeed = 7f;
+            EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortSwordPrefab");
             Abilities = new List<IAbility>();
             Abilities.Add(new DamageWeapon(6, 14,1.5f, 0, false, "UI/swordImage"));
             Abilities.Add(MoveBoost.Instance);

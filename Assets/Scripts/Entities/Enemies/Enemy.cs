@@ -7,11 +7,9 @@ namespace Entities
     public class Enemy : Entity
     {
         public float SupportDistance;
-        public Enemy(Vector2 startPos, float moveSpeed, string pathToPrefab, string name)
+        public Enemy(Vector2 startPos,  string name)
         {
             StartPosition = startPos;
-            MoveSpeed = moveSpeed;
-            EntityPrefab = Resources.Load<GameObject>(pathToPrefab);
             Name = name;
         }
 
