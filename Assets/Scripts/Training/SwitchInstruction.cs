@@ -14,7 +14,6 @@ namespace Training
         void OnEnable()
         {
             instructions.SetActive(true);
-            Time.timeScale = 0f;
             instructionsText.text = Instructions.Dequeue();
         }
         void Update()
@@ -25,7 +24,6 @@ namespace Training
                 {
                     enabled = false;
                     instructions.SetActive(false);
-                    Time.timeScale = 1f;
                     instructionsText.text = "";
                 }
                 else instructionsText.text = Instructions.Dequeue();
