@@ -10,9 +10,11 @@ namespace Training
         
         [SerializeField] private GameObject instructions;
         [SerializeField] private TextMeshProUGUI instructionsText;
+        [SerializeField] private ChangeFree changeFree;
 
         void OnEnable()
         {
+            changeFree.enabled = false;
             instructions.SetActive(true);
             instructionsText.text = Instructions.Dequeue();
         }
@@ -22,6 +24,7 @@ namespace Training
             {
                 if (Instructions.Count == 0)
                 {
+                    changeFree.enabled = true;
                     enabled = false;
                     instructions.SetActive(false);
                     instructionsText.text = "";
