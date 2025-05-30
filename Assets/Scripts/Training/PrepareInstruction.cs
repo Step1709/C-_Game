@@ -20,6 +20,7 @@ namespace Training
             foreach (var player in GameModel.Instance.MainPlayers)
             {
                 var stateMachine = player.GameObject.GetComponent<PlayerStateMachine>();
+                Debug.Log("regvegege");
                 player.ChangeButton(true);
                 stateMachine.ChangeState(PreparingState.Instance);
             }
@@ -28,15 +29,14 @@ namespace Training
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Return)) enabled = false;
-        }
-
-        void OnDisable()
-        {
-            var changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
-            changeChosen.enabled = false;
-            StateMachine.Instance.ChangeState(FightState.Instance);
-            useAbilityInstruction.enabled = true;
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                enabled = false;
+                var changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
+                changeChosen.enabled = false;
+                StateMachine.Instance.ChangeState(FightState.Instance);
+                useAbilityInstruction.enabled = true;
+            }
         }
     }
 }

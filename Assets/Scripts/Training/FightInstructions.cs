@@ -30,12 +30,8 @@ namespace Training
             if (!switchInstruction.enabled)
             {
                 enabled = false;
+                prepareInstruction.enabled = true;
             }
-        }
-
-        void OnDisable()
-        {
-            prepareInstruction.enabled = true;
         }
     }
 }

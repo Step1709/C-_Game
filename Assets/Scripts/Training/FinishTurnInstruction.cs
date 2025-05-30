@@ -19,12 +19,11 @@ namespace Training
         
         void Update()
         {
-            if (fightManager.currentEntityIndex!=0) enabled = false;
-        }
-
-        void OnDisable()
-        {
-            instruction.text = "Победите врагов";
+            if (fightManager.currentEntityIndex != 0)
+            {
+                enabled = false;
+                instruction.text = "Победите врагов";
+            }
         }
     }
 }

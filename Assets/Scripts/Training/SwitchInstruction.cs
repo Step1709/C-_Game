@@ -21,16 +21,15 @@ namespace Training
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                if (Instructions.Count == 0) enabled = false;
+                if (Instructions.Count == 0)
+                {
+                    enabled = false;
+                    instructions.SetActive(false);
+                    Time.timeScale = 1f;
+                    instructionsText.text = "";
+                }
                 else instructionsText.text = Instructions.Dequeue();
             }
-        }
-
-        void OnDisable()
-        {
-            instructions.SetActive(false);
-            Time.timeScale = 1f;
-            instructionsText.text = "";
         }
     }
 }
