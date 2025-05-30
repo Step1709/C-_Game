@@ -16,7 +16,7 @@ namespace Training
         {
             GameModel.Instance.OnPause = false;
             GameModel.Instance.Waves = new();
-            GameModel.Instance.Waves.Enqueue(new List<Enemy> {new Warrior(new Vector2(10,10), "Enemy")});
+            GameModel.Instance.Waves.Enqueue(new List<Enemy> {new Warrior(new Vector2(10,10), "Warrior"), new Magic(new Vector2(20,10), "Wizard")});
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
