@@ -408,6 +408,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot3
       objectReference: {fileID: 0}
+    - target: {fileID: 3069205671343506233, guid: 25952f88eeaa0cc449780e9bb1d5215c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8627230307155574007, guid: 25952f88eeaa0cc449780e9bb1d5215c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -951,6 +956,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slot4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069205671343506233, guid: 25952f88eeaa0cc449780e9bb1d5215c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4650815518157224734, guid: 25952f88eeaa0cc449780e9bb1d5215c,
         type: 3}
@@ -39898,6 +39908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot1
       objectReference: {fileID: 0}
+    - target: {fileID: 3069205671343506233, guid: 25952f88eeaa0cc449780e9bb1d5215c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4650815518157224734, guid: 25952f88eeaa0cc449780e9bb1d5215c,
         type: 3}
       propertyPath: m_Sprite
@@ -49081,6 +49096,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069205671343506233, guid: 25952f88eeaa0cc449780e9bb1d5215c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8627230307155574007, guid: 25952f88eeaa0cc449780e9bb1d5215c,
         type: 3}
