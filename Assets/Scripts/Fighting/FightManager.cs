@@ -13,7 +13,7 @@ namespace Fighting
     {
         public List<Entity> entities;
         public int currentEntityIndex;
-        private EntityStateMachine stateMachine;
+        public EntityStateMachine stateMachine;
         private Entity entity;
         void OnEnable()
         {

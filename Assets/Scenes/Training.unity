@@ -266,6 +266,8 @@ GameObject:
   - component: {fileID: 10544260}
   - component: {fileID: 10544262}
   - component: {fileID: 10544263}
+  - component: {fileID: 10544265}
+  - component: {fileID: 10544264}
   m_Layer: 0
   m_Name: TrainingManager
   m_TagString: Untagged
@@ -343,6 +345,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchInstruction: {fileID: 10544261}
+  useAbilityInstruction: {fileID: 10544265}
+--- !u!114 &10544264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10544258}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2937f9ebdd424963811ed8dcd6729fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instruction: {fileID: 1584523564}
+--- !u!114 &10544265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10544258}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4bc0c819db44d0a516bf3c1b57bce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instruction: {fileID: 1584523564}
+  finishTurnInstruction: {fileID: 10544264}
 --- !u!224 &11119164 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8627230307155574007, guid: 25952f88eeaa0cc449780e9bb1d5215c,
@@ -38850,7 +38880,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023977548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ec54d69d2a26194d805906cf0a9cfa7, type: 3}
   m_Name: 
@@ -38868,6 +38898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentEntityIndex: 0
+  stateMachine: {fileID: 0}
 --- !u!114 &1023977552
 MonoBehaviour:
   m_ObjectHideFlags: 0
