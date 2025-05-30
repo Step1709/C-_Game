@@ -29,12 +29,14 @@ public class PathController : MonoBehaviour
         abilityInfo ??= Screen.Instance.AbilityInfo.GetComponent<AbilityInfo>();
         abilityInfo.pathController = this;
         Screen.Instance.AbilityInfo.SetActive(true);
+        Screen.Instance.TargetAbilityInfo.SetActive(true);
     }
 
     void OnDisable()
     {
         if (abilityInfo != null) abilityInfo.pathController = null;
         if (Screen.Instance.AbilityInfo != null) Screen.Instance.AbilityInfo.SetActive(false);
+        if (Screen.Instance.TargetAbilityInfo != null) Screen.Instance.TargetAbilityInfo.SetActive(false);
     }
     void Start()
     {

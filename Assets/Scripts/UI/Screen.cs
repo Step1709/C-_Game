@@ -24,6 +24,8 @@ namespace UI
         
         public GameObject AbilityInfo;
         
+        public GameObject TargetAbilityInfo;
+        
         public DamageShower DamageShower;
         
         public void Init()
@@ -39,6 +41,7 @@ namespace UI
             BrightButton = PlayerButtons.transform.Find("BrightfireButton").GetComponent<Button>();
             TimeCountText = GameObject.Find("TimeCountText").GetComponent<TextMeshProUGUI>();
             TargetInfo = GameObject.Find("TargetInfo");
+            TargetAbilityInfo = TargetInfo.transform.Find("TargetAbilityInfo").gameObject;
             TargetInfo.SetActive(false);
         }
     }

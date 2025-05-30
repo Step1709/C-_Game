@@ -42,10 +42,11 @@ namespace UI
                 var weapon = (Weapon)pathController.player.currentAbility;
                 var minDamage = weapon.minDamage;
                 var maxDamage = weapon.maxDamage;
-                damage.text = minDamage + "-" + maxDamage;
-                if (weapon is HealWeapon) chance.text = "100%";
+                if (weapon is DamageWeapon) damage.text = $"урон {minDamage}-{maxDamage}";
+                else if (weapon is HealWeapon) damage.text = $"хил {minDamage}-{maxDamage}";
+                if (weapon is HealWeapon) chance.text = "шанс 100%";
                 else if (weapon is DamageWeapon)
-                    chance.text = (20 - targetController.targetEntity.ArmorClass) * 5 + "%";
+                    chance.text = $"шанс {(20 - targetController.targetEntity.ArmorClass) * 5}%";
             }
             transform.position = mousePos;
         }
