@@ -26,6 +26,8 @@ namespace Scenes
         public void Exit()
         {
             UI.Screen.Instance.TimeCountText.text = "";
+            var changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
+            changeChosen.enabled = false;
             var prepareManager = GameModel.Instance.GameModelObject.GetComponent<PrepareManager>();
             prepareManager.enabled = false;
         }

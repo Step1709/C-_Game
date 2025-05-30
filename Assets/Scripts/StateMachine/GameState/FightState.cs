@@ -11,8 +11,6 @@ namespace Scenes
         public void Enter()
         {
             var fightManager = GameModel.Instance.GameModelObject.GetComponent<FightManager>();
-            var changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
-            changeChosen.enabled = false;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
                 var stateMachine = player.GameObject.GetComponent<PlayerStateMachine>();

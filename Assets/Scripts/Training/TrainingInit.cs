@@ -16,12 +16,12 @@ namespace Training
         {
             GameModel.Instance.OnPause = false;
             GameModel.Instance.Waves = new();
-            //GameModel.Instance.Waves.Enqueue();
+            GameModel.Instance.Waves.Enqueue(new List<Enemy> {new Warrior(new Vector2(10,10), "Enemy")});
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
             GameModel.Instance.HighlightTilemap = GameObject.Find("HighlightTilemap").GetComponent<Tilemap>();
-            GameModel.Instance.MainPlayers = new List<MainPlayer>() {Ashen.Instance, Biv.Instance};
+            GameModel.Instance.MainPlayers = new List<MainPlayer>() {Ashen.Instance, Biv.Instance, Brightfire.Instance};
             foreach (var player in GameModel.Instance.MainPlayers)
             {
                 InitPlayer(player);
@@ -31,6 +31,8 @@ namespace Training
             CameraClass.Instance.IsFree = false;
             CameraClass.Instance.ChosenEntity = GameModel.Instance.ChosenPlayer.GameObject;
             UI.Screen.Instance.Init();
+            var camInst = GameObject.Find("TrainingManager").GetComponent<CameraInstructions>();
+            camInst.enabled = true;
         }
 
         private void InitPlayer(MainPlayer logic)
