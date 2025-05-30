@@ -7,6 +7,8 @@ namespace Training
     public class FightInstructions : MonoBehaviour
     {
         [SerializeField] private SwitchInstruction switchInstruction;
+        
+        [SerializeField] private UseAbilityInstruction useAbilityInstruction;
 
         void OnEnable()
         {
@@ -31,6 +33,7 @@ namespace Training
         void OnDisable()
         {
             StateMachine.Instance.ChangeState(FightState.Instance);
+            useAbilityInstruction.enabled = true;
         }
     }
 }
