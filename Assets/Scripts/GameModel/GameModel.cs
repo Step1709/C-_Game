@@ -12,6 +12,8 @@ namespace Scenes
     {
         public static GameModel Instance { get; } = new GameModel();
 
+        public int TrainingComleted = PlayerPrefs.GetInt("TrainingComleted", 0);
+
         public bool OnPause = false;
         
         public MainPlayer ChosenPlayer;
