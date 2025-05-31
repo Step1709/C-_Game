@@ -38,7 +38,6 @@ namespace Scenes
         
         public GameModel()
         {
-            PlayerPrefs.DeleteAll();
             Wave1.Add(new List<Enemy>
                 { new Warrior(new Vector2(3, 3),  "warrior"), 
                     new Magic(new Vector2(10,5),   "magic"),
