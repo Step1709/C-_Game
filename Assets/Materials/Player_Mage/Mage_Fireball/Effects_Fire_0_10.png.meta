@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dfa9d188f54682945990702b03998320
+guid: 082b31785b52d3144a9152f7a341923a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 427982761550691438
-    second: HpBar_0
+      213: 1394683601229441430
+    second: Effects_Fire_0_10_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HpBar_0
+      name: Effects_Fire_0_10_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 221
-        height: 60
+        x: 3
+        y: 6
+        width: 153
+        height: 101
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6c3838dd0080f500800000000000000
-      internalID: 427982761550691438
+      spriteID: 699e7519859ea5310800000000000000
+      internalID: 1394683601229441430
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      HpBar_0: 427982761550691438
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

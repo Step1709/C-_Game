@@ -15150,9 +15150,11 @@ MonoBehaviour:
   slotImage1: {fileID: 74060231}
   slotImage2: {fileID: 1104635031}
   slotImage3: {fileID: 495041014}
+  slotImage4: {fileID: 0}
   abilityImage1: {fileID: 826877095}
   abilityImage2: {fileID: 2075772398}
   abilityImage3: {fileID: 67623542}
+  abilityImage4: {fileID: 0}
 --- !u!114 &1104635031 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3069205671343506233, guid: 25952f88eeaa0cc449780e9bb1d5215c,

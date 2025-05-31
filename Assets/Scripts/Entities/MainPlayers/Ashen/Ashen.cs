@@ -15,7 +15,7 @@ namespace Scenes
             MaxHealth = 20;
             ArmorClass = 10;
             StartPosition = new Vector2(0, 0);
-            EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Wiz_Prefab");
+            EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Mage");
             MoveSpeed = 7f;
             Name = "Ashen";
             MaxTileCount = 9;

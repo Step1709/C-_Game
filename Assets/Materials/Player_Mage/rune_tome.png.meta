@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dfa9d188f54682945990702b03998320
+guid: 703a63eb035814043a4bd16813b58d72
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 427982761550691438
-    second: HpBar_0
+      213: -2114158968089316171
+    second: rune_tome_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HpBar_0
+      name: rune_tome_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 221
-        height: 60
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6c3838dd0080f500800000000000000
-      internalID: 427982761550691438
+      spriteID: 5b4745cae9ff8a2e0800000000000000
+      internalID: -2114158968089316171
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      HpBar_0: 427982761550691438
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
