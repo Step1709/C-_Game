@@ -11,7 +11,7 @@ namespace UI
             {
                 card.SetActive(true);
             }
-            else if (Input.GetKeyUp(KeyCode.Tab))
+            else if (!Input.GetKey(KeyCode.Tab))
             {
                 card.SetActive(false);
             }

@@ -33,7 +33,6 @@ namespace UI
         void OnEnable()
         {
             player = playerInterface.player;
-            Debug.Log(player);
             playerName.text = player.Name;
 
             ability1Name.text = ((IPlayerAbility)player.Abilities[0]).Name;
