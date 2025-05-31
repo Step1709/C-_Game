@@ -11,15 +11,18 @@ namespace Training
         [SerializeField] private TextMeshProUGUI instruction;
 
         private FightManager fightManager;
+
+        private PlayerStateMachine stateMachine;
         void OnEnable()
         {
             fightManager = GameModel.Instance.GameModelObject.GetComponent<FightManager>();
-            instruction.text = "Нажмите пробел чтобы завершить ход";
+            stateMachine = (PlayerStateMachine)fightManager.stateMachine;
+            instruction.text = "Нажмите SPACE чтобы завершить ход";
         }
         
         void Update()
         {
-            if (fightManager.currentEntityIndex != 0)
+            if (stateMachine.currentState == WaitingState.Instance)
             {
                 enabled = false;
                 instruction.text = "Победите врагов";

@@ -13,7 +13,7 @@ namespace Training
         void OnEnable()
         {
             QCounter = 0;
-            instText.text = "Перейдите в режим свободной камеры и осмотрите карту";
+            instText.text = "Перейдите в режим свободной камеры(Q).";
         }
 
         void Update()
@@ -21,7 +21,7 @@ namespace Training
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 QCounter++;
-                if (QCounter == 1) instText.text = "Используйте Q чтобы выйти из режима свободной камеры";
+                if (QCounter == 1) instText.text = "Осмотрите карту(W,A,S,D). Изменяйте размеры камеры колесиком мыши. Чтобы продолжить, выйдите из режима свободной камеры(Q)";
                 else if (QCounter == 2)
                 {
                     instText.text = "";

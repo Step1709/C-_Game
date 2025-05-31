@@ -17,7 +17,7 @@ namespace Scenes.EntityState2
             Screen.Instance.PlayerInterface.SetActive(true);
             stateMachine.fightController.enabled = true;
             stateMachine.player.AbilityIndex = 0;
-            stateMachine.player.ChangeAbility(NoAbility.Instance);
+            stateMachine.player.ChangeAbility(stateMachine.player.Abilities[0]);
         }
 
         public void Exit(PlayerStateMachine stateMachine)

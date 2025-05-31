@@ -17,7 +17,7 @@ namespace Training
         void OnEnable()
         {
             fightManager = GameModel.Instance.GameModelObject.GetComponent<FightManager>();
-            instruction.text = "Выберите на панели снизу способность и нажмите ЛКМ чтобы использовать ее";
+            instruction.text = "Выберите на панели снизу любую способность и используйте ее(ЛКМ)";
         }
         
         void Update()

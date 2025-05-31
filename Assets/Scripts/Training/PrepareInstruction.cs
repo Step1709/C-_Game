@@ -14,13 +14,12 @@ namespace Training
 
         void OnEnable()
         {
-            instText.text = "Подготовьте своих бойцов к битве. Нажмите ENTER чтобы начать бой";
+            instText.text = "Подготовьте своих бойцов к битве. Переключайтесь между ними, нажимая на их иконки слева и перемещайте их(ЛКМ), указывая нужную точку на карте. Нажмите ENTER чтобы начать бой";
             var changeChosen = GameModel.Instance.GameModelObject.GetComponent<ChangeChosen>();
             changeChosen.enabled = true;
             foreach (var player in GameModel.Instance.MainPlayers)
             {
                 var stateMachine = player.GameObject.GetComponent<PlayerStateMachine>();
-                Debug.Log("regvegege");
                 player.ChangeButton(true);
                 stateMachine.ChangeState(PreparingState.Instance);
             }
