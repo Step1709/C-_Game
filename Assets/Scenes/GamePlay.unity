@@ -2185,6 +2185,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInterface: {fileID: 284600902}
+  playerName: {fileID: 1400188650}
+  playerIcon: {fileID: 1829582726}
+  ability1Name: {fileID: 22242974}
+  ability1Description: {fileID: 1860722231}
+  ability1Icon: {fileID: 1827213812}
+  ability2Name: {fileID: 228350215}
+  ability2Description: {fileID: 1139488747}
+  ability2Icon: {fileID: 1775272166}
+  ability3Name: {fileID: 1464024928}
+  ability3Description: {fileID: 307871138}
+  ability3Icon: {fileID: 799629348}
+  ability4Name: {fileID: 1705254780}
+  ability4Description: {fileID: 1216675713}
+  ability4Icon: {fileID: 1055444805}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

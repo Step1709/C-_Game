@@ -6,7 +6,9 @@ namespace Abilities
 {
     public interface IPlayerAbility : IAbility
     {
-        public Sprite Image { get; set; }
+        public Sprite Icon { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         void Choose(MainPlayer player);
         void Remove(MainPlayer player);
         bool Use(MainPlayer player);

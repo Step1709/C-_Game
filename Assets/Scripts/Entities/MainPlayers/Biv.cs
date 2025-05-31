@@ -19,11 +19,19 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Biv";
             MaxTileCount = 12;
+            var weapon1 = new DamageWeapon(15, 30, 1f, 0f, false);
+            weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
+            weapon1.Name = "Прямой удар";
+            weapon1.Description = "Наносит одиночной цели прямой удар мечом";
+            var weapon2 = new DamageWeapon(10, 20, 1f, 2f, false);
+            weapon2.Icon = Resources.Load<Sprite>("UI/swordImage");
+            weapon2.Name = "Удар с разворота";
+            weapon2.Description = "Наносит мечом удар по области";
             Abilities = new List<IAbility>()
             {
                 NoAbility.Instance,
-                new DamageWeapon(15, 30, 1f, 0f, false, "UI/swordImage"),
-                new DamageWeapon(10, 20, 1f, 2f, false, "UI/swordImage"),
+                weapon1,
+                weapon2,
                 MoveBoost.Instance
             };
         }

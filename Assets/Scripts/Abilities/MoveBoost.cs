@@ -9,7 +9,10 @@ namespace Abilities
     public class MoveBoost : IPlayerAbility, IEnemyAbility
     {
         public static MoveBoost Instance { get; } = new MoveBoost();
-        public Sprite Image { get; set; } = Resources.Load<Sprite>("UI/swordImage");
+        public Sprite Icon { get; set; } = Resources.Load<Sprite>("UI/swordImage");
+        public string Name { get; set; } = "Рывок";
+        public string Description { get; set; } = "Увеличивает перемещение персонажа на 3 клетки";
+
         public void Choose(MainPlayer player)
         {
         }

@@ -41,10 +41,10 @@ namespace UI
 
         public void UpdateAbilityImages()
         {
-            abilityImage1.sprite = ((IPlayerAbility)player.Abilities[0]).Image;
-            abilityImage2.sprite = ((IPlayerAbility)player.Abilities[1]).Image;
-            abilityImage3.sprite = ((IPlayerAbility)player.Abilities[2]).Image;
-            abilityImage4.sprite = ((IPlayerAbility)player.Abilities[3]).Image;
+            abilityImage1.sprite = ((IPlayerAbility)player.Abilities[0]).Icon;
+            abilityImage2.sprite = ((IPlayerAbility)player.Abilities[1]).Icon;
+            abilityImage3.sprite = ((IPlayerAbility)player.Abilities[2]).Icon;
+            abilityImage4.sprite = ((IPlayerAbility)player.Abilities[3]).Icon;
         }
     }
 }

@@ -20,14 +20,13 @@ namespace Weapons
         public float SplashRadius;
         public bool DamageSelf;
 
-        public Weapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf, string imagePath)
+        public Weapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf)
         {
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
             Range = range;
             SplashRadius = splashRadius;
             DamageSelf = damageSelf;
-            Image = Resources.Load<Sprite>(imagePath);
         }
 
         public void Attack(Entity user, Entity target, Vector3 targetPosition)
@@ -57,7 +56,9 @@ namespace Weapons
 
         protected abstract void Damage(Entity user, Entity target);
 
-        public Sprite Image { get; set; }
+        public Sprite Icon { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
         public void Choose(MainPlayer player)
         {
