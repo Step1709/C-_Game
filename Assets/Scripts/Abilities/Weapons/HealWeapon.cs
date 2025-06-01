@@ -61,7 +61,7 @@ namespace Weapons
                     x=>Vector3.Distance(x, entity.GameObject.transform.position) <= Range 
                        && !PathFinder.IsBlocked(x, entity.GameObject.transform.position, enemy.GameObject, entity.GameObject, exceptColliders),
                     x=>x.depth + Vector3.Distance(GameModel.Instance.Floor.GetCellCenterWorld(x.cellPosition), entity.GameObject.transform.position));
-                if (currentpath != null && entity.Health < 15  && entity.Health<=minHealth)
+                if (currentpath != null && entity.Health < 15  && entity.Health<entity.MaxHealth && entity.Health<=minHealth)
                 {
                     path = currentpath;
                     minHealth = entity.Health;
