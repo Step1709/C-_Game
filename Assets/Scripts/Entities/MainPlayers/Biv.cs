@@ -12,8 +12,8 @@ namespace Scenes
 
         private Biv()
         {
-            MaxHealth = 25;
-            ArmorClass = 10;
+            MaxHealth = 30;
+            ArmorClass = 12;
             StartPosition = new Vector2(-2.5f, 0);
             EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Mino_Prefab");
             MoveSpeed = 7f;

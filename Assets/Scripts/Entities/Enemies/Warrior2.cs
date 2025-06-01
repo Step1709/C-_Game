@@ -14,7 +14,7 @@ namespace Entities
             Health = 20;
             ArmorClass = 10;
             currentAbility = null;
-            MaxTileCount = 12;
+            MaxTileCount = 11;
             SupportDistance = 2f;
             MoveSpeed = 7f;
             EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortSwordPrefab");

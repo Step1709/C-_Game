@@ -33,45 +33,41 @@ namespace TailMap
         public void Update()
         {
             if (GameModel.Instance.OnPause) return;
-            if (gameObject == GameModel.Instance.ChosenPlayer.GameObject)
+            if (Input.GetMouseButtonDown(0) && gameObject == GameModel.Instance.ChosenPlayer.GameObject)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (EventSystem.current is not null && EventSystem.current.IsPointerOverGameObject()) return;
+                var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mouseWorldPos.z = 0f;
+                var targetCell = tilemap.WorldToCell(mouseWorldPos);
+                var startCell = tilemap.WorldToCell(transform.position);
+                var path = PathFinder.AStar(startCell, targetCell);
+                if (path != null && path.Count > 0)
                 {
-                    if (EventSystem.current is not null && EventSystem.current.IsPointerOverGameObject()) return;
-                    var mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    mouseWorldPos.z = 0f;
-                    var targetCell = tilemap.WorldToCell(mouseWorldPos);
-                    var startCell = tilemap.WorldToCell(transform.position);
-                    var path = PathFinder.AStar(startCell, targetCell);
-                    if (path != null && path.Count > 0)
+                    pathWorldPositions = new List<Vector3>();
+                    foreach (var cell in path)
                     {
-                        pathWorldPositions = new List<Vector3>();
-                        foreach (var cell in path)
-                        {
-                            pathWorldPositions.Add(tilemap.GetCellCenterWorld(cell) + offset);
-                        }
-
-                        currentTargetIndex = 0;
-                        isMoving = true;
+                        pathWorldPositions.Add(tilemap.GetCellCenterWorld(cell) + offset);
                     }
-                }
-                if (isMoving && pathWorldPositions != null && pathWorldPositions.Count > 0)
-                {
-                    var targetPosition = pathWorldPositions[currentTargetIndex];
-                    transform.position =
-                        Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-                    if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+                    currentTargetIndex = 0;
+                    isMoving = true;
+                }
+            }
+            if (isMoving && pathWorldPositions != null && pathWorldPositions.Count > 0)
+            {
+                var targetPosition = pathWorldPositions[currentTargetIndex];
+                transform.position =
+                    Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+                if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
+                {
+                    currentTargetIndex++;
+                    if (currentTargetIndex >= pathWorldPositions.Count)
                     {
-                        currentTargetIndex++;
-                        if (currentTargetIndex >= pathWorldPositions.Count)
-                        {
-                            isMoving = false;
-                        }
+                        isMoving = false;
                     }
                 }
             }
-            else isMoving = false;
         }
     }
 }

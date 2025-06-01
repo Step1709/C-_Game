@@ -12,8 +12,8 @@ namespace Scenes
 
         private Ashen()
         {
-            MaxHealth = 20;
-            ArmorClass = 8;
+            MaxHealth = 25;
+            ArmorClass = 10;
             StartPosition = new Vector2(0.5f, 3);
             EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Wiz_Prefab");
             MoveSpeed = 7f;

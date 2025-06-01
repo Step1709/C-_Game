@@ -36,6 +36,8 @@ namespace Scenes
         
         public List<List<Enemy>> Wave2 = new();
         
+        public List<List<Enemy>> Wave3 = new();
+        
         public GameModel()
         {
             Wave1.Add(new List<Enemy>
@@ -74,6 +76,21 @@ namespace Scenes
                 new Magic2(new Vector2(-21,4),   "magic"),
                 new Warrior2(new Vector2(20.5f,4),   "warrior"),
                 new Warrior2(new Vector2(-8.5f,-9.1f),   "warrior")
+            });
+            
+            Wave3.Add(new List<Enemy>
+            {
+                new Warrior3(new Vector2(-5.5f, 7.9f),   "warrior"),
+                new Magic3(new Vector2(5.5f,14.9f),   "magic"),
+                new Magic3(new Vector2(20.5f,4),   "magic"),
+                new Healer3(new Vector2(10.5f,12.9f),   "healer")
+            });
+            
+            Wave3.Add(new List<Enemy>
+            { new Warrior3(new Vector2(-5.5f, 3.9f),  "warrior"), 
+                new Warrior3(new Vector2(5.5f,2.9f),   "warrior"),
+                new Magic3(new Vector2(-21,4),   "magic"),
+                new Healer3(new Vector2(7.5f, 8.9f), "healer"),
             });
         }
     }

@@ -23,6 +23,9 @@ namespace Scenes
             GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave2[Random.Range(0, GameModel.Instance.Wave2.Count)]
                 .Select(x=>x.Copy())
                 .ToList());
+            GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave3[Random.Range(0, GameModel.Instance.Wave3.Count)]
+                .Select(x=>x.Copy())
+                .ToList());
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
             GameModel.Instance.Floor =  GameObject.Find("Floor").GetComponent<Tilemap>();
             GameModel.Instance.Walls = GameObject.Find("Walls").GetComponent<Tilemap>();
