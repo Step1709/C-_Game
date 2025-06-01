@@ -40,10 +40,10 @@ namespace Fighting
 
         void Update()
         {
-            if (GameModel.Instance.MainPlayers.Count == 0) SceneManager.LoadScene("Menu");
+            if (GameModel.Instance.MainPlayers.Count == 0) SceneManager.LoadScene("DeathScreen");
             else if (GameModel.Instance.Enemies.Count == 0)
             {
-                if (GameModel.Instance.Waves.Count == 0) SceneManager.LoadScene("Menu");
+                if (GameModel.Instance.Waves.Count == 0) SceneManager.LoadScene("VictoryScreen");
                 else StateMachine.Instance.ChangeState(PrepareState.Instance);
             }
             else if (stateMachine.currentState == WaitingState.Instance || stateMachine.currentState == DeathState.Instance)

@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Training.unity
     guid: 295dcbf0e045be444a9d1673d07a5fb8
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: a141924891c8c4d4e9a1425157a0e997
+  - enabled: 1
+    path: Assets/Scenes/VictoryScreen.unity
+    guid: 75532e8d2e6d6314299288bb9bb6bfd6
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
