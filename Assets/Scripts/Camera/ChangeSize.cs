@@ -8,8 +8,8 @@ public class ChangeSize : MonoBehaviour
     private float size;
     private float smoothSpeed = 10f;
     private float zoomSensitivity = 5f;
-    public float maxZoom = 10f;
-    public float minZoom = 2f;
+    private float maxZoom = 10f;
+    private float minZoom = 3f;
     
     void Start()
     {

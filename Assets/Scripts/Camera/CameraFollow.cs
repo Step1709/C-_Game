@@ -1,3 +1,4 @@
+using System;
 using Scenes;
 using Scenes.Scene;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class CameraController : MonoBehaviour
     {
         smoothSpeed = 0.125f;
         offset = new Vector3(0f, 0f, -10f);
-        cameraSpeed = 10f;
+        cameraSpeed = 13f;
     }
 
     public void Update()
@@ -25,6 +26,10 @@ public class CameraController : MonoBehaviour
         {
             var deltaMove = cameraSpeed * Time.deltaTime * new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical") , 0f);
             targetPos += deltaMove;
+            if (targetPos.x <= -42) targetPos.x = -42;
+            if (targetPos.x >= 45) targetPos.x = 45;
+            if (targetPos.y <= -25) targetPos.y = -25;
+            if (targetPos.y >= 25) targetPos.y = 25;
         }
         else if (CameraClass.Instance.ChosenEntity != null)
         {
