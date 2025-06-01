@@ -19,11 +19,11 @@ namespace Entities.MainPlayers
             MoveSpeed = 7f;
             Name = "Brightfire";
             MaxTileCount = 9;
-            var weapon1 = new HealWeapon(4, 7, 1.5f, 0f, true);
+            var weapon1 = new HealWeapon(3, 7, 1.5f, 0f, true);
             weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
             weapon1.Name = "Ближнее лечение";
             weapon1.Description = "Лечение одиночной цели с близкого расстояния";
-            var weapon2 = new HealWeapon(2, 5, 10f, 2.5f, true);
+            var weapon2 = new HealWeapon(1, 4, 10f, 2.5f, true);
             weapon2.Icon = Resources.Load<Sprite>("UI/swordImage");
             weapon2.Name = "Лечение по области";
             weapon2.Description = "Лечение по области с расстояния";

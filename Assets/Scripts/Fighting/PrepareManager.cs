@@ -6,7 +6,7 @@ namespace Fighting
 {
     public class PrepareManager : MonoBehaviour
     {
-        private int countdownTime = 10;
+        private int countdownTime = 15;
         void OnEnable()
         {
             StartCoroutine(Wait());

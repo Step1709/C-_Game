@@ -56,9 +56,24 @@ namespace Scenes
             
             Wave2.Add(new List<Enemy>
             {
-                new Warrior1(new Vector2(8, 8),   "warrior"), 
-                new Magic1(new Vector2(6,5),   "magic"),
-                new Healer2(new Vector2(13,5),   "healer")
+                new Warrior2(new Vector2(-5.5f, 7.9f),   "warrior"),
+                new Warrior2(new Vector2(6.5f, 8.9f),   "warrior"), 
+                new Magic2(new Vector2(5.5f,14.9f),   "magic"),
+                new Healer2(new Vector2(10.5f,12.9f),   "healer")
+            });
+            
+            Wave2.Add(new List<Enemy>
+            { new Warrior2(new Vector2(-5.5f, 3.9f),  "warrior"), 
+                new Warrior2(new Vector2(5.5f,2.9f),   "warrior"),
+                new Warrior2(new Vector2(-0.5f,-4.1f),   "warrior"),
+                new Healer2(new Vector2(7.5f, 8.9f), "healer")
+            });
+            
+            Wave2.Add(new List<Enemy>
+            {new Magic2(new Vector2(4.5f, -9f),  "magic"), 
+                new Magic2(new Vector2(-21,4),   "magic"),
+                new Warrior2(new Vector2(20.5f,4),   "warrior"),
+                new Warrior2(new Vector2(-8.5f,-9.1f),   "warrior")
             });
         }
     }
