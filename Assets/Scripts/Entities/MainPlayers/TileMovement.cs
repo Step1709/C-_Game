@@ -20,6 +20,8 @@ namespace TailMap
         private int currentTargetIndex = 0;
         private bool isMoving = false;
         private Vector3 offset = new Vector3(0, 0.4f, 0);
+        [SerializeField]
+        private Animator animator;
 
         void OnEnable()
         {
@@ -53,6 +55,7 @@ namespace TailMap
 
                         currentTargetIndex = 0;
                         isMoving = true;
+                        animator.SetBool("stop", false);
                     }
                 }
                 if (isMoving && pathWorldPositions != null && pathWorldPositions.Count > 0)
@@ -67,6 +70,7 @@ namespace TailMap
                         if (currentTargetIndex >= pathWorldPositions.Count)
                         {
                             isMoving = false;
+                            animator.SetBool("stop", true);
                         }
                     }
                 }

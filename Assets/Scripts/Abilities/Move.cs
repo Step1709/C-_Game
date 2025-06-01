@@ -17,6 +17,8 @@ namespace Abilities
         private Vector3 offset = new Vector3(0, 0.4f, 0);
         private Tilemap tileMap;
         private int currentTargetIndex;
+        [SerializeField]
+        private Animator animator;
         
         [SerializeField]
         private EntityStateMachine stateMachine;
@@ -35,6 +37,7 @@ namespace Abilities
             }
             currentTargetIndex = 0;
             isMoving = true;
+            animator.SetBool("stop", false);
         }
 
         void Update()
@@ -52,10 +55,15 @@ namespace Abilities
                     if (currentTargetIndex >= pathWorldPositions.Count)
                     {
                         isMoving = false;
+                        animator.SetBool("stop", true);
                     }
                 }
             }
-            else isMoving = false;
+            else
+            {
+                isMoving = false;
+                animator.SetBool("stop", true);
+            }
 
             if (isMoving == false)
             {

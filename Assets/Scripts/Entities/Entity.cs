@@ -31,7 +31,6 @@ namespace Entities
         public int CurrentTileCount;
         
         public int MainActionPoint;
-        
         public IAbility currentAbility { get; protected set; }
 
         public void UpdateStats()
