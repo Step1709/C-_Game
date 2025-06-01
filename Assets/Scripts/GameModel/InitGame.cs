@@ -20,7 +20,7 @@ namespace Scenes
             GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave1[Random.Range(0, GameModel.Instance.Wave1.Count)]
                 .Select(x=>x.Copy())
                 .ToList());
-            GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave2[Random.Range(0, GameModel.Instance.Wave1.Count)]
+            GameModel.Instance.Waves.Enqueue(GameModel.Instance.Wave2[Random.Range(0, GameModel.Instance.Wave2.Count)]
                 .Select(x=>x.Copy())
                 .ToList());
             GameModel.Instance.GameModelObject = GameObject.Find("GameModel");
