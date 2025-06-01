@@ -22,11 +22,11 @@ namespace Scenes
             var weapon1 = new DamageWeapon(12, 18, 1f, 0f, false);
             weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
             weapon1.Name = "Прямой удар";
-            weapon1.Description = "Наносит одиночной цели прямой удар мечом";
+            weapon1.Description = "Наносит мощным удар кулаком по выбранной цели. Просто, но зато эффективно";
             var weapon2 = new DamageWeapon(9, 15, 1f, 2f, false);
             weapon2.Icon = Resources.Load<Sprite>("UI/swordImage");
-            weapon2.Name = "Удар с разворота";
-            weapon2.Description = "Наносит мечом удар по области";
+            weapon2.Name = "Удар в пол";
+            weapon2.Description = "Ударяет кулаком в пол, создавая оглушающую волну вокруг. Будьте осторожны и не заденьте своих союзников";
             Abilities = new List<IAbility>()
             {
                 NoAbility.Instance,

@@ -21,12 +21,12 @@ namespace Scenes
             MaxTileCount = 9;
             var weapon1 = new DamageWeapon(9, 15, 10f, 0f, true);
             weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
-            weapon1.Name = "Концентрированный огненный шар";
-            weapon1.Description = "Атака по одиночной цели на расстоянии";
+            weapon1.Name = "Выстрел из лука";
+            weapon1.Description = "Выпускает стрелу по выбранной цели из лука";
             var weapon2 = new DamageWeapon(7, 12, 10f, 3f, true);
             weapon2.Icon = Resources.Load<Sprite>("UI/swordImage");
-            weapon2.Name = "Большой огненный шар";
-            weapon2.Description = "Атака по области огненным шаром";
+            weapon2.Name = "Огненный шар";
+            weapon2.Description = "Создает и бросает в указанную точку огненный шар, который поражает своим пламенем большую область вокруг. Будьте острожныи и не подожгите себя и союзников!";
             Abilities = new List<IAbility>()
             {
                 NoAbility.Instance,
