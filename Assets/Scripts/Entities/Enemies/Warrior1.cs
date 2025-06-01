@@ -5,21 +5,21 @@ using Weapons;
 
 namespace Entities
 {
-    public class Magic : Enemy
+    public class Warrior1 : Enemy
     {
-        public Magic(Vector2 startPos, string name) : 
-            base(startPos,  name)
+        public Warrior1(Vector2 startPos, string name) : 
+            base(startPos, name)
         {
             MaxHealth = 15;
             Health = 15;
             ArmorClass = 8;
             currentAbility = null;
-            MaxTileCount = 9;
-            SupportDistance = 7f;
+            MaxTileCount = 12;
+            SupportDistance = 2f;
             MoveSpeed = 7f;
             EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortSwordPrefab");
             Abilities = new List<IAbility>();
-            Abilities.Add(new DamageWeapon(6, 14,7f, 0, false));
+            Abilities.Add(new DamageWeapon(6, 13,1.5f, 0, false));
             Abilities.Add(MoveBoost.Instance);
             Abilities.Add(NoAbility.Instance);
         }

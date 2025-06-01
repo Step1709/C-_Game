@@ -5,9 +5,9 @@ using Weapons;
 
 namespace Entities
 {
-    public class Healer : Enemy
+    public class Healer2 : Enemy
     {
-        public Healer(Vector2 startPos,  string name) :
+        public Healer2(Vector2 startPos,  string name) :
             base(startPos,  name)
         {
             MaxHealth = 15;

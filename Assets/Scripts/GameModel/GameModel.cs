@@ -39,16 +39,16 @@ namespace Scenes
         public GameModel()
         {
             Wave1.Add(new List<Enemy>
-                { new Warrior(new Vector2(3, 3),  "warrior"), 
-                    new Magic(new Vector2(10,5),   "magic"),
-                    new Healer(new Vector2(15,5),   "healer")
+                { new Warrior1(new Vector2(3, 3),  "warrior"), 
+                    new Magic1(new Vector2(10,5),   "magic"),
+                    new Healer2(new Vector2(15,5),   "healer")
                 });
             
             Wave2.Add(new List<Enemy>
             {
-                new Warrior(new Vector2(8, 8),   "warrior"), 
-                new Magic(new Vector2(6,5),   "magic"),
-                new Healer(new Vector2(13,5),   "healer")
+                new Warrior1(new Vector2(8, 8),   "warrior"), 
+                new Magic1(new Vector2(6,5),   "magic"),
+                new Healer2(new Vector2(13,5),   "healer")
             });
         }
     }
