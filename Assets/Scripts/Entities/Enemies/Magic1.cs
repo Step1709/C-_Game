@@ -17,9 +17,9 @@ namespace Entities
             MaxTileCount = 9;
             SupportDistance = 7f;
             MoveSpeed = 7f;
-            EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortSwordPrefab");
+            EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortMagePrefab");
             Abilities = new List<IAbility>();
-            Abilities.Add(new DamageWeapon(5, 10,7f, 0, false, "atack_v"));
+            Abilities.Add(new DamageWeapon(5, 10,7f, 0, false, "atack_h"));
             Abilities.Add(MoveBoost.Instance);
             Abilities.Add(NoAbility.Instance);
         }

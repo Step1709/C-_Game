@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: -3380521468368217891}
   - component: {fileID: 3020458326923269347}
   m_Layer: 0
-  m_Name: GoblinShortSwordPrefab
+  m_Name: GoblinShortMagePrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,8 +39,8 @@ Transform:
   m_GameObject: {fileID: 3668459266504802064}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6187, y: 0.8491, z: 0}
-  m_LocalScale: {x: 6.232354, y: 5.2869496, z: -88.81905}
+  m_LocalPosition: {x: 0.4021, y: 0.679, z: 0}
+  m_LocalScale: {x: 4.628215, y: 3.9261467, z: -65.95801}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: -105541197
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1673330290510211665, guid: 19791537186f8a14bad56647e744aae3,
+  m_Sprite: {fileID: 4249516687266245723, guid: c97bb3dbe3dc2d949beda0d0bba9d9cd,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -162,7 +162,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.06}
+  m_Offset: {x: 0, y: -0.1}
   m_Radius: 0.06
 --- !u!114 &5804782870060982564
 MonoBehaviour:
@@ -241,13 +241,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.27, y: 0.25}
+    oldSize: {x: 0.28, y: 0.37}
     newSize: {x: 80, y: 59.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 0.26}
+  m_Size: {x: 0.29, y: 0.39}
   m_EdgeRadius: 0
 --- !u!114 &-5904656507165315651
 MonoBehaviour:
@@ -342,7 +342,7 @@ Animator:
   m_GameObject: {fileID: 3668459266504802064}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bcb24466cd0e8024499142abb03b84e6, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7bb1107ca8d93f49bd9ce7ad40a0aff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
