@@ -15,7 +15,7 @@ namespace Entities.MainPlayers
             MaxHealth = 20;
             ArmorClass = 10;
             StartPosition = new Vector2(10, 3);
-            EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Wiz_Prefab");
+            EntityPrefab = Resources.Load<GameObject>("Prefabs/Player_Wiz_Prefab 1");
             MoveSpeed = 7f;
             Name = "Brightfire";
             MaxTileCount = 9;

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 6454141102369927949}
   - component: {fileID: 7264798879134482877}
   - component: {fileID: 247522385874570603}
+  - component: {fileID: 6760444862231575117}
   m_Layer: 0
   m_Name: Player_Wiz_Prefab
   m_TagString: Player
@@ -41,8 +42,8 @@ Transform:
   m_GameObject: {fileID: 5355213896438806703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14493161, y: 0.13957319, z: 0.8114}
+  m_LocalPosition: {x: 0.4479, y: 0.6304, z: 0}
+  m_LocalScale: {x: 7.035282, y: 6.775173, z: 39.387047}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,7 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: -105541197
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3984793834014418241, guid: 1d7778698472e2b48b4a1b520ac1d2f5,
+  m_Sprite: {fileID: 7427847621219813442, guid: c4bd9fb87f9d2164b9552d9215ef47d4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -164,8 +165,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -2}
-  m_Radius: 2
+  m_Offset: {x: 0, y: -0.043}
+  m_Radius: 0.05
 --- !u!114 &7553711737853740138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f34861c9764d5690601c830ad5a69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6760444862231575117}
 --- !u!114 &-8056622404269193303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,13 +261,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 9.2}
+    oldSize: {x: 0.14, y: 0.18}
     newSize: {x: 80, y: 59.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.88, y: 9.12}
+  m_Size: {x: 0.13, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &5733863758617329464
 MonoBehaviour:
@@ -295,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: []
   isUsed: 0
+  animator: {fileID: 6760444862231575117}
   stateMachine: {fileID: -8056622404269193303}
 --- !u!114 &1101626443504123071
 MonoBehaviour:
@@ -476,3 +479,25 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!95 &6760444862231575117
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b93f8f32cdfa1ef42b8a50f356896885, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
