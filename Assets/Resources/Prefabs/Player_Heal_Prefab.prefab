@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 247522385874570603}
   - component: {fileID: 1239186479054765029}
   m_Layer: 0
-  m_Name: Player_Wiz_Prefab 1
+  m_Name: Player_Heal_Prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
