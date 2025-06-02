@@ -19,14 +19,16 @@ namespace Weapons
         public float Range;
         public float SplashRadius;
         public bool DamageSelf;
+        public string AnimationName;
 
-        public Weapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf)
+        public Weapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf, string animationName)
         {
             this.minDamage = minDamage;
             this.maxDamage = maxDamage;
             Range = range;
             SplashRadius = splashRadius;
             DamageSelf = damageSelf;
+            AnimationName = animationName;
         }
 
         public void Attack(Entity user, Entity target, Vector3 targetPosition)

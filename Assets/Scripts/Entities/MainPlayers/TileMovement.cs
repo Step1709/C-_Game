@@ -24,7 +24,6 @@ namespace TailMap
         [SerializeField] private Animator animator;
         private SpriteRenderer spriteRenderer;
         private Vector3 previousPosition;
-        private bool facingRight = true;
 
         void Start()
         {
@@ -36,26 +35,26 @@ namespace TailMap
         void OnEnable()
         {
             isMoving = false;
+            animator.SetBool("stop", true);
+        }
+
+        void OnDisable()
+        {
+            isMoving = false;
+            animator.SetBool("stop", true);
         }
 
         public void Update()
         {
             if (GameModel.Instance.OnPause) return;
             
-            if (gameObject == GameModel.Instance.ChosenPlayer.GameObject)
-            {
-                HandleMouseInput();
-                HandleMovement();
-            }
-            else
-            {
-                isMoving = false;
-            }
+            HandleMouseInput();
+            HandleMovement();
         }
 
         private void HandleMouseInput()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && gameObject == GameModel.Instance.ChosenPlayer.GameObject)
             {
                 if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
                 
@@ -91,10 +90,16 @@ namespace TailMap
             if (Mathf.Abs(moveDirection.x) > 0.01f) 
             {
                 var shouldFaceRight = moveDirection.x > 0;
-                if (shouldFaceRight != facingRight)
+                var scale = transform.localScale;
+                if (shouldFaceRight)
                 {
-                    FlipSprite(shouldFaceRight);
+                    scale.x = Math.Abs(scale.x);
                 }
+                else
+                {
+                    scale.x = -Math.Abs(scale.x);
+                }
+                transform.localScale = scale;
             }
             previousPosition = transform.position;
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
@@ -107,14 +112,6 @@ namespace TailMap
                 }
             }
         }
-
-        private void FlipSprite(bool faceRight)
-        {
-            facingRight = faceRight;
-            if (spriteRenderer != null)
-            {
-                spriteRenderer.flipX = !faceRight;
-            }
-        }
+        
     }
 }

@@ -10,8 +10,8 @@ namespace Weapons
 {
     public class DamageWeapon : Weapon
     {
-        public DamageWeapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf) 
-            : base(minDamage, maxDamage, range, splashRadius, damageSelf)
+        public DamageWeapon(int minDamage, int maxDamage, float range, float splashRadius, bool damageSelf, string animationName) 
+            : base(minDamage, maxDamage, range, splashRadius, damageSelf, animationName)
         {
         }
 

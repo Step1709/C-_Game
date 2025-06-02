@@ -19,7 +19,7 @@ namespace Entities
             MoveSpeed = 7f;
             EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortSwordPrefab");
             Abilities = new List<IAbility>();
-            Abilities.Add(new HealWeapon(4, 7, 7f, 0, false));
+            Abilities.Add(new HealWeapon(4, 7, 7f, 0, false, "atack_v"));
             Abilities.Add(MoveBoost.Instance);
             Abilities.Add(NoAbility.Instance);
         }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Entities;
 using Scenes.EntityState2;
@@ -13,6 +14,7 @@ namespace Abilities
         public List<Vector3Int> pathToTarget;
         public Entity self;
         public Move move;
+        private bool startAttack;
         
         [SerializeField] private Animator animator;
         
@@ -20,6 +22,7 @@ namespace Abilities
         private EntityStateMachine stateMachine;
         void OnEnable()
         {
+            startAttack = false;
             stateMachine.ChangeState(UsingAbilityState.Instance);
             if (pathToTarget.Count != 0)
             {
@@ -31,13 +34,32 @@ namespace Abilities
 
         void Update()
         {
-            if (!move.enabled)
+            if (!move.enabled && !startAttack)
             {
-                ((Weapon)self.currentAbility).Attack(self, target, targetPosition);
-                self.MainActionPoint--;
-                stateMachine.ChangeState(ActiveState.Instance);
-                enabled = false;
+                animator.Play(((Weapon)self.currentAbility).AnimationName);
+                StartCoroutine(WaitForAnimationEnd());
+                startAttack = true;
             }
+        }
+        
+        IEnumerator WaitForAnimationEnd()
+        {
+            while (!animator.GetCurrentAnimatorStateInfo(0).IsName(((Weapon)self.currentAbility).AnimationName))
+            {
+                yield return null;
+            }
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            while (stateInfo.normalizedTime < 1.0f)
+            {
+                yield return null;
+                stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            }
+
+            Debug.Log("анимация кончилась");
+            ((Weapon)self.currentAbility).Attack(self, target, targetPosition);
+            self.MainActionPoint--;
+            stateMachine.ChangeState(ActiveState.Instance);
+            enabled = false;
         }
     }
 }

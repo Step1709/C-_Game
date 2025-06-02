@@ -19,11 +19,11 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Ashen";
             MaxTileCount = 9;
-            var weapon1 = new DamageWeapon(9, 15, 10f, 0f, true);
+            var weapon1 = new DamageWeapon(9, 15, 10f, 0f, true, "Atack1_A");
             weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
             weapon1.Name = "Выстрел из лука";
             weapon1.Description = "Выпускает стрелу по выбранной цели из лука";
-            var weapon2 = new DamageWeapon(7, 12, 10f, 3f, true);
+            var weapon2 = new DamageWeapon(7, 12, 10f, 3f, true, "Atack2_A");
             weapon2.Icon = Resources.Load<Sprite>("UI/swordImage");
             weapon2.Name = "Огненный шар";
             weapon2.Description = "Создает и бросает в указанную точку огненный шар, который поражает своим пламенем большую область вокруг. Будьте острожныи и не подожгите себя и союзников!";

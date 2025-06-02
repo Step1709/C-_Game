@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Entities;
 using Scenes;
@@ -23,7 +24,6 @@ namespace Abilities
         private EntityStateMachine stateMachine;
         
         private Vector3 previousPosition;
-        private bool facingRight = true;
 
         void Awake()
         {
@@ -55,10 +55,16 @@ namespace Abilities
                 if (moveDirection.x != 0)
                 {
                     var shouldFaceRight = moveDirection.x > 0;
-                    if (shouldFaceRight != facingRight)
+                    var scale = transform.localScale;
+                    if (shouldFaceRight)
                     {
-                        FlipSprite();
+                        scale.x = Math.Abs(scale.x);
                     }
+                    else
+                    {
+                        scale.x = -Math.Abs(scale.x);
+                    }
+                    transform.localScale = scale;
                 }
                 previousPosition = transform.position;
 
@@ -84,14 +90,6 @@ namespace Abilities
                 enabled = false;
                 if (!isUsed) stateMachine.ChangeState(ActiveState.Instance);
             }
-        }
-
-        private void FlipSprite()
-        {
-            facingRight = !facingRight;
-            var scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale;
         }
     }
 }
