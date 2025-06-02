@@ -21,11 +21,11 @@ namespace Entities.MainPlayers
             MaxTileCount = 9;
             Icon = Resources.Load<Sprite>("Icons/BrightIcon");
             var weapon1 = new HealWeapon(5, 10, 1.5f, 0f, true, "atack1");
-            weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
+            weapon1.Icon = Resources.Load<Sprite>("Icons/heal1");
             weapon1.Name = "Концентрированное лечение";
             weapon1.Description = "Создает вокруг себя целебную ауру и направляет ее на указанную цель. Не перепутайте своего союзника с врагом";
             var weapon2 = new HealWeapon(3, 7, 10f, 2.5f, true, "Atack2");
-            weapon2.Icon = Resources.Load<Sprite>("UI/swordImage");
+            weapon2.Icon = Resources.Load<Sprite>("Icons/heal2");
             weapon2.Name = "Рассеянное лечение";
             weapon2.Description = "Концентрирует в руках целебную ауру и по земле передает ее в указанную точку. Аура рассеивается и действует по области. Будьте внимательны, попавшие в эту область враги так же получат исцеление";
             Abilities = new List<IAbility>()

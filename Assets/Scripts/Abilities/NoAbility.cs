@@ -12,7 +12,7 @@ namespace Abilities
     public class NoAbility : IPlayerAbility, IEnemyAbility
     {
         public static NoAbility Instance{get; private set;} = new NoAbility();
-        public Sprite Icon { get; set; } = Resources.Load<Sprite>("UI/swordImage");
+        public Sprite Icon { get; set; } = Resources.Load<Sprite>("Icons/Move");
         public string Name { get; set; } = "Передвижение";
         public string Description { get; set; } = "Перемещение персонажа на ограниченное число клеток";
 

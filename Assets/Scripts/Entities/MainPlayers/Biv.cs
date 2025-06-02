@@ -21,11 +21,11 @@ namespace Scenes
             MaxTileCount = 12;
             Icon = Resources.Load<Sprite>("Icons/BivIcon");
             var weapon1 = new DamageWeapon(12, 18, 1f, 0f, false, "Broke");
-            weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
+            weapon1.Icon = Resources.Load<Sprite>("Icons/punch1");
             weapon1.Name = "Прямой удар";
             weapon1.Description = "Наносит мощным удар кулаком по выбранной цели. Просто, но зато эффективно";
             var weapon2 = new DamageWeapon(9, 15, 1f, 2f, false, "Broke2");
-            weapon2.Icon = Resources.Load<Sprite>("UI/swordImage");
+            weapon2.Icon = Resources.Load<Sprite>("Icons/punch2");
             weapon2.Name = "Удар в пол";
             weapon2.Description = "Ударяет кулаком в пол, создавая оглушающую волну вокруг. Будьте осторожны и не заденьте своих союзников";
             Abilities = new List<IAbility>()

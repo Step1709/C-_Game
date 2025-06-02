@@ -17,7 +17,7 @@ namespace Weapons
 
         protected override void Damage(Entity user, Entity target)
         {
-            if (Random.Range(1, 20) > target.ArmorClass)
+            if (Random.Range(1, 20) >= target.ArmorClass)
             {
                 Debug.Log($"{user.Name} попадает по {target.Name}");
                 var damage = Random.Range(minDamage, maxDamage);
