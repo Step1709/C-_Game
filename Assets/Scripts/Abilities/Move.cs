@@ -17,14 +17,19 @@ namespace Abilities
         private Vector3 offset = new Vector3(0, 0.4f, 0);
         private Tilemap tileMap;
         private int currentTargetIndex;
-        
+        [SerializeField]
+        private Animator animator;
         [SerializeField]
         private EntityStateMachine stateMachine;
+        
+        private Vector3 previousPosition;
+        private bool facingRight = true;
 
         void Awake()
         {
             tileMap = GameModel.Instance.Floor;
         }
+
         void OnEnable()
         {
             if (!isUsed) stateMachine.ChangeState(UsingAbilityState.Instance);
@@ -35,6 +40,8 @@ namespace Abilities
             }
             currentTargetIndex = 0;
             isMoving = true;
+            animator.SetBool("stop", false);
+            previousPosition = transform.position;
         }
 
         void Update()
@@ -44,6 +51,16 @@ namespace Abilities
                 var targetPosition = pathWorldPositions[currentTargetIndex];
                 transform.position =
                     Vector3.MoveTowards(transform.position, targetPosition, self.MoveSpeed * Time.deltaTime);
+                var moveDirection = transform.position - previousPosition;
+                if (moveDirection.x != 0)
+                {
+                    var shouldFaceRight = moveDirection.x > 0;
+                    if (shouldFaceRight != facingRight)
+                    {
+                        FlipSprite();
+                    }
+                }
+                previousPosition = transform.position;
 
                 if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
                 {
@@ -52,16 +69,29 @@ namespace Abilities
                     if (currentTargetIndex >= pathWorldPositions.Count)
                     {
                         isMoving = false;
+                        animator.SetBool("stop", true);
                     }
                 }
             }
-            else isMoving = false;
+            else
+            {
+                isMoving = false;
+                animator.SetBool("stop", true);
+            }
 
             if (isMoving == false)
             {
                 enabled = false;
                 if (!isUsed) stateMachine.ChangeState(ActiveState.Instance);
             }
+        }
+
+        private void FlipSprite()
+        {
+            facingRight = !facingRight;
+            var scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
         }
     }
 }
