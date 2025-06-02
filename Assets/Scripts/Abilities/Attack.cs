@@ -14,6 +14,8 @@ namespace Abilities
         public Entity self;
         public Move move;
         
+        [SerializeField] private Animator animator;
+        
         [SerializeField]
         private EntityStateMachine stateMachine;
         void OnEnable()

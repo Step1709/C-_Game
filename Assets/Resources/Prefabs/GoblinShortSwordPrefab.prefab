@@ -280,6 +280,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   pathToTarget: []
   move: {fileID: -5904656507165315651}
+  animator: {fileID: 3020458326923269347}
   stateMachine: {fileID: -6996931107153907824}
 --- !u!114 &1983370858704242672
 MonoBehaviour:
