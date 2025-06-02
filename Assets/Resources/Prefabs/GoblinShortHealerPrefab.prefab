@@ -162,8 +162,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.05, y: -0.2}
-  m_Radius: 0.08
+  m_Offset: {x: 0, y: -0.13}
+  m_Radius: 0.14
 --- !u!114 &5804782870060982564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ Animator:
   m_GameObject: {fileID: 3668459266504802064}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9581996874d35a54c8c72638cf0ed8d4, type: 2}
+  m_Controller: {fileID: 9100000, guid: ec3102c146b42ee4f8eff6bb946b0b6a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
