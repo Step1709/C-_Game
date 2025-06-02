@@ -25,7 +25,7 @@ namespace Training
             if (stateMachine.currentState == WaitingState.Instance)
             {
                 enabled = false;
-                GameModel.Instance.TrainingComleted = 1;
+                GameModel.Instance.TrainingComleted = true;
                 instruction.text = "Победите врагов";
             }
         }
