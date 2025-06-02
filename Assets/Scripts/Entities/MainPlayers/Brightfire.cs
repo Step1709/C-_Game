@@ -19,6 +19,7 @@ namespace Entities.MainPlayers
             MoveSpeed = 7f;
             Name = "Brightfire";
             MaxTileCount = 9;
+            Icon = Resources.Load<Sprite>("Icons/BrightIcon");
             var weapon1 = new HealWeapon(5, 10, 1.5f, 0f, true, "atack1");
             weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
             weapon1.Name = "Концентрированное лечение";

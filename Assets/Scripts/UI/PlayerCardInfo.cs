@@ -35,6 +35,8 @@ namespace UI
             player = playerInterface.player;
             playerName.text = player.Name;
 
+            playerIcon.sprite = player.Icon;
+            
             ability1Name.text = ((IPlayerAbility)player.Abilities[0]).Name;
             ability1Description.text = ((IPlayerAbility)player.Abilities[0]).Description;
             ability1Icon.sprite = ((IPlayerAbility)player.Abilities[0]).Icon;

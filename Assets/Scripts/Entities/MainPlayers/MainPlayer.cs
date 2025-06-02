@@ -8,6 +8,8 @@ namespace Scenes
     public abstract class MainPlayer : Entity
     {
         public int AbilityIndex;
+
+        public Sprite Icon;
         public override void ChangeAbility(IAbility ability)
         {
             ((IPlayerAbility)currentAbility)?.Remove(this);

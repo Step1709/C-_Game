@@ -19,6 +19,7 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Ashen";
             MaxTileCount = 9;
+            Icon = Resources.Load<Sprite>("Icons/AshenIcon");
             var weapon1 = new DamageWeapon(9, 15, 10f, 0f, true, "Atack1_A");
             weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
             weapon1.Name = "Выстрел из лука";

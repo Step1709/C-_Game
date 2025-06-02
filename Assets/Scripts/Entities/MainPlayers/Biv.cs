@@ -19,6 +19,7 @@ namespace Scenes
             MoveSpeed = 7f;
             Name = "Biv";
             MaxTileCount = 12;
+            Icon = Resources.Load<Sprite>("Icons/BivIcon");
             var weapon1 = new DamageWeapon(12, 18, 1f, 0f, false, "Broke");
             weapon1.Icon = Resources.Load<Sprite>("UI/swordImage");
             weapon1.Name = "Прямой удар";
