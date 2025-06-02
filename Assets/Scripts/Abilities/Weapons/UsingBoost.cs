@@ -9,7 +9,7 @@ namespace Weapons
         [SerializeField] private EntityStateMachine stateMachine;
         void OnEnable()
         {
-            UI.Screen.Instance.DamageShower.ShowDamage(stateMachine.wrapper.Entity, "рывок", Color.white);
+            UI.Screen.Instance.DamageShower.ShowDamage(stateMachine.wrapper.Entity, "рывок", Color.white, new Vector3(0,0.6f,0));
             stateMachine.ChangeState(UsingAbilityState.Instance);
             StartCoroutine(Wait());
         }

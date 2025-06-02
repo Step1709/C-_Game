@@ -8,10 +8,10 @@ namespace UI
     {
         [SerializeField] private GameObject floatingTextPrefab;
         
-        public void ShowDamage(Entity targetEntity, string damage, Color color)
+        public void ShowDamage(Entity targetEntity, string damage, Color color, Vector3 offset)
         {
             var floatingText = Instantiate(floatingTextPrefab, 
-                targetEntity.GameObject.transform.position + new Vector3(0,0.6f,0), Quaternion.identity);
+                targetEntity.GameObject.transform.position + offset, Quaternion.identity);
             var text = floatingText.GetComponentInChildren<TextMeshPro>();
             text.text = damage;
             text.color = color;

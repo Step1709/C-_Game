@@ -17,19 +17,22 @@ namespace Weapons
 
         protected override void Damage(Entity user, Entity target)
         {
-            if (Random.Range(1, 20) >= target.ArmorClass)
+            var random = Random.Range(1, 21);
+            if (random >= target.ArmorClass)
             {
-                Debug.Log($"{user.Name} попадает по {target.Name}");
-                var damage = Random.Range(minDamage, maxDamage);
+                var damage = Random.Range(minDamage, maxDamage + 1);
+                if (random == 20)
+                {
+                    damage *= 2;
+                    UI.Screen.Instance.DamageShower.ShowDamage(target, "крит. удар", Color.red, new Vector3(0,1f,0));
+                }
                 target.Health -= damage;
                 if (target.Health <= 0) target.Health = 0;
-                UI.Screen.Instance.DamageShower.ShowDamage(target, damage.ToString(), Color.red);
-                Debug.Log($"у {target.Name} осталось {target.Health} хп после тычки на {damage} урона");
+                UI.Screen.Instance.DamageShower.ShowDamage(target, damage.ToString(), Color.red, new Vector3(0,0.6f,0));
             }
             else
             {
-                UI.Screen.Instance.DamageShower.ShowDamage(target, "0", Color.white);
-                Debug.Log($"{user.Name} не попадает по {target.Name}");
+                UI.Screen.Instance.DamageShower.ShowDamage(target, "0", Color.white, new Vector3(0,0.6f,0));
             }
         }
 
