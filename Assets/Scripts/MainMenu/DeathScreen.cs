@@ -6,7 +6,8 @@ public class DeathScreen : MonoBehaviour
 {
     public void RestartGame()
     {
-        SceneManager.LoadScene("GamePlay");
+        if (GameModel.Instance.TrainingComleted) SceneManager.LoadScene("GamePlay");
+        else SceneManager.LoadScene("Training");
     }
 
     public void BackToMainMenu()

@@ -42,13 +42,13 @@ namespace Scenes
         {
             Wave1.Add(new List<Enemy>
                 { new Warrior1(new Vector2(-0.5f, 9),  "warrior"), 
-                    new Magic1(new Vector2(-6.5f,13),   "magic"),
-                    new Magic1(new Vector2(5.5f,10),   "magic")
+                    new Magic1(new Vector2(-6.5f,13),   "wizard"),
+                    new Magic1(new Vector2(5.5f,10),   "wizard")
                 });
             Wave1.Add(new List<Enemy>
-            { new Magic1(new Vector2(4.5f, -9f),  "magic"), 
-                new Magic1(new Vector2(-21,4),   "magic"),
-                new Magic1(new Vector2(20.5f,4),   "magic")
+            { new Magic1(new Vector2(4.5f, -9f),  "wizard"), 
+                new Magic1(new Vector2(-21,4),   "wizard"),
+                new Magic1(new Vector2(20.5f,4),   "wizard")
             });
             Wave1.Add(new List<Enemy>
             { new Warrior1(new Vector2(-5.5f, 3.9f),  "warrior"), 
@@ -60,7 +60,7 @@ namespace Scenes
             {
                 new Warrior2(new Vector2(-5.5f, 7.9f),   "warrior"),
                 new Warrior2(new Vector2(6.5f, 8.9f),   "warrior"), 
-                new Magic2(new Vector2(5.5f,14.9f),   "magic"),
+                new Magic2(new Vector2(5.5f,14.9f),   "wizard"),
                 new Healer2(new Vector2(10.5f,12.9f),   "healer")
             });
             
@@ -72,8 +72,8 @@ namespace Scenes
             });
             
             Wave2.Add(new List<Enemy>
-            {new Magic2(new Vector2(4.5f, -9f),  "magic"), 
-                new Magic2(new Vector2(-21,4),   "magic"),
+            {new Magic2(new Vector2(4.5f, -9f),  "wizard"), 
+                new Magic2(new Vector2(-21,4),   "wizard"),
                 new Warrior2(new Vector2(20.5f,4),   "warrior"),
                 new Warrior2(new Vector2(-8.5f,-9.1f),   "warrior")
             });
@@ -81,15 +81,15 @@ namespace Scenes
             Wave3.Add(new List<Enemy>
             {
                 new Warrior3(new Vector2(-5.5f, 7.9f),   "warrior"),
-                new Magic3(new Vector2(5.5f,14.9f),   "magic"),
-                new Magic3(new Vector2(20.5f,4),   "magic"),
+                new Magic3(new Vector2(5.5f,14.9f),   "wizard"),
+                new Magic3(new Vector2(20.5f,4),   "wizard"),
                 new Healer3(new Vector2(10.5f,12.9f),   "healer")
             });
             
             Wave3.Add(new List<Enemy>
             { new Warrior3(new Vector2(-5.5f, 3.9f),  "warrior"), 
                 new Warrior3(new Vector2(5.5f,2.9f),   "warrior"),
-                new Magic3(new Vector2(-21,4),   "magic"),
+                new Magic3(new Vector2(-21,4),   "wizard"),
                 new Healer3(new Vector2(7.5f, 8.9f), "healer"),
             });
         }
