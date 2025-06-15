@@ -62,8 +62,9 @@ namespace TailMap
                 mouseWorldPos.z = 0f;
                 var targetCell = tilemap.WorldToCell(mouseWorldPos);
                 var startCell = tilemap.WorldToCell(transform.position);
-                
-                var path = PathFinder.AStar(startCell, targetCell);
+
+                List<Vector3Int> path = null;
+                if (!GameModel.Instance.EntitiesPositions.Contains(targetCell)) path = PathFinder.AStar(startCell, targetCell);
                 if (path != null && path.Count > 0)
                 {
                     pathWorldPositions = path.Select(cell => tilemap.GetCellCenterWorld(cell) + offset).ToList();

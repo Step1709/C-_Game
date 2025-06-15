@@ -87,9 +87,10 @@ namespace Paths
 
                 foreach (var neighbor in GetNeighbors(current))
                 {
-                    if (!CanMove(current, neighbor))
+                    if (neighbor!=end && !CanMove(current, neighbor))
                         continue;
-
+                    if (neighbor==end && !CanMove(current, neighbor, true))
+                        continue;
                     var tentativeGScore = gScore[current] + 1f;
                     if (!gScore.ContainsKey(neighbor) || tentativeGScore < gScore[neighbor])
                     {
@@ -119,11 +120,6 @@ namespace Paths
             }
             return totalPath;
         }
-        
-        public static bool IsWalkable(Vector3Int cellPosition)
-        {
-            return GameModel.Instance.Floor.HasTile(cellPosition) && !GameModel.Instance.Walls.HasTile(cellPosition);
-        }
 
         public static bool NoWallNeigbour(Vector3Int cellPosition, Vector3Int neighbourPosition)
         {
@@ -134,7 +130,7 @@ namespace Paths
                 GetStraightNeighbors(cellPosition).Intersect(GetStraightNeighbors(neighbourPosition));
             foreach (var neighbour in neighbours)
             {
-                if (GameModel.Instance.Walls.HasTile(neighbour))
+                if (GameModel.Instance.Walls.HasTile(neighbour) || GameModel.Instance.EntitiesPositions.Contains(neighbour))
                 {
                     res = false;
                     break;
@@ -143,9 +139,12 @@ namespace Paths
             return res;
         }
 
-        private static bool CanMove(Vector3Int Position, Vector3Int neighbourPosition)
+        private static bool CanMove(Vector3Int position, Vector3Int neighbourPosition, bool ignoreEntities = false)
         {
-            return IsWalkable(neighbourPosition) && NoWallNeigbour(Position, neighbourPosition);
+            return GameModel.Instance.Floor.HasTile(neighbourPosition) 
+                   && !GameModel.Instance.Walls.HasTile(neighbourPosition) 
+                   && (ignoreEntities || !GameModel.Instance.EntitiesPositions.Contains(neighbourPosition))
+                   && NoWallNeigbour(position, neighbourPosition);
         }
         private static IEnumerable<Vector3Int> GetNeighbors(Vector3Int cell)
         {

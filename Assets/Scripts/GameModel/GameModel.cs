@@ -30,6 +30,8 @@ namespace Scenes
 
         public Tilemap Walls;
         
+        public HashSet<Vector3Int> EntitiesPositions = new();
+        
         public Tilemap HighlightTilemap; 
 
         public List<List<Enemy>> Wave1 = new();

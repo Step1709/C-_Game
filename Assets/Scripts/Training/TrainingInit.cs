@@ -37,7 +37,7 @@ namespace Training
 
         private void InitPlayer(MainPlayer logic)
         {
-            var player = Instantiate(logic.EntityPrefab, logic.StartPosition, Quaternion.identity);
+            var player = Instantiate(logic.EntityPrefab, GameModel.Instance.Floor.GetCellCenterWorld(GameModel.Instance.Floor.WorldToCell(logic.StartPosition)) + new Vector3(0, 0.4f, 0), Quaternion.identity);
             player.name = logic.Name;
             var wrapper = player.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;

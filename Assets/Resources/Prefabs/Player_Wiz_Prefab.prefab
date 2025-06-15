@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 7264798879134482877}
   - component: {fileID: 247522385874570603}
   - component: {fileID: 6760444862231575117}
+  - component: {fileID: 6984865453901033918}
   m_Layer: 0
   m_Name: Player_Wiz_Prefab
   m_TagString: Player
@@ -502,3 +503,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6984865453901033918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c253945f79534971ac23162cb1901d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

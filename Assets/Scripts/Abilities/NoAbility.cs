@@ -76,7 +76,8 @@ namespace Abilities
                     targetPlayer.GameObject.transform.position))
             {
                 path = PathFinder.AStar(GameModel.Instance.Floor.WorldToCell(enemy.GameObject.transform.position),
-                    GameModel.Instance.Floor.WorldToCell(targetPlayer.GameObject.transform.position))
+                    GameModel.Instance.Floor.WorldToCell(targetPlayer.GameObject.transform.position)) ?? new List<Vector3Int>();
+                path = path
                     .Take(enemy.CurrentTileCount)
                     .ToList();
                 var tileCount = 0;

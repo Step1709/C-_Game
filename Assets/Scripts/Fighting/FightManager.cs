@@ -59,7 +59,7 @@ namespace Fighting
 
         private void InitEnemy(Enemy logic)
         {
-            var enemy = Instantiate(logic.EntityPrefab, logic.StartPosition, Quaternion.identity);
+            var enemy = Instantiate(logic.EntityPrefab, GameModel.Instance.Floor.GetCellCenterWorld(GameModel.Instance.Floor.WorldToCell(logic.StartPosition)) + new Vector3(0, 0.4f, 0), Quaternion.identity);
             enemy.name = logic.Name;
             logic.GameObject = enemy;
             var wrapper = enemy.GetComponent<EntityWrapper>();
