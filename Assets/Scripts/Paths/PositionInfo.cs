@@ -1,3 +1,4 @@
+using System;
 using Scenes;
 using UnityEngine;
 
@@ -19,6 +20,10 @@ namespace Paths
                 position = GameModel.Instance.Floor.WorldToCell(transform.position);
                 GameModel.Instance.EntitiesPositions.Add(position);
             }
+        }
+        void OnDestroy()
+        {
+            GameModel.Instance.EntitiesPositions.Remove(position);
         }
     }
 }
