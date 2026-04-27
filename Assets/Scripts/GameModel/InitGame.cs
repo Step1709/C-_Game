@@ -52,7 +52,7 @@ namespace Scenes
             wrapper.Entity = logic;
             var move = player.GetComponent<Move>();
             move.self = logic;
-            var attack = player.GetComponent<Attack>();
+            var attack = player.GetComponent<PlayerAttack>();
             attack.self = logic;
             logic.GameObject = player;
         }

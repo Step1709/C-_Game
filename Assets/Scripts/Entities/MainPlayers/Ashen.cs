@@ -28,7 +28,7 @@ namespace Scenes
             weapon2.Icon = Resources.Load<Sprite>("Icons/fireball");
             weapon2.Name = "Огненный шар";
             weapon2.Description = "Создает и бросает в указанную точку огненный шар, который поражает своим пламенем большую область вокруг. Будьте острожныи и не подожгите себя и союзников!";
-            Abilities = new List<IAbility>()
+            Abilities = new List<IAbility<MainPlayer>>()
             {
                 NoAbility.Instance,
                 weapon1,

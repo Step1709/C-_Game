@@ -19,7 +19,6 @@ GameObject:
   - component: {fileID: -9114815161218707179}
   - component: {fileID: 5733863758617329464}
   - component: {fileID: 8148023024319343748}
-  - component: {fileID: 1101626443504123071}
   - component: {fileID: 8185065090125580440}
   - component: {fileID: -4995016027285509593}
   - component: {fileID: 6454141102369927949}
@@ -27,6 +26,7 @@ GameObject:
   - component: {fileID: 247522385874570603}
   - component: {fileID: 6760444862231575117}
   - component: {fileID: 6984865453901033918}
+  - component: {fileID: 5474863353597921173}
   m_Layer: 0
   m_Name: Player_Wiz_Prefab
   m_TagString: Player
@@ -300,23 +300,6 @@ MonoBehaviour:
   isUsed: 0
   animator: {fileID: 6760444862231575117}
   stateMachine: {fileID: -8056622404269193303}
---- !u!114 &1101626443504123071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355213896438806703}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c941afb194c84f55a835059d4e86915a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPosition: {x: 0, y: 0, z: 0}
-  pathToTarget: []
-  move: {fileID: 8148023024319343748}
-  animator: {fileID: 6760444862231575117}
-  stateMachine: {fileID: -8056622404269193303}
 --- !u!114 &8185065090125580440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,3 +498,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c253945f79534971ac23162cb1901d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5474863353597921173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f302244971470a9a13884d94cd861c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
+  pathToTarget: []
+  move: {fileID: 8148023024319343748}
+  animator: {fileID: 6760444862231575117}
+  stateMachine: {fileID: -8056622404269193303}

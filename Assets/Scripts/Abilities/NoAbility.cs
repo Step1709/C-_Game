@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Abilities
 {
-    public class NoAbility : IPlayerAbility, IEnemyAbility
+    public class NoAbility : IPlayerAbility, IAbility<Enemy>
     {
         public static NoAbility Instance{get; private set;} = new NoAbility();
         public Sprite Icon { get; set; } = Resources.Load<Sprite>("Icons/Move");

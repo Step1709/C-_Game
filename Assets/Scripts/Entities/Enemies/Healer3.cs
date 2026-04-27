@@ -18,10 +18,12 @@ namespace Entities
             SupportDistance = 10f;
             MoveSpeed = 7f;
             EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortHealerPrefab");
-            Abilities = new List<IAbility>();
-            Abilities.Add(new HealWeapon(6, 9, 7f, 0, false, "atack_heal"));
-            Abilities.Add(MoveBoost.Instance);
-            Abilities.Add(NoAbility.Instance);
+            Abilities = new List<IAbility<Enemy>>
+            {
+                new HealWeapon(6, 9, 7f, 0, false, "atack_heal"),
+                MoveBoost.Instance,
+                NoAbility.Instance
+            };
         }
     }
 }

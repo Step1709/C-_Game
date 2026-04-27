@@ -14,8 +14,6 @@ namespace Entities
 
         public int ArmorClass;
         
-        public List<IAbility> Abilities;
-        
         public Vector2 StartPosition;
 
         public float MoveSpeed;
@@ -31,16 +29,29 @@ namespace Entities
         public int CurrentTileCount;
         
         public int MainActionPoint;
-        public IAbility currentAbility { get; protected set; }
 
         public void UpdateStats()
         {
             CurrentTileCount = MaxTileCount;
             MainActionPoint = 1;
         }
+    }
 
-        public abstract void ChangeAbility(IAbility ability);
-        
-        public abstract bool UseAbility(IAbility ability);
+    public abstract class Entity<T> : Entity where T : Entity<T>
+    {
+        public IAbility<T> currentAbility { get; protected set; }
+        public List<IAbility<T>> Abilities;
+
+        public void ChangeAbility(IAbility<T> ability)
+        {
+            currentAbility?.Remove((T)this);
+            ability?.Choose((T)this);
+            currentAbility = ability;
+        }
+
+        public bool UseAbility(IAbility<T> ability)
+        {
+            return ability.Use((T)this);
+        }
     }
 }

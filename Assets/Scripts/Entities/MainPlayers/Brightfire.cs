@@ -28,7 +28,7 @@ namespace Entities.MainPlayers
             weapon2.Icon = Resources.Load<Sprite>("Icons/heal2");
             weapon2.Name = "Рассеянное лечение";
             weapon2.Description = "Концентрирует в руках целебную ауру и по земле передает ее в указанную точку. Аура рассеивается и действует по области. Будьте внимательны, попавшие в эту область враги так же получат исцеление";
-            Abilities = new List<IAbility>()
+            Abilities = new List<IAbility<MainPlayer>>()
             {
                 NoAbility.Instance,
                 weapon1,

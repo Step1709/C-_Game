@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using Entities;
+using Scenes;
 using Scenes.EntityState2;
 using UnityEngine;
 using Weapons;
 
 namespace Abilities
 {
-    public class Attack : MonoBehaviour
+    public class Attack<TEntity> : MonoBehaviour where TEntity : Entity<TEntity>
     {
         public Vector3 targetPosition;
         public Entity target;
         public List<Vector3Int> pathToTarget;
-        public Entity self;
+        public Entity<TEntity> self;
         public Move move;
         private bool startAttack;
         

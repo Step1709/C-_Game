@@ -18,10 +18,12 @@ namespace Entities
             SupportDistance = 2f;
             MoveSpeed = 7f;
             EntityPrefab = Resources.Load<GameObject>("Prefabs/GoblinShortSwordPrefab");
-            Abilities = new List<IAbility>();
-            Abilities.Add(new DamageWeapon(9, 17,1.5f, 0, false, "atack_v"));
-            Abilities.Add(MoveBoost.Instance);
-            Abilities.Add(NoAbility.Instance);
+            Abilities = new List<IAbility<Enemy>>
+            {
+                new DamageWeapon(9, 17, 1.5f, 0, false, "atack_v"),
+                MoveBoost.Instance,
+                NoAbility.Instance
+            };
         }
     }
 }

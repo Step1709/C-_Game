@@ -44,7 +44,7 @@ namespace Weapons
                 return false;
             }
             var playerObj = player.GameObject;
-            var attack = playerObj.GetComponent<Attack>();
+            var attack = playerObj.GetComponent<PlayerAttack>();
             var pathController = playerObj.GetComponent<PathController>();
             if (pathController.path == null) return false;
             if (pathController.target is not null && pathController.target == player.GameObject)
@@ -88,7 +88,7 @@ namespace Weapons
 
             if (path == null) return false;
             
-            var attack = enemy.GameObject.GetComponent<Attack>();
+            var attack = enemy.GameObject.GetComponent<EnemyAttack>();
             attack.target = target;
             attack.pathToTarget = path;
             attack.targetPosition = target.GameObject.transform.position;

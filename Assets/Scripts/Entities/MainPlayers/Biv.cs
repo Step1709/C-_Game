@@ -28,7 +28,7 @@ namespace Scenes
             weapon2.Icon = Resources.Load<Sprite>("Icons/punch2");
             weapon2.Name = "Удар в пол";
             weapon2.Description = "Ударяет кулаком в пол, создавая оглушающую волну вокруг. Будьте осторожны и не заденьте своих союзников";
-            Abilities = new List<IAbility>()
+            Abilities = new List<IAbility<MainPlayer>>()
             {
                 NoAbility.Instance,
                 weapon1,

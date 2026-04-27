@@ -68,7 +68,7 @@ namespace Fighting
             enemyAI.self = logic;
             var move = enemy.GetComponent<Move>();
             move.self = logic;
-            var attack = enemy.GetComponent<Attack>();
+            var attack = enemy.GetComponent<EnemyAttack>();
             attack.self = logic;
         }
     }

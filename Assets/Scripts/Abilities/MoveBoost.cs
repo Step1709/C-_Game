@@ -6,7 +6,7 @@ using Weapons;
 
 namespace Abilities
 {
-    public class MoveBoost : IPlayerAbility, IEnemyAbility
+    public class MoveBoost : IPlayerAbility, IAbility<Enemy>
     {
         public static MoveBoost Instance { get; } = new MoveBoost();
         public Sprite Icon { get; set; } = Resources.Load<Sprite>("Icons/MoveBoost");

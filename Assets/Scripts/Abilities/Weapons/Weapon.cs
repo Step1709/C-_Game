@@ -12,7 +12,7 @@ using UnityEngine.UI;
 
 namespace Weapons
 {
-    public abstract class Weapon : IPlayerAbility, IEnemyAbility
+    public abstract class Weapon : IPlayerAbility, IAbility<Enemy>
     {
         public int minDamage;
         public int maxDamage;
