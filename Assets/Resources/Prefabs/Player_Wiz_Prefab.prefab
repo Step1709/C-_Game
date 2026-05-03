@@ -18,15 +18,15 @@ GameObject:
   - component: {fileID: 6285000392341898648}
   - component: {fileID: -9114815161218707179}
   - component: {fileID: 5733863758617329464}
-  - component: {fileID: 8148023024319343748}
-  - component: {fileID: 8185065090125580440}
   - component: {fileID: -4995016027285509593}
   - component: {fileID: 6454141102369927949}
-  - component: {fileID: 7264798879134482877}
   - component: {fileID: 247522385874570603}
   - component: {fileID: 6760444862231575117}
   - component: {fileID: 6984865453901033918}
   - component: {fileID: 5474863353597921173}
+  - component: {fileID: 3808508546237878934}
+  - component: {fileID: 8354819012686605383}
+  - component: {fileID: 3834152001921439804}
   m_Layer: 0
   m_Name: Player_Wiz_Prefab
   m_TagString: Player
@@ -284,34 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateMachine: {fileID: -8056622404269193303}
   wrapper: {fileID: 7553711737853740138}
---- !u!114 &8148023024319343748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355213896438806703}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f43c51ecbb84eb28d8c9c0f04607b05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path: []
-  isUsed: 0
-  animator: {fileID: 6760444862231575117}
-  stateMachine: {fileID: -8056622404269193303}
---- !u!114 &8185065090125580440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355213896438806703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5faedd45fef1490ba80c54c26335a978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-4995016027285509593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,19 +316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 0.23451406, g: 0.31406167, b: 0.7311321, a: 1}
---- !u!114 &7264798879134482877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5355213896438806703}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f07239ac2a140588040497d23b25a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateMachine: {fileID: -8056622404269193303}
 --- !u!120 &247522385874570603
 LineRenderer:
   serializedVersion: 2
@@ -512,6 +471,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   pathToTarget: []
-  move: {fileID: 8148023024319343748}
+  move: {fileID: 8354819012686605383}
   animator: {fileID: 6760444862231575117}
+  stateMachine: {fileID: -8056622404269193303}
+--- !u!114 &3808508546237878934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af5d71e4839481abf35b45ef02d7fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8354819012686605383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad4b213a79446c8c7422d5eadcdf51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: []
+  isUsed: 0
+  animator: {fileID: 6760444862231575117}
+  stateMachine: {fileID: -8056622404269193303}
+--- !u!114 &3834152001921439804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355213896438806703}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49512507024c4e03810f061f64485e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   stateMachine: {fileID: -8056622404269193303}

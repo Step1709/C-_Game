@@ -24,7 +24,7 @@ namespace Abilities
         public bool Use(MainPlayer player)
         {
             if (player.MainActionPoint <=0) return false;
-            player.GameObject.GetComponent<UsingBoost>().enabled = true;
+            player.GameObject.GetComponent<PlayerUsingBoost>().enabled = true;
             return true;
         }
 
@@ -40,7 +40,7 @@ namespace Abilities
         {
             if (enemy.MainActionPoint <=0) return false;
             enemy.ChangeAbility(this);
-            enemy.GameObject.GetComponent<UsingBoost>().enabled = true;
+            enemy.GameObject.GetComponent<EnemyUsingBoost>().enabled = true;
             return true;
         }
     }

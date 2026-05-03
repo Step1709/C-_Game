@@ -7,7 +7,7 @@ using Screen = UI.Screen;
 
 namespace Scenes.EntityState2
 {
-    public class PlayerStateMachine : EntityStateMachine
+    public class PlayerStateMachine : StateMachine<PlayerStateMachine>
     {
         public MainPlayer player;
         
@@ -22,11 +22,10 @@ namespace Scenes.EntityState2
             player = (MainPlayer)wrapper.Entity;
             Interface = Screen.Instance.PlayerInterface.GetComponent<PlayerInterface>();
         }
-        public override void ChangeState(IEntityState newState)
-        {
-            ((IPlayerState)currentState)?.Exit(this);
-            ((IPlayerState)newState)?.Enter(this);
-            currentState = newState;
-        }
+
+        public override void ToActiveState() => ChangeState(ActiveState.Instance);
+
+        public override bool IsFinishedTurn => 
+            currentState == WaitingState.Instance || currentState == DeathState.Instance;
     }
 }

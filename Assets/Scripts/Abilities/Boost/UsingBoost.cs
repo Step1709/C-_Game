@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public class UsingBoost : MonoBehaviour
+    public abstract class UsingBoost<TStateMachine> : MonoBehaviour where TStateMachine: StateMachine<TStateMachine>
     {
-        [SerializeField] private EntityStateMachine stateMachine;
+        [SerializeField] private TStateMachine stateMachine;
+        protected abstract IState<TStateMachine> UsingAbility { get;}
+        protected abstract IState<TStateMachine> Active { get;}
+        
         void OnEnable()
         {
             UI.Screen.Instance.DamageShower.ShowDamage(stateMachine.wrapper.Entity, "рывок", Color.white, new Vector3(0,0.6f,0));
-            stateMachine.ChangeState(UsingAbilityState.Instance);
+            stateMachine.ChangeState(UsingAbility);
             StartCoroutine(Wait());
         }
 
@@ -27,7 +30,7 @@ namespace Weapons
             stateMachine.wrapper.Entity.CurrentTileCount += 3;
             stateMachine.wrapper.Entity.MainActionPoint--;
             
-            stateMachine.ChangeState(ActiveState.Instance);
+            stateMachine.ChangeState(Active);
             enabled = false;
         }
     }

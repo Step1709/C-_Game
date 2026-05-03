@@ -8,7 +8,8 @@ using UnityEngine.Tilemaps;
 
 namespace Abilities
 {
-    public class Move : MonoBehaviour
+    public abstract class Move<TStateMachine> : MonoBehaviour 
+        where TStateMachine : StateMachine<TStateMachine>
     {
         public List<Vector3Int> path;
         public Entity self;
@@ -21,9 +22,12 @@ namespace Abilities
         [SerializeField]
         private Animator animator;
         [SerializeField]
-        private EntityStateMachine stateMachine;
+        private TStateMachine stateMachine;
         
         private Vector3 previousPosition;
+        
+        protected abstract IState<TStateMachine> UsingAbility { get; }
+        protected abstract IState<TStateMachine> Active { get; }
 
         void Awake()
         {
@@ -32,7 +36,7 @@ namespace Abilities
 
         void OnEnable()
         {
-            if (!isUsed) stateMachine.ChangeState(UsingAbilityState.Instance);
+            if (!isUsed) stateMachine.ChangeState(UsingAbility);
             pathWorldPositions = new List<Vector3>();
             foreach (var cell in path)
             {
@@ -88,7 +92,7 @@ namespace Abilities
             if (isMoving == false)
             {
                 enabled = false;
-                if (!isUsed) stateMachine.ChangeState(ActiveState.Instance);
+                if (!isUsed) stateMachine.ChangeState(Active);
             }
         }
     }

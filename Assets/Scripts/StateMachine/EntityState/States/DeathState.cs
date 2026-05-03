@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Scenes.EntityState2
 {
-    public class DeathState :  IPlayerState, IEnemyState
+    public class DeathState : IState<PlayerStateMachine>, IState<EnemyStateMachine>
     {
         public static DeathState Instance { get; } = new DeathState();
         public void Enter(PlayerStateMachine stateMachine)

@@ -22,12 +22,10 @@ namespace Training
         
         void Update()
         {
-            if (fightManager.stateMachine.currentState == UsingAbilityState.Instance &&
-                fightManager.stateMachine.CompareTag("Player"))
-            {
-                enabled = false;
-                finishTurnInstruction.enabled = true;
-            }
+            if (!fightManager.stateMachine.CompareTag("Player") ||
+                ((PlayerStateMachine)fightManager.stateMachine).currentState != UsingAbilityState.Instance) return;
+            enabled = false;
+            finishTurnInstruction.enabled = true;
         }
     }
 }

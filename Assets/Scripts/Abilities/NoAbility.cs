@@ -36,7 +36,7 @@ namespace Abilities
             var pathController = playerObj.GetComponent<PathController>();
             if (pathController.path is null || pathController.path.Count == 0 || player.CurrentTileCount<=0)
                 return false;
-            var move = playerObj.GetComponent<Move>();
+            var move = playerObj.GetComponent<PlayerMove>();
             pathController.enabled = false;
             playerObj.GetComponent<PathVisualizer>().enabled = false;
             move.path = pathController.path;
@@ -102,7 +102,7 @@ namespace Abilities
             }
 
             if (path is null || path.Count == 0) return false;
-            var move = enemy.GameObject.GetComponent<Move>();
+            var move = enemy.GameObject.GetComponent<EnemyMove>();
             move.path = path;
             move.isUsed = false;
             enemy.ChangeAbility(this);

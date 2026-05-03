@@ -5,7 +5,7 @@ using UI;
 
 namespace Scenes.EntityState2
 {
-    public class ActiveState : IPlayerState, IEnemyState
+    public class ActiveState : IState<PlayerStateMachine>, IState<EnemyStateMachine>
     {
         public static ActiveState Instance { get; } = new ActiveState();
         public void Enter(PlayerStateMachine stateMachine)

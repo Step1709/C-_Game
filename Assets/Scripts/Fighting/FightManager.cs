@@ -34,7 +34,7 @@ namespace Fighting
             stateMachine = entities[currentEntityIndex].GameObject.GetComponent<EntityStateMachine>();
             entity = entities[currentEntityIndex];
             entity.UpdateStats();
-            stateMachine.ChangeState(ActiveState.Instance);
+            stateMachine.ToActiveState();
             Debug.Log($"ход {entities[currentEntityIndex].Name}");
         }
 
@@ -46,14 +46,14 @@ namespace Fighting
                 if (GameModel.Instance.Waves.Count == 0) SceneManager.LoadScene("VictoryScreen");
                 else StateMachine.Instance.ChangeState(PrepareState.Instance);
             }
-            else if (stateMachine.currentState == WaitingState.Instance || stateMachine.currentState == DeathState.Instance)
+            else if (stateMachine.IsFinishedTurn)
             {
                 currentEntityIndex = (currentEntityIndex + 1) % entities.Count;
                 Debug.Log($"ход {entities[currentEntityIndex].Name}");
                 stateMachine = entities[currentEntityIndex].GameObject.GetComponent<EntityStateMachine>();
                 entity = entities[currentEntityIndex];
                 entity.UpdateStats();
-                stateMachine.ChangeState(ActiveState.Instance);
+                stateMachine.ToActiveState();
             }
         }
 
@@ -66,7 +66,7 @@ namespace Fighting
             wrapper.Entity = logic;
             var enemyAI = enemy.GetComponent<EnemyAI>();
             enemyAI.self = logic;
-            var move = enemy.GetComponent<Move>();
+            var move = enemy.GetComponent<EnemyMove>();
             move.self = logic;
             var attack = enemy.GetComponent<EnemyAttack>();
             attack.self = logic;

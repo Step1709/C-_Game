@@ -16,14 +16,14 @@ GameObject:
   - component: {fileID: -6996931107153907824}
   - component: {fileID: -1665448996427175619}
   - component: {fileID: -5649097949980554145}
-  - component: {fileID: -5904656507165315651}
-  - component: {fileID: 1983370858704242672}
   - component: {fileID: 5893216528380318784}
   - component: {fileID: -7997109504329248064}
-  - component: {fileID: -3380521468368217891}
   - component: {fileID: 3020458326923269347}
   - component: {fileID: 7313118035542366588}
   - component: {fileID: 8900652625115481012}
+  - component: {fileID: 4111422641512990441}
+  - component: {fileID: 5529214394514846484}
+  - component: {fileID: 3198246655317686536}
   m_Layer: 0
   m_Name: GoblinShortSwordPrefab
   m_TagString: Enemy
@@ -250,34 +250,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.28, y: 0.26}
   m_EdgeRadius: 0
---- !u!114 &-5904656507165315651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3668459266504802064}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f43c51ecbb84eb28d8c9c0f04607b05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path: []
-  isUsed: 0
-  animator: {fileID: 3020458326923269347}
-  stateMachine: {fileID: -6996931107153907824}
---- !u!114 &1983370858704242672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3668459266504802064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5faedd45fef1490ba80c54c26335a978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5893216528380318784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,19 +275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
---- !u!114 &-3380521468368217891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3668459266504802064}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f07239ac2a140588040497d23b25a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateMachine: {fileID: -6996931107153907824}
 --- !u!95 &3020458326923269347
 Animator:
   serializedVersion: 7
@@ -364,6 +323,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   pathToTarget: []
-  move: {fileID: -5904656507165315651}
+  move: {fileID: 5529214394514846484}
   animator: {fileID: 3020458326923269347}
+  stateMachine: {fileID: -6996931107153907824}
+--- !u!114 &4111422641512990441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3668459266504802064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c77c49c6374a4c8cdcf80a95692ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5529214394514846484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3668459266504802064}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c913cd543c740d0b43b745c3bd41973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: []
+  isUsed: 0
+  animator: {fileID: 3020458326923269347}
+  stateMachine: {fileID: -6996931107153907824}
+--- !u!114 &3198246655317686536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3668459266504802064}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a395c80a83c41e7ad732bd5404100d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   stateMachine: {fileID: -6996931107153907824}

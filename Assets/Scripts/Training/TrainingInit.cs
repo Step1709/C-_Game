@@ -41,7 +41,7 @@ namespace Training
             player.name = logic.Name;
             var wrapper = player.GetComponent<EntityWrapper>();
             wrapper.Entity = logic;
-            var move = player.GetComponent<Move>();
+            var move = player.GetComponent<PlayerMove>();
             move.self = logic;
             var attack = player.GetComponent<PlayerAttack>();
             attack.self = logic;

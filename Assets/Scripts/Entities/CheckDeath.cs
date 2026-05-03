@@ -3,20 +3,22 @@ using UnityEngine;
 
 namespace Entities
 {
-    public class CheckDeath : MonoBehaviour
+    public abstract class CheckDeath<TStateMachine> : MonoBehaviour where TStateMachine: StateMachine<TStateMachine>
     {
-        private EntityStateMachine stateMachine;
+        private TStateMachine stateMachine;
         private Entity entity;
+        
+        protected abstract IState<TStateMachine> deathState { get; }
         void Start()
         {
-            stateMachine = GetComponent<EntityStateMachine>();
+            stateMachine = GetComponent<TStateMachine>();
             entity = GetComponent<EntityWrapper>().Entity;
         }
 
         void Update()
         {
             if (entity.Health<=0)
-                stateMachine.ChangeState(DeathState.Instance);
+                stateMachine.ChangeState(deathState);
         }
     }
 }

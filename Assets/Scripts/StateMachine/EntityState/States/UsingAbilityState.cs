@@ -1,6 +1,6 @@
 namespace Scenes.EntityState2
 {
-    public class UsingAbilityState : IEnemyState, IPlayerState
+    public class UsingAbilityState : IState<PlayerStateMachine>, IState<EnemyStateMachine>
     {
         public static UsingAbilityState Instance { get; }= new UsingAbilityState();
         

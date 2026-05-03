@@ -1,6 +1,6 @@
 namespace Scenes.EntityState2
 {
-    public class PreparingState : IPlayerState
+    public class PreparingState : IState<PlayerStateMachine>
     {
         public static PreparingState Instance { get; } = new PreparingState();
         public void Enter(PlayerStateMachine stateMachine)

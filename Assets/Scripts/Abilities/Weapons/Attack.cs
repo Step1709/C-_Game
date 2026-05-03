@@ -8,23 +8,27 @@ using Weapons;
 
 namespace Abilities
 {
-    public class Attack<TEntity> : MonoBehaviour where TEntity : Entity<TEntity>
+    public abstract class Attack<TEntity, TStateMachine> : MonoBehaviour where TEntity : Entity<TEntity>
+    where TStateMachine: StateMachine<TStateMachine>
     {
         public Vector3 targetPosition;
         public Entity target;
         public List<Vector3Int> pathToTarget;
-        public Entity<TEntity> self;
-        public Move move;
+        public TEntity self;
+        public Move<TStateMachine> move;
         private bool startAttack;
         
         [SerializeField] private Animator animator;
         
         [SerializeField]
-        private EntityStateMachine stateMachine;
+        private TStateMachine stateMachine;
+        
+        protected abstract IState<TStateMachine> UsingAbility { get;}
+        protected abstract IState<TStateMachine> Active { get;}
         void OnEnable()
         {
             startAttack = false;
-            stateMachine.ChangeState(UsingAbilityState.Instance);
+            stateMachine.ChangeState(UsingAbility);
             if (pathToTarget.Count != 0)
             {
                 move.isUsed = true;
@@ -35,12 +39,10 @@ namespace Abilities
 
         void Update()
         {
-            if (!move.enabled && !startAttack)
-            {
-                animator.Play(((Weapon)self.currentAbility).AnimationName);
-                StartCoroutine(WaitForAnimationEnd());
-                startAttack = true;
-            }
+            if (move.enabled || startAttack) return;
+            animator.Play(((Weapon)self.currentAbility).AnimationName);
+            StartCoroutine(WaitForAnimationEnd());
+            startAttack = true;
         }
         
         IEnumerator WaitForAnimationEnd()
@@ -59,7 +61,7 @@ namespace Abilities
             Debug.Log("анимация кончилась");
             ((Weapon)self.currentAbility).Attack(self, target, targetPosition);
             self.MainActionPoint--;
-            stateMachine.ChangeState(ActiveState.Instance);
+            stateMachine.ChangeState(Active);
             enabled = false;
         }
     }
