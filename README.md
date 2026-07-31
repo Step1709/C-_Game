@@ -51,3 +51,5 @@ git clone https://github.com/Step1709/Dungerous_Dungeons.git
 - Перейдите в папку проекта
 - Откройте проект в Unity Hub
 - Соберите проект через File → Build Settings
+
+или скачайте готовую сборку в разделе [Releases](https://github.com/Step1709/Dungerous_Dungeons/releases).
